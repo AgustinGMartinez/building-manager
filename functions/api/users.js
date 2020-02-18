@@ -1,9 +1,10 @@
-const Joi = require("joi")
-const express = require("express"),
+const Joi = require('joi')
+const express = require('express'),
   router = express.Router()
-const query = require("../mysql")
-const bcrypt = require("bcrypt")
-const CustomError = require("../errors")
+const query = require('../mysql')
+const CustomError = require('../errors')
+const AuthUtils = require('../utils/authentication')
+const authenticated = require('../middlewares/authenticated')
 
 function validateUser(user) {
   const schema = {
@@ -15,7 +16,7 @@ function validateUser(user) {
       .required(),
     name: Joi.string().required(),
     lastname: Joi.string().required(),
-    isAdmin: Joi.boolean().required()
+    isAdmin: Joi.boolean().required(),
   }
   const { error } = Joi.validate(user, schema)
   if (error) {
@@ -23,7 +24,7 @@ function validateUser(user) {
   }
 }
 
-router.get("/", async (req, res) => {
+router.get('/', authenticated, async (req, res) => {
   const getAdmin = req.query.admin || 0
   const queryString = `
     SELECT id, username, name, lastname, CONCAT (name, ' ', lastname) as fullname
@@ -34,7 +35,7 @@ router.get("/", async (req, res) => {
   res.send(result)
 })
 
-router.post("/", async (req, res, next) => {
+router.post('/', authenticated, async (req, res, next) => {
   try {
     validateUser(req.body)
     const { username, password, name, lastname, isAdmin } = req.body
@@ -43,17 +44,16 @@ router.post("/", async (req, res, next) => {
     `
     const result = await query(queryString)
     if (result.length) {
-      return next(new CustomError(400, "Ya existe un usuario con ese nombre"))
+      return next(new CustomError(400, 'Ya existe un usuario con ese nombre'))
     }
-    const salt = await bcrypt.genSalt(5)
-    const saltedPassword = await bcrypt.hash(password, salt)
+    const saltedPassword = await AuthUtils.hashPassword(password)
     await query(
       `
-      INSERT INTO users (username, password, name, lastname, is_admin, salt) VALUES (?, ?, ?, ?, ?, ?)
+      INSERT INTO users (username, password, name, lastname, is_admin) VALUES (?, ?, ?, ?, ?)
       `,
-      [username, saltedPassword, name, lastname, isAdmin ? 1 : 0, salt]
+      [username, saltedPassword, name, lastname, isAdmin ? 1 : 0],
     )
-    res.send()
+    res.send({ username, name, lastname, isAdmin: isAdmin ? 1 : 0 })
   } catch (err) {
     next(err)
   }

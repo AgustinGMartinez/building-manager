@@ -1,54 +1,62 @@
-import React, { useState } from "react"
-import { DefaultTable } from "components/DefaultTable"
-import { useFetchBuildings } from "hooks/useFetchBuildings"
-import { Modal } from "components/modal"
-import { NewBuildingForm } from "./components/NewBuildingForm"
-import { toast } from "react-toastify"
-import { DeleteBuildingConfirmDialog, SetBellsModal } from "./components"
-import BellIcon from "@material-ui/icons/Notifications"
+import React, { useState } from 'react'
+import { DefaultTable } from 'components/DefaultTable'
+import { useFetchBuildings } from 'hooks/useFetchBuildings'
+import { Modal } from 'components/modal'
+import { NewBuildingForm } from './components/NewBuildingForm'
+import { toast } from 'react-toastify'
+import { DeleteBuildingConfirmDialog, SetBellsModal } from './components'
+import BellIcon from '@material-ui/icons/Notifications'
 
 const columns = [
-  { title: "Territorio", field: "territory", defaultSort: "asc" },
-  { title: "Calle", render: row => `${row.street} ${row.house_number}` },
-  { title: "Timbres", field: "doorbell_count" },
-  { title: "Notas del administrador", field: "admin_note" }
+  { title: 'Territorio', field: 'territory', defaultSort: 'asc' },
+  { title: 'Calle', render: row => `${row.street} ${row.house_number}` },
+  { title: 'Timbres', field: 'doorbell_count' },
+  { title: 'Notas del administrador', field: 'admin_note' },
 ]
 
 const Buildings = () => {
   const [newBuildingTriggerId, setNewBuildingTriggerId] = useState(0)
   const [buildings, loading] = useFetchBuildings(newBuildingTriggerId)
+
+  const reFetchBuildings = () => setNewBuildingTriggerId(val => ++val)
+
   // create
   const [createModalOpen, setCreateModalOpen] = useState(false)
+
   const closeCreateModal = () => setCreateModalOpen(false)
+
   const onCreateBuilding = async building => {
     try {
-      await fetch("/api/buildings", {
-        method: "POST",
-        body: building
+      await fetch('/buildings', {
+        method: 'POST',
+        body: building,
       })
-      toast.success("Edificio creado con éxito.")
-      setNewBuildingTriggerId(val => ++val)
+      toast.success('Edificio creado con éxito.')
+      reFetchBuildings()
       closeCreateModal()
     } catch (err) {
       return Promise.reject()
     }
   }
+
   // delete
   const [deleteModalOpen, setDeleteModalOpen] = useState(false)
   const [addressToDelete, setAddressToDelete] = useState(null)
   const [idToDelete, setIdToDelete] = useState(null)
+
   const closeDeleteModal = () => {
     setDeleteModalOpen(false)
     setAddressToDelete(null)
     setIdToDelete(null)
   }
+
   const onDeleteBuilding = async () => {
     try {
-      await fetch(`/api/buildings?id=${idToDelete}`, {
-        method: "DELETE"
+      await fetch(`/buildings?id=${idToDelete}`, {
+        method: 'DELETE',
       })
-      toast.success("Edificio eliminado con éxito.")
-      setNewBuildingTriggerId(val => ++val)
+      toast.success('Edificio eliminado con éxito.')
+      reFetchBuildings()
       closeDeleteModal()
     } catch (err) {
       return Promise.reject()
@@ -58,9 +66,15 @@ const Buildings = () => {
   // bells
   const [isBellsModalOpen, setIsBellsModalOpen] = useState(false)
   const [buildingBell, setBuildingBell] = useState(null)
+
   const closeBellsModal = () => {
     setIsBellsModalOpen(false)
     setBuildingBell(null)
+  }
+
+  const onBellsDone = () => {
+    reFetchBuildings()
+    closeBellsModal()
   }
 
   return (
@@ -72,36 +86,33 @@ const Buildings = () => {
         isLoading={loading}
         actions={[
           {
-            icon: "add",
-            tooltip: "Crear edificio",
+            icon: 'add',
+            tooltip: 'Crear edificio',
             isFreeAction: true,
-            onClick: () => setCreateModalOpen(true)
+            onClick: () => setCreateModalOpen(true),
           },
           {
-            icon: "delete",
-            tooltip: "Borrar edificio",
+            icon: 'delete',
+            tooltip: 'Borrar edificio',
             onClick: (_, row) => {
               setAddressToDelete(`${row.street} ${row.house_number}`)
               setIdToDelete(row.id)
               setDeleteModalOpen(true)
-            }
+            },
           },
           {
             icon: () => <BellIcon />,
-            tooltip: "Editar timbres",
+            tooltip: 'Editar timbres',
             onClick: (_, row) => {
               setIsBellsModalOpen(true)
               setBuildingBell(row)
-            }
-          }
+            },
+          },
         ]}
       />
       {createModalOpen && (
         <Modal open close={closeCreateModal}>
-          <NewBuildingForm
-            onClose={closeCreateModal}
-            onCreateBuilding={onCreateBuilding}
-          />
+          <NewBuildingForm onClose={closeCreateModal} onCreateBuilding={onCreateBuilding} />
         </Modal>
       )}
       {deleteModalOpen && addressToDelete && (
@@ -114,10 +125,10 @@ const Buildings = () => {
       )}
       {isBellsModalOpen && buildingBell && (
         <SetBellsModal
-          open
           onClose={closeBellsModal}
           initialBells={buildingBell.doorbells}
           buildingId={buildingBell.id}
+          onDone={onBellsDone}
         />
       )}
     </>

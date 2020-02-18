@@ -23,7 +23,7 @@ function numberToLetter(n) {
   return (n + 9).toString(36).toUpperCase()
 }
 
-const SetBellsModal = ({ onClose, initialBells, buildingId }) => {
+const SetBellsModal = ({ onClose, initialBells, buildingId, onDone }) => {
   const initialData = useMemo(() => getInitialState(initialBells), [initialBells])
   const [selectedFloor, setSelectedFloor] = useState(null)
   const [floorsAndDoorbells, setFloorsAndDoorbellsMap] = useState(initialData)
@@ -81,13 +81,14 @@ const SetBellsModal = ({ onClose, initialBells, buildingId }) => {
       })
     })
     try {
-      await fetch('/api/doorbells', {
+      await fetch('/doorbells', {
         method: 'POST',
         body: {
           buildingId,
           doorbells,
         },
       })
+      onDone()
     } catch (err) {
       toast.error(err.message)
     }

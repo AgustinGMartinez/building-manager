@@ -3,6 +3,7 @@ const express = require('express'),
   router = express.Router()
 const query = require('../mysql')
 const CustomError = require('../errors')
+const authenticated = require('../middlewares/authenticated')
 
 function validateUpsert(doorbells) {
   const schema = {
@@ -22,7 +23,7 @@ function validateUpsert(doorbells) {
   }
 }
 
-router.post('/', async (req, res, next) => {
+router.post('/', authenticated, async (req, res, next) => {
   try {
     validateUpsert(req.body)
     const { buildingId, doorbells } = req.body
@@ -42,7 +43,6 @@ router.post('/', async (req, res, next) => {
     ON DUPLICATE KEY
     UPDATE deleted = 0
     `
-    console.log(upsertQuery)
     await query(upsertQuery, queryValues)
     res.send()
   } catch (err) {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from 'react'
 
 const useFetchBuildings = newBuildingTriggerId => {
   const [buildings, setBuildings] = useState([])
@@ -6,7 +6,7 @@ const useFetchBuildings = newBuildingTriggerId => {
   useEffect(() => {
     setLoading(true)
     ;(async () => {
-      const buildings = await fetch(`/api/buildings`)
+      const buildings = await fetch(`/buildings`)
       setBuildings(buildings)
       setLoading(false)
     })()

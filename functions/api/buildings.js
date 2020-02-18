@@ -1,8 +1,9 @@
-const Joi = require("joi")
-const express = require("express"),
+const Joi = require('joi')
+const express = require('express'),
   router = express.Router()
-const query = require("../mysql")
-const CustomError = require("../errors")
+const query = require('../mysql')
+const CustomError = require('../errors')
+const authenticated = require('../middlewares/authenticated')
 
 function validateBuilding(building) {
   const schema = {
@@ -11,9 +12,9 @@ function validateBuilding(building) {
     house_number: Joi.string().required(),
     admin_note: Joi.string()
       .optional()
-      .allow(""),
+      .allow(''),
     lat: Joi.number().required(),
-    lng: Joi.number().required()
+    lng: Joi.number().required(),
   }
   const { error } = Joi.validate(building, schema)
   if (error) {
@@ -21,7 +22,7 @@ function validateBuilding(building) {
   }
 }
 
-router.get("/", async (req, res) => {
+router.get('/', authenticated, async (req, res) => {
   const buildingsQuery = `
     SELECT *, (select count(*) from doorbells) as doorbell_count
     from buildings
@@ -29,6 +30,7 @@ router.get("/", async (req, res) => {
   const doorbellsQuery = `
     SELECT *
     from doorbells
+    where deleted = 0
   `
   const buildings = await query(buildingsQuery)
   const doorbells = await query(doorbellsQuery)
@@ -45,7 +47,7 @@ router.get("/", async (req, res) => {
   res.send(buildings)
 })
 
-router.post("/", async (req, res, next) => {
+router.post('/', authenticated, async (req, res, next) => {
   try {
     validateBuilding(req.body)
     const { territory, street, house_number, admin_note, lat, lng } = req.body
@@ -54,15 +56,13 @@ router.post("/", async (req, res, next) => {
     `
     const result = await query(queryString)
     if (result.length) {
-      return next(
-        new CustomError(400, "Ya existe un edificio en esa dirección")
-      )
+      return next(new CustomError(400, 'Ya existe un edificio en esa dirección'))
     }
     await query(
       `
       INSERT INTO buildings (territory, street, house_number, admin_note, lat, lng) VALUES (?, ?, ?, ?, ?, ?)
       `,
-      [territory, street, house_number, admin_note, lat, lng]
+      [territory, street, house_number, admin_note, lat, lng],
     )
     res.send()
   } catch (err) {
@@ -70,21 +70,21 @@ router.post("/", async (req, res, next) => {
   }
 })
 
-router.delete("/", async (req, res, next) => {
+router.delete('/', authenticated, async (req, res, next) => {
   try {
     const { id } = req.query
-    if (!id) next(new CustomError(400, "Missing query param"))
+    if (!id) next(new CustomError(400, 'Missing query param'))
     await query(
       `
       DELETE FROM buildings where id = ?
       `,
-      [id]
+      [id],
     )
     await query(
       ` 
       DELETE FROM doorbells where building_id = ?
       `,
-      [id]
+      [id],
     )
     res.send()
   } catch (err) {

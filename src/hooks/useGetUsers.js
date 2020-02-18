@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from 'react'
 
 const useGetUsers = (isAdmin, newUserTriggerId) => {
   const [users, updateUsers] = useState([])
@@ -6,7 +6,7 @@ const useGetUsers = (isAdmin, newUserTriggerId) => {
   useEffect(() => {
     updateLoading(true)
     ;(async () => {
-      const users = await fetch(`/api/users${isAdmin ? "?admin=1" : ""}`)
+      const users = await fetch(`/users${isAdmin ? '?admin=1' : ''}`)
       updateUsers(users)
       updateLoading(false)
     })()
