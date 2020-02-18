@@ -1,9 +1,9 @@
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
+const functions = require('firebase-functions')
 
 const generateJwt = payload => {
-  // TODO: implement env variables
-  return jwt.sign(payload, 'secret')
+  return jwt.sign(payload, functions.config().jwt.secret)
 }
 
 const generateHash = () => bcrypt.genSalt(5)
