@@ -69,7 +69,6 @@ const Login = () => {
       localStorage.setItem('admin', JSON.stringify(user))
     } catch (err) {
       toast.error('Usuario o contraseña incorrectos.')
-    } finally {
       setIsLoading(false)
     }
   }

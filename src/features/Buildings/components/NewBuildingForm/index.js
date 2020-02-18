@@ -1,65 +1,83 @@
-import React, { useState } from "react"
-import { makeStyles } from "@material-ui/core/styles"
-import TextField from "@material-ui/core/TextField"
-import Grid from "@material-ui/core/Grid"
-import { Button, Box } from "@material-ui/core"
-import FormHelperText from "@material-ui/core/FormHelperText"
-import { GoogleMapsAutocomplete } from "../../../../components/GoogleMapsAutocomplete"
-import { useCheckFormErrors } from "hooks/useCheckFormErrors"
+import React, { useState } from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import TextField from '@material-ui/core/TextField'
+import Grid from '@material-ui/core/Grid'
+import { Button, Box, LinearProgress } from '@material-ui/core'
+import FormHelperText from '@material-ui/core/FormHelperText'
+import { GoogleMapsAutocomplete } from '../../../../components/GoogleMapsAutocomplete'
+import { useCheckFormErrors } from 'hooks/useCheckFormErrors'
+import { toast } from 'react-toastify'
+import { usePassiveFetch } from 'hooks/usePassiveFetch'
 
 const rules = {
   territory: [],
   street: [],
   house_number: [],
   lat: [],
-  lng: []
+  lng: [],
 }
 
 const useStyles = makeStyles(theme => ({
   root: {
-    "& > input": {
-      margin: theme.spacing(1)
-    }
-  }
+    '& > input': {
+      margin: theme.spacing(1),
+    },
+  },
 }))
+
+const initialState = {
+  territory: '',
+  street: '',
+  house_number: '',
+  admin_note: '',
+  lat: '',
+  lng: '',
+}
 
 const NewBuildingForm = ({ onClose, onCreateBuilding }) => {
   const classes = useStyles()
-  const initialState = {
-    territory: "",
-    street: "",
-    house_number: "",
-    admin_note: "",
-    lat: "",
-    lng: ""
-  }
+
   const [data, setData] = useState(initialState)
+  const [fetch, isFetching] = usePassiveFetch()
+
   const handleGenericChange = (key, newData) => {
     setData(data => {
       return {
         ...data,
-        [key]: newData
+        [key]: newData,
       }
     })
   }
+
   const handleTerritoryChange = e => {
-    handleGenericChange("territory", e.target.value)
+    handleGenericChange('territory', e.target.value)
   }
+
   const handleAdminNoteChange = e => {
-    handleGenericChange("admin_note", e.target.value)
+    handleGenericChange('admin_note', e.target.value)
   }
+
   const onSelectPlace = place => {
     Object.keys(place).forEach(key => {
       handleGenericChange(key, place[key])
     })
   }
+
   const createBuilding = async () => {
-    await onCreateBuilding(data)
-    setData(initialState)
+    try {
+      await fetch('/buildings', {
+        method: 'POST',
+        body: data,
+      })
+      toast.success('Edificio creado con éxito.')
+      onCreateBuilding()
+    } catch (err) {
+      toast.error('No se pudo crear edificio. Intente de nuevo.')
+    }
   }
 
   const { isAnyFieldEmpty, hasErrors } = useCheckFormErrors(data, rules)
-  const disabled = isAnyFieldEmpty || hasErrors
+  const disabled = isAnyFieldEmpty || hasErrors || isFetching
 
   return (
     <form className={classes.root} autoComplete="off">
@@ -78,22 +96,10 @@ const NewBuildingForm = ({ onClose, onCreateBuilding }) => {
           />
         </Grid>
         <Grid item xs={12} sm={5}>
-          <TextField
-            fullWidth
-            label="Calle"
-            required
-            value={data.street}
-            disabled
-          />
+          <TextField fullWidth label="Calle" required value={data.street} disabled />
         </Grid>
         <Grid item xs={12} sm={4}>
-          <TextField
-            fullWidth
-            label="Numero de casa"
-            required
-            value={data.house_number}
-            disabled
-          />
+          <TextField fullWidth label="Numero de casa" required value={data.house_number} disabled />
         </Grid>
         <Grid item xs={12}>
           <TextField
@@ -104,25 +110,21 @@ const NewBuildingForm = ({ onClose, onCreateBuilding }) => {
             onChange={handleAdminNoteChange}
           />
           <FormHelperText>
-            Esta nota sirve para dar a los usuarios información extra sobre este
-            edificio. Ej.: "Cuidado con el encargado".
+            Esta nota sirve para dar a los usuarios información extra sobre este edificio. Ej.:
+            "Cuidado con el encargado".
           </FormHelperText>
         </Grid>
       </Grid>
+      {isFetching && (
+        <Box mt={3}>
+          <LinearProgress />
+        </Box>
+      )}
       <Box mt={4}>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={createBuilding}
-          disabled={disabled}
-        >
+        <Button variant="contained" color="primary" onClick={createBuilding} disabled={disabled}>
           Crear
         </Button>
-        <Button
-          style={{ marginLeft: "1rem" }}
-          color="default"
-          onClick={onClose}
-        >
+        <Button style={{ marginLeft: '1rem' }} color="default" onClick={onClose}>
           Cancelar
         </Button>
       </Box>

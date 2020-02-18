@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import { DefaultTable } from 'components/DefaultTable'
-import { useFetchBuildings } from 'hooks/useFetchBuildings'
 import { Modal } from 'components/modal'
 import { NewBuildingForm } from './components/NewBuildingForm'
-import { toast } from 'react-toastify'
 import { DeleteBuildingConfirmDialog, SetBellsModal } from './components'
 import BellIcon from '@material-ui/icons/Notifications'
+import { useFetch } from 'hooks/useFetch'
 
 const columns = [
   { title: 'Territorio', field: 'territory', defaultSort: 'asc' },
@@ -15,28 +14,16 @@ const columns = [
 ]
 
 const Buildings = () => {
-  const [newBuildingTriggerId, setNewBuildingTriggerId] = useState(0)
-  const [buildings, loading] = useFetchBuildings(newBuildingTriggerId)
-
-  const reFetchBuildings = () => setNewBuildingTriggerId(val => ++val)
+  const [buildings, isLoading, fetchBuildings] = useFetch({ url: '/buildings' })
 
   // create
   const [createModalOpen, setCreateModalOpen] = useState(false)
 
   const closeCreateModal = () => setCreateModalOpen(false)
 
-  const onCreateBuilding = async building => {
-    try {
-      await fetch('/buildings', {
-        method: 'POST',
-        body: building,
-      })
-      toast.success('Edificio creado con éxito.')
-      reFetchBuildings()
-      closeCreateModal()
-    } catch (err) {
-      return Promise.reject()
-    }
+  const onCreateBuilding = async () => {
+    fetchBuildings()
+    closeCreateModal()
   }
 
   // delete
@@ -51,16 +38,8 @@ const Buildings = () => {
   }
 
   const onDeleteBuilding = async () => {
-    try {
-      await fetch(`/buildings?id=${idToDelete}`, {
-        method: 'DELETE',
-      })
-      toast.success('Edificio eliminado con éxito.')
-      reFetchBuildings()
-      closeDeleteModal()
-    } catch (err) {
-      return Promise.reject()
-    }
+    fetchBuildings()
+    closeDeleteModal()
   }
 
   // bells
@@ -73,7 +52,7 @@ const Buildings = () => {
   }
 
   const onBellsDone = () => {
-    reFetchBuildings()
+    fetchBuildings()
     closeBellsModal()
   }
 
@@ -83,7 +62,7 @@ const Buildings = () => {
         title="Edificios"
         columns={columns}
         data={buildings}
-        isLoading={loading}
+        isLoading={isLoading}
         actions={[
           {
             icon: 'add',
@@ -121,6 +100,7 @@ const Buildings = () => {
           onClose={closeDeleteModal}
           onDeleteBuilding={onDeleteBuilding}
           address={addressToDelete}
+          idToDelete={idToDelete}
         />
       )}
       {isBellsModalOpen && buildingBell && (

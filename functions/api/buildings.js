@@ -70,10 +70,9 @@ router.post('/', authenticated, async (req, res, next) => {
   }
 })
 
-router.delete('/', authenticated, async (req, res, next) => {
+router.delete('/:id', authenticated, async (req, res, next) => {
   try {
-    const { id } = req.query
-    if (!id) next(new CustomError(400, 'Missing query param'))
+    const { id } = req.params
     await query(
       `
       DELETE FROM buildings where id = ?

@@ -10,6 +10,7 @@ import { Users } from 'features/Users'
 import { Admins } from 'features/Admins'
 import { Buildings } from 'features/Buildings'
 import { Login } from './Login'
+import { Assignments } from './Assignments'
 import { UserContext } from 'contexts'
 import { register as registerFetch } from 'utils'
 
@@ -42,7 +43,7 @@ function App() {
                 <Route exact path="/users" component={Users} />
                 <Route exact path="/admins" component={Admins} />
                 <Route exact path="/buildings" component={Buildings} />
-                <Route exact path="/assignments" component={() => <h1>Asignaciones</h1>} />
+                <Route exact path="/assignments" component={Assignments} />
                 <Route component={() => <h1>404 no encontrado</h1>} />
               </Switch>
             </Layout>

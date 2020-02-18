@@ -1,22 +1,14 @@
-import React, { useState } from "react"
-import { UsersTable } from "components/UsersTable"
-import { useGetUsers } from "../../hooks/useGetUsers"
+import React from 'react'
+import { UsersTable } from 'components/UsersTable'
+import { useFetch } from 'hooks/useFetch'
 
 const Admins = () => {
-  const [newUserTrigger, setNewUserTrigger] = useState(0)
-  const [admins, loading] = useGetUsers(true, newUserTrigger)
+  const [admins, loading, fetchAdmins] = useFetch({ url: '/users?admin=1' })
   const onCreateUser = () => {
-    setNewUserTrigger(val => ++val)
+    fetchAdmins()
   }
 
-  return (
-    <UsersTable
-      isAdmin
-      data={admins}
-      loading={loading}
-      onCreateUser={onCreateUser}
-    />
-  )
+  return <UsersTable isAdmin data={admins} loading={loading} onCreateUser={onCreateUser} />
 }
 
 export { Admins }

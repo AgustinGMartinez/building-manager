@@ -4,4 +4,6 @@ const isEmail = email => {
   return emailRegex.test(email)
 }
 
-export const StringUtils = { isEmail }
+const DATE_FORMAT = 'DD/MM/YYYY'
+
+export const StringUtils = { isEmail, DATE_FORMAT }

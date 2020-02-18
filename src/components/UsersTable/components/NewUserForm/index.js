@@ -1,62 +1,76 @@
-import React, { useState } from "react"
-import { makeStyles } from "@material-ui/core/styles"
-import TextField from "@material-ui/core/TextField"
-import Grid from "@material-ui/core/Grid"
-import { Button, Box } from "@material-ui/core"
-import { toast } from "react-toastify"
+import React, { useState } from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import TextField from '@material-ui/core/TextField'
+import Grid from '@material-ui/core/Grid'
+import Button from '@material-ui/core/Button'
+import { toast } from 'react-toastify'
+import { usePassiveFetch } from 'hooks/usePassiveFetch'
+import Box from '@material-ui/core/Box'
+import LinearProgress from '@material-ui/core/LinearProgress'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    "& > input": {
-      margin: theme.spacing(1)
-    }
-  }
+    '& > input': {
+      margin: theme.spacing(1),
+    },
+  },
 }))
+
+const initialState = {
+  name: '',
+  lastname: '',
+  username: '',
+  password: '',
+}
 
 const NewUserForm = ({ isAdmin, onClose, onDone }) => {
   const classes = useStyles()
-  const title = isAdmin ? "Nuevo administrador" : "Nuevo usuario"
-  const initialState = {
-    name: "",
-    lastname: "",
-    username: "",
-    password: ""
-  }
+
   const [data, setData] = useState(initialState)
+
+  const [fetch, isFetching] = usePassiveFetch()
+
   const handleGenericChange = (key, newData) => {
     setData(data => {
       return {
         ...data,
-        [key]: newData
+        [key]: newData,
       }
     })
   }
+
   const handleNameChange = e => {
-    handleGenericChange("name", e.target.value)
+    handleGenericChange('name', e.target.value)
   }
+
   const handleLastnameChange = e => {
-    handleGenericChange("lastname", e.target.value)
+    handleGenericChange('lastname', e.target.value)
   }
+
   const handleUsernameChange = e => {
-    handleGenericChange("username", e.target.value)
+    handleGenericChange('username', e.target.value)
   }
+
   const handlePasswordChange = e => {
-    handleGenericChange("password", e.target.value)
+    handleGenericChange('password', e.target.value)
   }
+
   const createUser = async () => {
     try {
-      await fetch("/api/users", {
-        method: "POST",
-        body: { ...data, isAdmin }
+      await fetch('/users', {
+        method: 'POST',
+        body: { ...data, isAdmin },
       })
-      toast.success("Usuario creado con éxito.")
+      toast.success('Usuario creado con éxito.')
       onDone()
-    } catch (err) {}
+    } catch (err) {
+      toast.error('No se pudo crear usuario. Intente de nuevo.')
+    }
   }
 
   return (
     <form className={classes.root} autoComplete="off">
-      <h2>{title}</h2>
+      <h2>{isAdmin ? 'Nuevo administrador' : 'Nuevo usuario'}</h2>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
           <TextField
@@ -95,15 +109,16 @@ const NewUserForm = ({ isAdmin, onClose, onDone }) => {
           />
         </Grid>
       </Grid>
+      {isFetching && (
+        <Box mt={3}>
+          <LinearProgress />
+        </Box>
+      )}
       <Box mt={4}>
         <Button variant="contained" color="primary" onClick={createUser}>
           Crear
         </Button>
-        <Button
-          style={{ marginLeft: "1rem" }}
-          color="default"
-          onClick={onClose}
-        >
+        <Button style={{ marginLeft: '1rem' }} color="default" onClick={onClose}>
           Cancelar
         </Button>
       </Box>
