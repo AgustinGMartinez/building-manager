@@ -71,20 +71,20 @@ const Buildings = () => {
             onClick: () => setCreateModalOpen(true),
           },
           {
+            icon: () => <BellIcon />,
+            tooltip: 'Editar timbres',
+            onClick: (_, row) => {
+              setIsBellsModalOpen(true)
+              setBuildingBell(row)
+            },
+          },
+          {
             icon: 'delete',
             tooltip: 'Borrar edificio',
             onClick: (_, row) => {
               setAddressToDelete(`${row.street} ${row.house_number}`)
               setIdToDelete(row.id)
               setDeleteModalOpen(true)
-            },
-          },
-          {
-            icon: () => <BellIcon />,
-            tooltip: 'Editar timbres',
-            onClick: (_, row) => {
-              setIsBellsModalOpen(true)
-              setBuildingBell(row)
             },
           },
         ]}

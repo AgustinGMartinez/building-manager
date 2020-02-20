@@ -23,14 +23,18 @@ function validateBuilding(building) {
 }
 
 router.get('/', authenticated, async (req, res) => {
+  res.send([
+    { id: 1, address: 'direccion 1' },
+    { id: 2, address: 'direccion 2' },
+  ])
   const buildingsQuery = `
-    SELECT *, (select count(*) from doorbells) as doorbell_count
-    from buildings
+    SELECT *, (select count(*) FROM doorbells) as doorbell_count
+    FROM buildings
   `
   const doorbellsQuery = `
     SELECT *
-    from doorbells
-    where deleted = 0
+    FROM doorbells
+    WHERE deleted = 0
   `
   const buildings = await query(buildingsQuery)
   const doorbells = await query(doorbellsQuery)
@@ -47,12 +51,34 @@ router.get('/', authenticated, async (req, res) => {
   res.send(buildings)
 })
 
+router.get('/:id/doorbells', authenticated, async (req, res, next) => {
+  if (req.params.id === '1')
+    res.send([
+      { id: 1, floor: 1, identifier: '1', special_id: '811', building_id: 8 },
+      { id: 2, floor: 1, identifier: '2', special_id: '812', building_id: 8 },
+    ])
+  if (req.params.id === '2')
+    res.send([
+      { id: 4, floor: 2, identifier: '1', special_id: '521', building_id: 5 },
+      { id: 5, floor: 2, identifier: '2', special_id: '522', building_id: 5 },
+    ])
+  const buildingId = req.params.id
+  const doorbellsQuery = `
+    SELECT *
+    FROM doorbells
+    WHERE deleted = 0 AND building_id = ?
+    ORDER BY floor, identifier
+  `
+  const doorbells = await query(doorbellsQuery, buildingId)
+  res.send(doorbells)
+})
+
 router.post('/', authenticated, async (req, res, next) => {
   try {
     validateBuilding(req.body)
     const { territory, street, house_number, admin_note, lat, lng } = req.body
     const queryString = `
-      SELECT * from buildings where street = '${street}' and house_number = ${house_number}
+      SELECT * FROM buildings WHERE street = '${street}' AND house_number = ${house_number}
     `
     const result = await query(queryString)
     if (result.length) {
@@ -75,13 +101,13 @@ router.delete('/:id', authenticated, async (req, res, next) => {
     const { id } = req.params
     await query(
       `
-      DELETE FROM buildings where id = ?
+      DELETE FROM buildings WHERE id = ?
       `,
       [id],
     )
     await query(
       ` 
-      DELETE FROM doorbells where building_id = ?
+      DELETE FROM doorbells WHERE building_id = ?
       `,
       [id],
     )

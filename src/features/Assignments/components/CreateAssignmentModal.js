@@ -1,0 +1,204 @@
+import React, { useState } from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import TextField from '@material-ui/core/TextField'
+import Grid from '@material-ui/core/Grid'
+import { Button, Box, LinearProgress } from '@material-ui/core'
+import FormHelperText from '@material-ui/core/FormHelperText'
+import { useCheckFormErrors } from 'hooks/useCheckFormErrors'
+import { toast } from 'react-toastify'
+import { usePassiveFetch } from 'hooks/usePassiveFetch'
+import { Modal } from 'components/modal'
+import { AsyncAutocomplete } from 'components/AsyncAutocomplete'
+
+const rules = {
+  user: [],
+  buildings: [
+    {
+      checkEmpty: buildings => buildings.length === 0,
+    },
+  ],
+  doorbells: [
+    {
+      validate: (doorbells, data) => {
+        const numberOfBuildings = data.buildings.length
+        const buildingsAccordingsToDoorbells = new Set()
+        doorbells.forEach(doorbellArray => {
+          doorbellArray.forEach(doorbell =>
+            buildingsAccordingsToDoorbells.add(doorbell.building_id),
+          )
+        })
+        return numberOfBuildings === buildingsAccordingsToDoorbells.size
+      },
+      message: 'Todos los edificios deben tener al menos 1 timbre seleccionado.',
+      checkEmpty: doorbells => doorbells.length === 0,
+    },
+  ],
+}
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    '& > input': {
+      margin: theme.spacing(1),
+    },
+  },
+}))
+
+const removeDuplicatedDoorbells = doorbells =>
+  doorbells.reduce((a, b) => {
+    if (!b) return a
+    const duplicated = a.find(doorbell => doorbell.id === b.id)
+    if (duplicated) return a
+    return a.concat(b)
+  }, [])
+
+const CreateAssignmentModal = ({ onClose, onDone }) => {
+  const classes = useStyles()
+
+  const [fetch, isFetching] = usePassiveFetch()
+
+  const [user, setUser] = useState(null)
+  const [note, setNote] = useState('')
+  const [buildings, setBuildings] = useState([])
+  const [doorbells, setDoorbells] = useState([])
+
+  const handleAdminNoteChange = e => {
+    setNote(e.target.value)
+  }
+
+  const handleChangeBuildings = newBuildings => {
+    let missingIndex
+    buildings.forEach((oldBuilding, index) => {
+      const found = newBuildings.find(newBuilding => newBuilding.id === oldBuilding.id)
+      if (!found) missingIndex = index
+    })
+    if (missingIndex) {
+      delete doorbells[missingIndex]
+    }
+    setBuildings(newBuildings)
+  }
+
+  const handleDoorbellsSelected = (newDoorbells, index) => {
+    const isNew = !doorbells[index]
+    if (!isNew)
+      return setDoorbells(
+        doorbells.map((bDoorbells, i) => {
+          if (i !== index) return bDoorbells
+          return newDoorbells
+        }),
+      )
+    doorbells[index] = newDoorbells
+    setDoorbells(doorbells.slice())
+  }
+
+  const createAssignment = async () => {
+    console.log({
+      user,
+      note,
+      buildings,
+      doorbells: removeDuplicatedDoorbells(doorbells),
+    })
+    /* try {
+      await fetch('/assignments', {
+        method: 'POST',
+        body: {
+          user,
+          note,
+          buildings,
+          doorbells: removeDuplicatedDoorbells(doorbells),
+        },
+      })
+      toast.success('Asignación creada con éxito.')
+      onDone()
+    } catch (err) {
+      toast.error('No se pudo crear asignación. Intente de nuevo.')
+    } */
+  }
+
+  const dataToCheck = { user, buildings, doorbells }
+  const { errors, isAnyFieldEmpty, hasErrors } = useCheckFormErrors(dataToCheck, rules)
+  const disabled = isAnyFieldEmpty || hasErrors || isFetching
+
+  return (
+    <Modal open close={onClose}>
+      <form className={classes.root} autoComplete="off">
+        <h2>Nueva asignación</h2>
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <AsyncAutocomplete
+              request={{ url: '/users' }}
+              getOptionSelected={(option, value) => option.username === value.username}
+              getOptionLabel={option => option.fullname}
+              textFieldProps={{ label: 'Publicador' }}
+              rememberOptions
+              onChange={setUser}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <AsyncAutocomplete
+              request={{ url: '/buildings' }}
+              getOptionSelected={(option, value) => option.address === value.address}
+              getOptionLabel={option => option.address}
+              rememberOptions
+              onChange={handleChangeBuildings}
+              multiple
+              textFieldProps={{
+                label: 'Edificios',
+                helperText: errors.buildings.message,
+              }}
+            />
+          </Grid>
+          {buildings.map((building, index) => (
+            <Grid item xs={12}>
+              <AsyncAutocomplete
+                request={{ url: `/buildings/${building.id}/doorbells` }}
+                getOptionSelected={(option, value) => option.id === value.id}
+                getOptionLabel={option => `${option.floor} - ${option.identifier}`}
+                rememberOptions
+                onChange={newValue => handleDoorbellsSelected(newValue, index)}
+                multiple
+                textFieldProps={{
+                  label: `Timbres de ${building.address}`,
+                  helperText: 'Todos los edificios deben tener al menos 1 timbre.',
+                }}
+                enableSelectAll
+              />
+            </Grid>
+          ))}
+          <Grid item xs={12}>
+            <TextField
+              fullWidth
+              label="Nota del admin"
+              multiline
+              value={note}
+              onChange={handleAdminNoteChange}
+            />
+            <FormHelperText>
+              Esta nota sirve para dar al publicador información extra sobre esta asignación. Ej.:
+              "Dar prioridad al edificio de Espora".
+            </FormHelperText>
+          </Grid>
+        </Grid>
+        {isFetching && (
+          <Box mt={3}>
+            <LinearProgress />
+          </Box>
+        )}
+        <Box mt={4}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={createAssignment}
+            disabled={disabled}
+          >
+            Crear
+          </Button>
+          <Button style={{ marginLeft: '1rem' }} color="default" onClick={onClose}>
+            Cancelar
+          </Button>
+        </Box>
+      </form>
+    </Modal>
+  )
+}
+
+export { CreateAssignmentModal }

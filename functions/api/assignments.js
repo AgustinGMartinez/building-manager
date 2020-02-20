@@ -27,7 +27,7 @@ const getAssignments = async (id = undefined) => {
   const assignmentsQuery = `
     SELECT a.*, u.name as user_name, u.lastname as user_lastname, u.id as user_id
     from assignments a
-    ${id ? 'where id = ?' : ''}
+    ${id ? 'where a.id = ?' : 'where a.completed = 0'}
     inner join user_assignments ua
     on ua.assignment_id = a.id
     inner join users u
@@ -94,10 +94,10 @@ router.get('/:id', authenticated, async (req, res) => {
   res.send(assignment)
 })
 
-/* router.post('/', authenticated, async (req, res, next) => {
+router.post('/', authenticated, async (req, res, next) => {
   try {
-    validateBuilding(req.body)
-    const { territory, street, house_number, admin_note, lat, lng } = req.body
+    validateAssignment(req.body)
+    /* const { territory, street, house_number, admin_note, lat, lng } = req.body
     const queryString = `
       SELECT * from buildings where street = '${street}' and house_number = ${house_number}
     `
@@ -110,14 +110,15 @@ router.get('/:id', authenticated, async (req, res) => {
       INSERT INTO buildings (territory, street, house_number, admin_note, lat, lng) VALUES (?, ?, ?, ?, ?, ?)
       `,
       [territory, street, house_number, admin_note, lat, lng],
-    )
+    ) */
     res.send()
   } catch (err) {
     next(err)
   }
 })
 
-router.delete('/', authenticated, async (req, res, next) => {
+// TODO: borrar la asignacion, el user_assignment y los doorbell_assignment
+/* router.delete('/', authenticated, async (req, res, next) => {
   try {
     const { id } = req.query
     if (!id) next(new CustomError(400, 'Missing query param'))

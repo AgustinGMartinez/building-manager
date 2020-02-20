@@ -25,6 +25,7 @@ function validateUser(user) {
 }
 
 router.get('/', authenticated, async (req, res) => {
+  res.send([{ id: 1, username: 'zhuclam', name: 'agus', lastname: 'mart', fullname: 'agus mart' }])
   const getAdmin = req.query.admin || 0
   const queryString = `
     SELECT id, username, name, lastname, CONCAT (name, ' ', lastname) as fullname

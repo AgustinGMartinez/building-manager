@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from 'react'
 
 const useCheckFormErrors = (data, rules) => {
   const [errors, setErrors] = useState(null)
@@ -9,7 +9,7 @@ const useCheckFormErrors = (data, rules) => {
     Object.keys(rules).forEach(fieldName => {
       initialErrors[fieldName] = {
         hasError: false,
-        message: ""
+        message: '',
       }
     })
   }
@@ -21,7 +21,7 @@ const useCheckFormErrors = (data, rules) => {
     Object.entries(rules).forEach(([fieldName, fieldRules]) => {
       newErrors[fieldName] = {
         hasError: false,
-        message: ""
+        message: '',
       }
       const fieldValue = data[fieldName]
       if (!fieldValue) {
@@ -30,7 +30,12 @@ const useCheckFormErrors = (data, rules) => {
       }
 
       fieldRules.forEach(rule => {
-        const isValid = rule.validate(fieldValue, data)
+        const isEmpty = rule.checkEmpty ? rule.checkEmpty(fieldValue, data) : false
+        if (isEmpty) {
+          anyFieldEmpty = true
+          return
+        }
+        const isValid = rule.validate ? rule.validate(fieldValue, data) : true
         if (!isValid) {
           containsErrors = true
           newErrors[fieldName].hasError = true

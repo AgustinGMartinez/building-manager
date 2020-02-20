@@ -8,7 +8,11 @@ const Users = () => {
     fetchUsers()
   }
 
-  return <UsersTable isAdmin={false} data={users} loading={loading} onCreateUser={onCreateUser} />
+  return (
+    <>
+      <UsersTable isAdmin={false} data={users} loading={loading} onCreateUser={onCreateUser} />
+    </>
+  )
 }
 
 export { Users }
