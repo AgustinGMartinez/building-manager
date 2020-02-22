@@ -93,7 +93,7 @@ function ResponsiveDrawer({ children }) {
       <Divider />
       <List>
         <NavOption to={'/users'} text={'Usuarios'} Icon={PersonIcon} />
-        {admin.is_superadmin && (
+        {admin && admin.is_superadmin && (
           <NavOption to={'/admins'} text={'Administradores'} Icon={SupervisorAccountIcon} />
         )}
         <NavOption to={'/buildings'} text={'Edificios'} Icon={ApartmentIcon} />

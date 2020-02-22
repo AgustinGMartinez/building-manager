@@ -41,7 +41,7 @@ function App() {
                 <Route exact path="/" component={Login} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/users" component={Users} />
-                {admin.is_superadmin && <Route exact path="/admins" component={Admins} />}
+                {admin && admin.is_superadmin && <Route exact path="/admins" component={Admins} />}
                 <Route exact path="/buildings" component={Buildings} />
                 <Route exact path="/assignments" component={Assignments} />
                 <Route component={() => <h1>404 no encontrado</h1>} />
