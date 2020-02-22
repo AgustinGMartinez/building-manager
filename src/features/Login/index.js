@@ -63,6 +63,7 @@ const Login = () => {
       })
 
       const { token, user } = response
+      if (!user.is_admin) throw new Error()
       registerFetch(token)
       setAdmin(user)
       localStorage.setItem('token', token)

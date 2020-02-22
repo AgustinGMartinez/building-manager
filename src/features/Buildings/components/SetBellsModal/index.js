@@ -1,7 +1,8 @@
 import React, { useState, useMemo } from 'react'
 import { Modal } from 'components/modal'
-import { Button, Grid, List, ListItem, Box } from '@material-ui/core'
+import { Button, Grid, List, ListItem, Box, LinearProgress } from '@material-ui/core'
 import { toast } from 'react-toastify'
+import { usePassiveFetch } from 'hooks/usePassiveFetch'
 
 function getInitialState(bells) {
   const floors = []
@@ -24,6 +25,8 @@ function numberToLetter(n) {
 }
 
 const SetBellsModal = ({ onClose, initialBells, buildingId, onDone }) => {
+  const [fetch, isFetching] = usePassiveFetch()
+
   const initialData = useMemo(() => getInitialState(initialBells), [initialBells])
   const [selectedFloor, setSelectedFloor] = useState(null)
   const [floorsAndDoorbells, setFloorsAndDoorbellsMap] = useState(initialData)
@@ -134,6 +137,7 @@ const SetBellsModal = ({ onClose, initialBells, buildingId, onDone }) => {
               const inSelection = selectedFloorBells.includes(value.toString())
               return (
                 <Button
+                  key={value}
                   onClick={() => toggleBell(value)}
                   size="small"
                   color={inSelection ? 'secondary' : undefined}
@@ -160,6 +164,12 @@ const SetBellsModal = ({ onClose, initialBells, buildingId, onDone }) => {
           </ListItem>
         ))}
       </List>
+      {isFetching && (
+        <Box mt={3}>
+          <LinearProgress />
+        </Box>
+      )}
+      <Box mb={2} />
       <Button variant="contained" color="primary" disabled={isSubmitDisabled} onClick={onSubmit}>
         Guardar
       </Button>

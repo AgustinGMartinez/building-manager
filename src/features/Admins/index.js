@@ -3,7 +3,7 @@ import { UsersTable } from 'components/UsersTable'
 import { useFetch } from 'hooks/useFetch'
 
 const Admins = () => {
-  const [admins, loading, fetchAdmins] = useFetch({ url: '/users?admin=1' })
+  const [admins, loading, fetchAdmins] = useFetch({ url: '/admins' })
   const onCreateUser = () => {
     fetchAdmins()
   }

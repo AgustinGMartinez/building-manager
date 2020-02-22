@@ -23,7 +23,7 @@ function validateUpsert(doorbells) {
   }
 }
 
-router.post('/', authenticated, async (req, res, next) => {
+router.post('/', authenticated.admin, async (req, res, next) => {
   try {
     validateUpsert(req.body)
     const { buildingId, doorbells } = req.body

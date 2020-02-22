@@ -15,17 +15,6 @@ app.use(cors())
 
 app.use(bodyParser.json())
 
-app.use(async (req, res, next) => {
-  const queryString = `
-    UPDATE prevent_delete
-    SET last_update = '${moment()
-      .utc(3)
-      .toISOString()}'
-  `
-  query(queryString).then(() => console.log('updated last DB connection'))
-  next()
-})
-
 app.use('/api', api)
 
 app.use((err, req, res, next) => {
@@ -40,7 +29,7 @@ app.use((err, req, res, next) => {
     })
   }
   return res.status(500).send({
-    error: err,
+    error: err.message,
   })
 })
 

@@ -9,6 +9,7 @@ import { toast } from 'react-toastify'
 import { usePassiveFetch } from 'hooks/usePassiveFetch'
 import { Modal } from 'components/modal'
 import { AsyncAutocomplete } from 'components/AsyncAutocomplete'
+import { StringUtils } from 'utils'
 
 const rules = {
   user: [],
@@ -91,27 +92,24 @@ const CreateAssignmentModal = ({ onClose, onDone }) => {
   }
 
   const createAssignment = async () => {
-    console.log({
-      user,
-      note,
-      buildings,
-      doorbells: removeDuplicatedDoorbells(doorbells),
+    const dblls = removeDuplicatedDoorbells(doorbells).map(doorbell => {
+      const { id, building_id, special_id } = doorbell
+      return { id, building_id, special_id }
     })
-    /* try {
+    try {
       await fetch('/assignments', {
         method: 'POST',
         body: {
-          user,
+          user_id: user.id,
           note,
-          buildings,
-          doorbells: removeDuplicatedDoorbells(doorbells),
+          doorbells: dblls,
         },
       })
       toast.success('Asignación creada con éxito.')
       onDone()
     } catch (err) {
       toast.error('No se pudo crear asignación. Intente de nuevo.')
-    } */
+    }
   }
 
   const dataToCheck = { user, buildings, doorbells }
@@ -136,8 +134,8 @@ const CreateAssignmentModal = ({ onClose, onDone }) => {
           <Grid item xs={12}>
             <AsyncAutocomplete
               request={{ url: '/buildings' }}
-              getOptionSelected={(option, value) => option.address === value.address}
-              getOptionLabel={option => option.address}
+              getOptionSelected={(option, value) => option.id === value.id}
+              getOptionLabel={option => StringUtils.getBuildingFullAddress(option)}
               rememberOptions
               onChange={handleChangeBuildings}
               multiple
@@ -148,7 +146,7 @@ const CreateAssignmentModal = ({ onClose, onDone }) => {
             />
           </Grid>
           {buildings.map((building, index) => (
-            <Grid item xs={12}>
+            <Grid item xs={12} key={building.id}>
               <AsyncAutocomplete
                 request={{ url: `/buildings/${building.id}/doorbells` }}
                 getOptionSelected={(option, value) => option.id === value.id}
@@ -157,7 +155,7 @@ const CreateAssignmentModal = ({ onClose, onDone }) => {
                 onChange={newValue => handleDoorbellsSelected(newValue, index)}
                 multiple
                 textFieldProps={{
-                  label: `Timbres de ${building.address}`,
+                  label: `Timbres de ${StringUtils.getBuildingFullAddress(building)}`,
                   helperText: 'Todos los edificios deben tener al menos 1 timbre.',
                 }}
                 enableSelectAll

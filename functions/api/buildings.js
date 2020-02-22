@@ -22,14 +22,17 @@ function validateBuilding(building) {
   }
 }
 
-router.get('/', authenticated, async (req, res) => {
-  res.send([
-    { id: 1, address: 'direccion 1' },
-    { id: 2, address: 'direccion 2' },
-  ])
+router.get('/', authenticated.admin, async (req, res) => {
   const buildingsQuery = `
-    SELECT *, (select count(*) FROM doorbells) as doorbell_count
-    FROM buildings
+  SELECT b.*, IF(d.doorbell_count IS NULL, 0, d.doorbell_count) as doorbell_count
+  FROM buildings b
+  LEFT JOIN (
+    SELECT building_id, count(*) as doorbell_count
+      FROM doorbells
+      WHERE deleted = 0
+      GROUP BY building_id
+  ) as d
+  ON b.id = d.building_id
   `
   const doorbellsQuery = `
     SELECT *
@@ -51,17 +54,7 @@ router.get('/', authenticated, async (req, res) => {
   res.send(buildings)
 })
 
-router.get('/:id/doorbells', authenticated, async (req, res, next) => {
-  if (req.params.id === '1')
-    res.send([
-      { id: 1, floor: 1, identifier: '1', special_id: '811', building_id: 8 },
-      { id: 2, floor: 1, identifier: '2', special_id: '812', building_id: 8 },
-    ])
-  if (req.params.id === '2')
-    res.send([
-      { id: 4, floor: 2, identifier: '1', special_id: '521', building_id: 5 },
-      { id: 5, floor: 2, identifier: '2', special_id: '522', building_id: 5 },
-    ])
+router.get('/:id/doorbells', authenticated.admin, async (req, res, next) => {
   const buildingId = req.params.id
   const doorbellsQuery = `
     SELECT *
@@ -73,7 +66,7 @@ router.get('/:id/doorbells', authenticated, async (req, res, next) => {
   res.send(doorbells)
 })
 
-router.post('/', authenticated, async (req, res, next) => {
+router.post('/', authenticated.admin, async (req, res, next) => {
   try {
     validateBuilding(req.body)
     const { territory, street, house_number, admin_note, lat, lng } = req.body
@@ -96,7 +89,7 @@ router.post('/', authenticated, async (req, res, next) => {
   }
 })
 
-router.delete('/:id', authenticated, async (req, res, next) => {
+router.delete('/:id', authenticated.admin, async (req, res, next) => {
   try {
     const { id } = req.params
     await query(
@@ -107,7 +100,7 @@ router.delete('/:id', authenticated, async (req, res, next) => {
     )
     await query(
       ` 
-      DELETE FROM doorbells WHERE building_id = ?
+      UPDATE doorbells SET deleted = 1 WHERE building_id = ?
       `,
       [id],
     )

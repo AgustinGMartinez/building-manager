@@ -6,13 +6,13 @@ const useFetch = ({ url, options = {}, initialData = [] }) => {
   const [loading, setLoading] = useState(false)
 
   let request = async () => {
+    setLoading(true)
     const data = await fetch(url, options)
     setData(data)
     setLoading(false)
   }
 
   useEffect(() => {
-    setLoading(true)
     try {
       request()
     } catch (err) {

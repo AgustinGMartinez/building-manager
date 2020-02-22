@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import AppBar from '@material-ui/core/AppBar'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Divider from '@material-ui/core/Divider'
@@ -16,9 +16,11 @@ import PersonIcon from '@material-ui/icons/Person'
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount'
 import ApartmentIcon from '@material-ui/icons/Apartment'
 import AssignmentIcon from '@material-ui/icons/Assignment'
+import MapIcon from '@material-ui/icons/Map'
 
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import { NavLink } from 'react-router-dom'
+import { UserContext } from 'contexts'
 
 const drawerWidth = 240
 
@@ -79,6 +81,7 @@ function ResponsiveDrawer({ children }) {
   const classes = useStyles()
   const theme = useTheme()
   const [mobileOpen, setMobileOpen] = React.useState(false)
+  const { admin } = useContext(UserContext)
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen)
@@ -90,9 +93,12 @@ function ResponsiveDrawer({ children }) {
       <Divider />
       <List>
         <NavOption to={'/users'} text={'Usuarios'} Icon={PersonIcon} />
-        <NavOption to={'/admins'} text={'Administradores'} Icon={SupervisorAccountIcon} />
+        {admin.is_superadmin && (
+          <NavOption to={'/admins'} text={'Administradores'} Icon={SupervisorAccountIcon} />
+        )}
         <NavOption to={'/buildings'} text={'Edificios'} Icon={ApartmentIcon} />
         <NavOption to={'/assignments'} text={'Asignaciones'} Icon={AssignmentIcon} />
+        <NavOption to={'/statistics'} text={'Estadisticas'} Icon={MapIcon} />
       </List>
     </div>
   )

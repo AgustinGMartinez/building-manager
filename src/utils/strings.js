@@ -6,4 +6,8 @@ const isEmail = email => {
 
 const DATE_FORMAT = 'DD/MM/YYYY'
 
-export const StringUtils = { isEmail, DATE_FORMAT }
+const getBuildingFullAddress = building => `${building.street} ${building.house_number}`
+
+const getUserFullname = user => `${user.name} ${user.lastname}`
+
+export const StringUtils = { isEmail, DATE_FORMAT, getBuildingFullAddress, getUserFullname }

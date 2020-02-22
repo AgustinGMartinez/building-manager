@@ -6,7 +6,7 @@ const CustomError = require('../errors')
 const AuthUtils = require('../utils/authentication')
 const authenticated = require('../middlewares/authenticated')
 
-function validateUser(user) {
+function validateAdmin(admin) {
   const schema = {
     username: Joi.string()
       .min(3)
@@ -16,27 +16,28 @@ function validateUser(user) {
       .required(),
     name: Joi.string().required(),
     lastname: Joi.string().required(),
+    isSuperadmin: Joi.boolean().required(),
   }
-  const { error } = Joi.validate(user, schema)
+  const { error } = Joi.validate(admin, schema)
   if (error) {
     throw new CustomError(400, error)
   }
 }
 
-router.get('/', authenticated.admin, async (req, res) => {
+router.get('/', authenticated.superadmin, async (req, res) => {
   const queryString = `
-    SELECT id, username, name, lastname, CONCAT (name, ' ', lastname) as fullname
+    SELECT *, CONCAT (name, ' ', lastname) as fullname
     from users
-    where is_admin = 0
+    where is_admin = 1 OR is_superadmin = 1
   `
   const result = await query(queryString)
   res.send(result)
 })
 
-router.post('/', authenticated.admin, async (req, res, next) => {
+router.post('/', authenticated.superadmin, async (req, res, next) => {
   try {
-    validateUser(req.body)
-    const { username, password, name, lastname } = req.body
+    validateAdmin(req.body)
+    const { username, password, name, lastname, isSuperadmin } = req.body
     const queryString = `
       SELECT * from users where username = '${username}'
     `
@@ -47,9 +48,9 @@ router.post('/', authenticated.admin, async (req, res, next) => {
     const saltedPassword = await AuthUtils.hashPassword(password)
     await query(
       `
-      INSERT INTO users (username, password, name, lastname) VALUES (?, ?, ?, ?)
+      INSERT INTO users (username, password, name, lastname, is_admin, is_superadmin) VALUES (?, ?, ?, ?, ?, ?)
       `,
-      [username, saltedPassword, name, lastname],
+      [username, saltedPassword, name, lastname, true, isSuperadmin],
     )
     res.send()
   } catch (err) {

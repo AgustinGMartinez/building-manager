@@ -7,6 +7,8 @@ import { toast } from 'react-toastify'
 import { usePassiveFetch } from 'hooks/usePassiveFetch'
 import Box from '@material-ui/core/Box'
 import LinearProgress from '@material-ui/core/LinearProgress'
+import { FormControlLabel, Checkbox } from '@material-ui/core'
+import { useCheckFormErrors } from 'hooks/useCheckFormErrors'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -15,6 +17,13 @@ const useStyles = makeStyles(theme => ({
     },
   },
 }))
+
+const rules = {
+  name: [],
+  lastname: [],
+  username: [],
+  password: [{ validate: password => password.length >= 6, message: 'Al menos 6 caracteres.' }],
+}
 
 const initialState = {
   name: '',
@@ -27,6 +36,7 @@ const NewUserForm = ({ isAdmin, onClose, onDone }) => {
   const classes = useStyles()
 
   const [data, setData] = useState(initialState)
+  const [isSuperadmin, setIsSuperadmin] = useState(false)
 
   const [fetch, isFetching] = usePassiveFetch()
 
@@ -57,9 +67,9 @@ const NewUserForm = ({ isAdmin, onClose, onDone }) => {
 
   const createUser = async () => {
     try {
-      await fetch('/users', {
+      await fetch(isAdmin ? '/admins' : '/users', {
         method: 'POST',
-        body: { ...data, isAdmin },
+        body: { ...data, isSuperadmin: isAdmin ? isSuperadmin : undefined },
       })
       toast.success('Usuario creado con éxito.')
       onDone()
@@ -67,6 +77,9 @@ const NewUserForm = ({ isAdmin, onClose, onDone }) => {
       toast.error('No se pudo crear usuario. Intente de nuevo.')
     }
   }
+
+  const { errors, isAnyFieldEmpty, hasErrors } = useCheckFormErrors(data, rules)
+  const isSubmitButtonDisabled = hasErrors || isAnyFieldEmpty || isFetching
 
   return (
     <form className={classes.root} autoComplete="off">
@@ -106,8 +119,24 @@ const NewUserForm = ({ isAdmin, onClose, onDone }) => {
             required
             value={data.password}
             onChange={handlePasswordChange}
+            error={errors.password.hasError}
+            helperText={errors.password.message}
           />
         </Grid>
+        {isAdmin && (
+          <Grid item xs={12} sm={6}>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={isSuperadmin}
+                  onChange={(_, value) => setIsSuperadmin(value)}
+                  color="primary"
+                />
+              }
+              label="¿Es superadmin?"
+            />
+          </Grid>
+        )}
       </Grid>
       {isFetching && (
         <Box mt={3}>
@@ -115,7 +144,12 @@ const NewUserForm = ({ isAdmin, onClose, onDone }) => {
         </Box>
       )}
       <Box mt={4}>
-        <Button variant="contained" color="primary" onClick={createUser}>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={createUser}
+          disabled={isSubmitButtonDisabled}
+        >
           Crear
         </Button>
         <Button style={{ marginLeft: '1rem' }} color="default" onClick={onClose}>

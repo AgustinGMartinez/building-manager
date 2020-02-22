@@ -5,33 +5,35 @@ const query = require('../mysql')
 const CustomError = require('../errors')
 const authenticated = require('../middlewares/authenticated')
 
-// TODO
-/* function validateAssignment(building) {
+function validateAssignment(assigment) {
   const schema = {
-    territory: Joi.number().required(),
-    street: Joi.string().required(),
-    house_number: Joi.string().required(),
-    admin_note: Joi.string()
-      .optional()
-      .allow(''),
-    lat: Joi.number().required(),
-    lng: Joi.number().required(),
+    user_id: Joi.number().required(),
+    note: Joi.string().optional(),
+    doorbells: Joi.array()
+      .items(
+        Joi.object({
+          id: Joi.number().required(),
+          building_id: Joi.number().required(),
+          special_id: Joi.string().required(),
+        }),
+      )
+      .required(),
   }
-  const { error } = Joi.validate(building, schema)
+  const { error } = Joi.validate(assigment, schema)
   if (error) {
     throw new CustomError(400, error)
   }
-} */
+}
 
 const getAssignments = async (id = undefined) => {
   const assignmentsQuery = `
     SELECT a.*, u.name as user_name, u.lastname as user_lastname, u.id as user_id
     from assignments a
-    ${id ? 'where a.id = ?' : 'where a.completed = 0'}
     inner join user_assignments ua
     on ua.assignment_id = a.id
     inner join users u
     on u.id = ua.user_id
+    ${id ? 'where a.id = ?' : 'where a.completed = 0'}
   `
   const doorbellsQuery = `
     SELECT *
@@ -84,53 +86,50 @@ const getAssignments = async (id = undefined) => {
   return assignments
 }
 
-router.get('/', authenticated, async (req, res) => {
+router.get('/', authenticated.user, async (req, res) => {
   const assignments = await getAssignments()
   res.send(assignments)
 })
 
-router.get('/:id', authenticated, async (req, res) => {
+router.get('/:id', authenticated.user, async (req, res) => {
   const assignment = await getAssignments(req.params.id)
   res.send(assignment)
 })
 
-router.post('/', authenticated, async (req, res, next) => {
+router.post('/', authenticated.admin, async (req, res, next) => {
   try {
     validateAssignment(req.body)
-    /* const { territory, street, house_number, admin_note, lat, lng } = req.body
-    const queryString = `
-      SELECT * from buildings where street = '${street}' and house_number = ${house_number}
+    const { user_id, note, doorbells } = req.body
+    const assignmentQuery = `
+      INSERT INTO assignments (admin_note, created_at)
+      VALUES (?, ?)
     `
-    const result = await query(queryString)
-    if (result.length) {
-      return next(new CustomError(400, 'Ya existe un edificio en esa dirección'))
-    }
-    await query(
-      `
-      INSERT INTO buildings (territory, street, house_number, admin_note, lat, lng) VALUES (?, ?, ?, ?, ?, ?)
-      `,
-      [territory, street, house_number, admin_note, lat, lng],
-    ) */
+    const { insertId: assignment_id } = await query(assignmentQuery, [note, new Date()])
+    const userAssignmentsQuery = `
+      INSERT INTO user_assignments (user_id, assignment_id)
+      VALUES (?, ?)
+    `
+    await query(userAssignmentsQuery, [user_id, assignment_id])
+    const doorbellsAssignmentsQuery = `
+      INSERT INTO doorbells_assignments (assignment_id, building_id, doorbell_special_id)
+      VALUES ?
+    `
+    await query(doorbellsAssignmentsQuery, [
+      doorbells.map(doorbell => [assignment_id, doorbell.building_id, doorbell.special_id]),
+    ])
     res.send()
   } catch (err) {
     next(err)
   }
 })
 
-// TODO: borrar la asignacion, el user_assignment y los doorbell_assignment
-/* router.delete('/', authenticated, async (req, res, next) => {
+router.delete('/:id', authenticated.admin, async (req, res, next) => {
+  const { id } = req.params
+  console.log({ idToDelete: id })
   try {
-    const { id } = req.query
-    if (!id) next(new CustomError(400, 'Missing query param'))
     await query(
       `
-      DELETE FROM buildings where id = ?
-      `,
-      [id],
-    )
-    await query(
-      ` 
-      DELETE FROM doorbells where building_id = ?
+      DELETE FROM assignments where id = ?
       `,
       [id],
     )
@@ -138,6 +137,6 @@ router.post('/', authenticated, async (req, res, next) => {
   } catch (err) {
     next(err)
   }
-}) */
+})
 
 module.exports = router

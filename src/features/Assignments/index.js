@@ -4,7 +4,7 @@ import { DefaultTable } from 'components/DefaultTable'
 import moment from 'moment'
 import { StringUtils } from 'utils'
 import DetailsIcon from '@material-ui/icons/Apps'
-import { CreateAssignmentModal } from './components'
+import { CreateAssignmentModal, DeleteAssignmentModal } from './components'
 import { useState } from 'react'
 
 const columns = [
@@ -40,10 +40,11 @@ const columns = [
 ]
 
 const Assignments = () => {
-  /* const [assingments, isLoading, fetchAssignments] = useFetch({ url: '/assignments' }) */
-  const [assingments, isLoading, fetchAssignments] = [[], false]
+  const [assingments, isLoading, fetchAssignments] = useFetch({ url: '/assignments' })
 
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false)
+  const [deleteModalOpen, setDeleteModalOpen] = useState(false)
+  const [assignmentToDelete, setAssignmentToDelete] = useState(null)
 
   const openCreateModal = () => setIsCreateModalOpen(true)
 
@@ -52,6 +53,16 @@ const Assignments = () => {
   const onCreateDone = () => {
     fetchAssignments()
     closeCreateModal()
+  }
+
+  const closeDeleteModal = () => {
+    setDeleteModalOpen(false)
+    setAssignmentToDelete(null)
+  }
+
+  const onDeleteDone = async () => {
+    fetchAssignments()
+    closeDeleteModal()
   }
 
   const actions = [
@@ -69,7 +80,10 @@ const Assignments = () => {
     {
       icon: 'delete',
       tooltip: 'Eliminar asignación',
-      onClick: () => {},
+      onClick: (_, row) => {
+        setAssignmentToDelete(row)
+        setDeleteModalOpen(true)
+      },
     },
   ]
 
@@ -84,6 +98,13 @@ const Assignments = () => {
       />
       {isCreateModalOpen && (
         <CreateAssignmentModal onClose={closeCreateModal} onDone={onCreateDone} />
+      )}
+      {deleteModalOpen && assignmentToDelete && (
+        <DeleteAssignmentModal
+          onClose={closeDeleteModal}
+          onDone={onDeleteDone}
+          assignment={assignmentToDelete}
+        />
       )}
     </>
   )
