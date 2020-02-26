@@ -1,6 +1,6 @@
-import React from "react"
-import { makeStyles } from "@material-ui/core/styles"
-import MaterialModal from "@material-ui/core/Modal"
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import MaterialModal from '@material-ui/core/Modal'
 
 function getModalStyle({ width }) {
   const top = 50
@@ -10,24 +10,26 @@ function getModalStyle({ width }) {
     top: `${top}%`,
     left: `${left}%`,
     transform: `translate(-${top}%, -${left}%)`,
-    width
+    width,
+    overflow: 'auto',
+    maxHeight: '90vh',
   }
 }
 
 const useStyles = makeStyles(theme => ({
   paper: {
-    position: "absolute",
+    position: 'absolute',
     backgroundColor: theme.palette.background.paper,
-    border: "2px solid #000",
+    border: '2px solid #000',
     boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3)
-  }
+    padding: theme.spacing(2, 4, 3),
+  },
 }))
 
 const Modal = ({ open, handleClose, close, children, width, noBackdrop }) => {
   const classes = useStyles()
   const modalStyle = getModalStyle({
-    width
+    width,
   })
 
   return (
@@ -50,7 +52,7 @@ const Modal = ({ open, handleClose, close, children, width, noBackdrop }) => {
 Modal.defaultProps = {
   handleClose: () => {},
   width: 600,
-  noBackdrop: false
+  noBackdrop: false,
 }
 
 export { Modal }

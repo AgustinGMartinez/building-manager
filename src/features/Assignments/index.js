@@ -4,7 +4,7 @@ import { DefaultTable } from 'components/DefaultTable'
 import moment from 'moment'
 import { StringUtils } from 'utils'
 import DetailsIcon from '@material-ui/icons/Apps'
-import { CreateAssignmentModal, DeleteAssignmentModal } from './components'
+import { CreateAssignmentModal, DeleteAssignmentModal, PreviewModal } from './components'
 import { useState } from 'react'
 
 const columns = [
@@ -12,7 +12,6 @@ const columns = [
     title: 'Publicador',
     render: row => `${row.user_name} ${row.user_lastname}`,
   },
-  { title: 'Creado', render: row => moment(row.created_at).format(StringUtils.DATE_FORMAT) },
   {
     title: 'Finalizado',
     render: row =>
@@ -37,7 +36,6 @@ const columns = [
     render: row => row.doorbells.length,
   },
   { title: 'Campaña', field: 'campaign_name' },
-  { title: 'Nota', field: 'admin_note' },
 ]
 
 const Assignments = () => {
@@ -46,6 +44,8 @@ const Assignments = () => {
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false)
   const [deleteModalOpen, setDeleteModalOpen] = useState(false)
   const [assignmentToDelete, setAssignmentToDelete] = useState(null)
+  const [isPreviewModalOpen, setIsPreviewModalOpen] = useState(false)
+  const [assignmentToPreview, setAssignmentToPreview] = useState(null)
 
   const openCreateModal = () => setIsCreateModalOpen(true)
 
@@ -66,6 +66,11 @@ const Assignments = () => {
     closeDeleteModal()
   }
 
+  const closePreviewModal = () => {
+    setIsPreviewModalOpen(false)
+    setAssignmentToPreview(null)
+  }
+
   const actions = [
     {
       icon: 'add',
@@ -76,7 +81,10 @@ const Assignments = () => {
     {
       icon: () => <DetailsIcon />,
       tooltip: 'Ver detalles',
-      onClick: () => {},
+      onClick: (_, row) => {
+        setAssignmentToPreview(row)
+        setIsPreviewModalOpen(true)
+      },
     },
     {
       icon: 'delete',
@@ -106,6 +114,9 @@ const Assignments = () => {
           onDone={onDeleteDone}
           assignment={assignmentToDelete}
         />
+      )}
+      {isPreviewModalOpen && assignmentToPreview && (
+        <PreviewModal onClose={closePreviewModal} assignment={assignmentToPreview} />
       )}
     </>
   )
