@@ -6,12 +6,14 @@ const users = require('./users')
 const doorbells = require('./doorbells')
 const assignments = require('./assignments')
 const admins = require('./admins')
+const campaigns = require('./campaigns')
 
 router.use('/auth', auth)
 router.use('/buildings', buildings)
 router.use('/users', users)
-router.use('/admins', admins)
+router.use('/campaigns', campaigns)
 router.use('/doorbells', doorbells)
+router.use('/admins', admins)
 router.use('/assignments', assignments)
 
 module.exports = router

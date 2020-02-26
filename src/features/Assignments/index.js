@@ -36,6 +36,7 @@ const columns = [
     title: 'Timbres',
     render: row => row.doorbells.length,
   },
+  { title: 'Campaña', field: 'campaign_name' },
   { title: 'Nota', field: 'admin_note' },
 ]
 

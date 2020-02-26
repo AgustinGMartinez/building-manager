@@ -59,11 +59,16 @@ const CreateAssignmentModal = ({ onClose, onDone }) => {
 
   const [user, setUser] = useState(null)
   const [note, setNote] = useState('')
+  const [campaign, setCampaign] = useState(undefined)
   const [buildings, setBuildings] = useState([])
   const [doorbells, setDoorbells] = useState([])
 
   const handleAdminNoteChange = e => {
     setNote(e.target.value)
+  }
+
+  const handleChangeCampaign = newCampaign => {
+    setCampaign(newCampaign.id)
   }
 
   const handleChangeBuildings = newBuildings => {
@@ -103,6 +108,7 @@ const CreateAssignmentModal = ({ onClose, onDone }) => {
           user_id: user.id,
           note,
           doorbells: dblls,
+          campaign_id: campaign,
         },
       })
       toast.success('Asignación creada con éxito.')
@@ -129,6 +135,18 @@ const CreateAssignmentModal = ({ onClose, onDone }) => {
               textFieldProps={{ label: 'Publicador' }}
               rememberOptions
               onChange={setUser}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <AsyncAutocomplete
+              request={{ url: '/campaigns' }}
+              getOptionSelected={(option, value) => option.id === value.id}
+              getOptionLabel={option => option.name}
+              rememberOptions
+              onChange={handleChangeCampaign}
+              textFieldProps={{
+                label: 'Campaña (opcional)',
+              }}
             />
           </Grid>
           <Grid item xs={12}>

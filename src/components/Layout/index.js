@@ -17,6 +17,7 @@ import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount'
 import ApartmentIcon from '@material-ui/icons/Apartment'
 import AssignmentIcon from '@material-ui/icons/Assignment'
 import MapIcon from '@material-ui/icons/Map'
+import FlagIcon from '@material-ui/icons/Flag'
 
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import { NavLink } from 'react-router-dom'
@@ -99,6 +100,7 @@ function ResponsiveDrawer({ children }) {
         <NavOption to={'/buildings'} text={'Edificios'} Icon={ApartmentIcon} />
         <NavOption to={'/assignments'} text={'Asignaciones'} Icon={AssignmentIcon} />
         <NavOption to={'/statistics'} text={'Estadisticas'} Icon={MapIcon} />
+        <NavOption to={'/campaigns'} text={'Campañas'} Icon={FlagIcon} />
       </List>
     </div>
   )
@@ -118,7 +120,7 @@ function ResponsiveDrawer({ children }) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Gestor de edificios
+            Gestor de edificios - 0.9 Alpha
           </Typography>
         </Toolbar>
       </AppBar>

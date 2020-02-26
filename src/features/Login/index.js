@@ -8,7 +8,7 @@ import TextField from '@material-ui/core/TextField'
 import Grid from '@material-ui/core/Grid'
 import Box from '@material-ui/core/Box'
 import LinearProgress from '@material-ui/core/LinearProgress'
-import { Redirect } from 'react-router'
+import { Redirect, useLocation, useHistory } from 'react-router'
 
 import { useCheckFormErrors } from '../../hooks/useCheckFormErrors'
 import { register as registerFetch } from '../../utils'
@@ -24,6 +24,9 @@ const rules = {
 
 const Login = () => {
   const classes = useStyles()
+  let history = useHistory()
+  let location = useLocation()
+  let { from } = location.state || { from: { pathname: '/' } }
 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -74,7 +77,10 @@ const Login = () => {
     }
   }
 
-  if (admin) return <Redirect to="/users" />
+  if (admin) {
+    history.replace(from)
+    return null
+  }
 
   return (
     <div className={classes.container}>
