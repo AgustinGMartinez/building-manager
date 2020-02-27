@@ -11,6 +11,7 @@ const GoogleMaps = withGoogleMap(({ buildings }) => {
           key={index}
           icon={{ url: building.marker }}
           position={{ lat: building.lat, lng: building.lng }}
+          // eslint-disable-next-line
           anchor={new google.maps.Point(0, 0)}
           onMouseOver={() => setHoveringInfoWindows(index)}
           onMouseOut={() => setHoveringInfoWindows(null)}

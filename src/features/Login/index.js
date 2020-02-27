@@ -8,7 +8,7 @@ import TextField from '@material-ui/core/TextField'
 import Grid from '@material-ui/core/Grid'
 import Box from '@material-ui/core/Box'
 import LinearProgress from '@material-ui/core/LinearProgress'
-import { Redirect, useLocation, useHistory } from 'react-router'
+import { useLocation, useHistory } from 'react-router'
 
 import { useCheckFormErrors } from '../../hooks/useCheckFormErrors'
 import { register as registerFetch } from '../../utils'
@@ -22,11 +22,13 @@ const rules = {
   password: [{ validate: password => password.length >= 6 }],
 }
 
+const INITIAL_PAGE = '/users' // must be other than /login and / or else will trigger an infinte lopp
+
 const Login = () => {
   const classes = useStyles()
   let history = useHistory()
   let location = useLocation()
-  let { from } = location.state || { from: { pathname: '/' } }
+  let { from } = location.state || { from: { pathname: INITIAL_PAGE } }
 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')

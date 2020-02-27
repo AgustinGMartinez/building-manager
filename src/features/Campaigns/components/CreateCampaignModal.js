@@ -46,7 +46,7 @@ const CreateCampaignModal = ({ onClose, onDone }) => {
   }
 
   const dataToCheck = { name }
-  const { errors, isAnyFieldEmpty, hasErrors } = useCheckFormErrors(dataToCheck, rules)
+  const { isAnyFieldEmpty, hasErrors } = useCheckFormErrors(dataToCheck, rules)
   const disabled = isAnyFieldEmpty || hasErrors || isFetching
 
   return (
