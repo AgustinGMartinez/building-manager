@@ -3,16 +3,20 @@ import { makeStyles } from '@material-ui/core/styles'
 import MaterialModal from '@material-ui/core/Modal'
 
 function getModalStyle({ width }) {
+  const windowWidth = window.innerWidth
+
   const top = 50
-  const left = 50
+  const left = windowWidth < 360 ? 0 : 50
+  const transform = windowWidth < 360 ? `translate(-${top}%)` : `translate(-${top}%, -${left}%)`
 
   return {
     top: `${top}%`,
     left: `${left}%`,
-    transform: `translate(-${top}%, -${left}%)`,
+    transform,
     width,
     overflow: 'auto',
     maxHeight: '90vh',
+    maxWidth: '90vw',
   }
 }
 

@@ -6,6 +6,9 @@ import Checkbox from '@material-ui/core/Checkbox'
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank'
 import CheckBoxIcon from '@material-ui/icons/CheckBox'
 
+const icon = <CheckBoxOutlineBlankIcon fontSize="small" />
+const checkedIcon = <CheckBoxIcon fontSize="small" />
+
 const AsyncAutocomplete = ({
   request,
   textFieldProps,
@@ -20,10 +23,13 @@ const AsyncAutocomplete = ({
   const [open, setOpen] = React.useState(false)
   const [options, setOptions] = React.useState([])
   const [allSelected, setAllSelected] = React.useState(false)
-  const isLoading = open && options.length === 0
+  const [isLoading, setIsLoading] = React.useState(false)
 
-  const icon = <CheckBoxOutlineBlankIcon fontSize="small" />
-  const checkedIcon = <CheckBoxIcon fontSize="small" />
+  React.useEffect(() => {
+    if (open && options.length === 0) {
+      setIsLoading(true)
+    }
+  }, [open, options.length])
 
   React.useEffect(() => {
     let active = true
@@ -32,13 +38,19 @@ const AsyncAutocomplete = ({
       return undefined
     }
 
-    ;(async () => {
-      const response = await fetch(request.url, request.options)
+    try {
+      ;(async () => {
+        const response = await fetch(request.url, request.options)
 
-      if (active) {
-        setOptions(response)
-      }
-    })()
+        // if still mounted
+        if (active) {
+          setOptions(response)
+          setIsLoading(false)
+        }
+      })()
+    } catch (err) {
+      setIsLoading(false)
+    }
 
     return () => {
       active = false
@@ -46,6 +58,7 @@ const AsyncAutocomplete = ({
     // eslint-disable-next-line
   }, [isLoading])
 
+  // reset options when menu is closed
   React.useEffect(() => {
     if (!open && !rememberOptions) {
       setOptions([])
@@ -55,6 +68,7 @@ const AsyncAutocomplete = ({
 
   return (
     <Autocomplete
+      noOptionsText="Nada que cargar."
       onChange={(_, values) => {
         if (!multiple) return onChange(values)
         const newAllSelected = values.includes('all')

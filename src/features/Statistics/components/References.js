@@ -5,6 +5,13 @@ import yellowBuilding from '../../../assets/images/building-yellow.svg'
 import blueBuilding from '../../../assets/images/building-blue.svg'
 import greenBuilding from '../../../assets/images/building-green.svg'
 
+const styles = {
+  red: { fontWeight: 500, margin: '0 0.5rem', display: 'inline-block', color: 'red' },
+  yellow: { fontWeight: 500, margin: '0 0.5rem', display: 'inline-block', color: 'olive' },
+  blue: { fontWeight: 500, margin: '0 0.5rem', display: 'inline-block', color: 'blue' },
+  green: { fontWeight: 500, margin: '0 0.5rem', display: 'inline-block', color: 'darkgreen' },
+}
+
 const References = ({ type, buildings }) => {
   const [redPercentage, setRedPercentage] = useState(0)
   const [yellowPercentage, setYellowPercentage] = useState(0)
@@ -48,54 +55,34 @@ const References = ({ type, buildings }) => {
     >
       {type === mapFilters.general && (
         <>
-          <span style={{ fontWeight: 500, color: 'red' }}>
-            {getPercentageLabel(redPercentage)} Nunca hecho
-          </span>
-          <span style={{ fontWeight: 500, color: 'olive', background: 'white' }}>
+          <span style={styles.red}>{getPercentageLabel(redPercentage)} Nunca hecho</span>
+          <span style={styles.yellow}>
             {getPercentageLabel(yellowPercentage)} Hecho hace más de 2 meses
           </span>
-          <span style={{ fontWeight: 500, color: 'blue' }}>
-            {getPercentageLabel(bluePercentage)} Asignado
-          </span>
-          <span style={{ fontWeight: 500, color: 'darkgreen' }}>
+          <span style={styles.blue}>{getPercentageLabel(bluePercentage)} Asignado</span>
+          <span style={styles.green}>
             {getPercentageLabel(greenPercentage)} Hecho en los últimos 2 meses
           </span>
         </>
       )}
       {type === mapFilters.currentMonth && (
         <>
-          <span style={{ fontWeight: 500, color: 'olive', background: 'white' }}>
-            {getPercentageLabel(yellowPercentage)} No Asignado
-          </span>
-          <span style={{ fontWeight: 500, color: 'blue' }}>
-            {getPercentageLabel(bluePercentage)} Asignado
-          </span>
-          <span style={{ fontWeight: 500, color: 'darkgreen' }}>
-            {getPercentageLabel(greenPercentage)} Hecho
-          </span>
+          <span style={styles.yellow}>{getPercentageLabel(yellowPercentage)} No Asignado</span>
+          <span style={styles.blue}>{getPercentageLabel(bluePercentage)} Asignado</span>
+          <span style={styles.green}>{getPercentageLabel(greenPercentage)} Hecho</span>
         </>
       )}
       {type === mapFilters.previousMonth && (
         <>
-          <span style={{ fontWeight: 500, color: 'red' }}>
-            {getPercentageLabel(redPercentage)} No hecho
-          </span>
-          <span style={{ fontWeight: 500, color: 'darkgreen' }}>
-            {getPercentageLabel(greenPercentage)} Hecho
-          </span>
+          <span style={styles.red}>{getPercentageLabel(redPercentage)} No hecho</span>
+          <span style={styles.green}>{getPercentageLabel(greenPercentage)} Hecho</span>
         </>
       )}
       {type === mapFilters.campaign && (
         <>
-          <span style={{ fontWeight: 500, color: 'olive', background: 'white' }}>
-            {getPercentageLabel(yellowPercentage)} No Asignado
-          </span>
-          <span style={{ fontWeight: 500, color: 'blue' }}>
-            {getPercentageLabel(bluePercentage)} Asignado
-          </span>
-          <span style={{ fontWeight: 500, color: 'darkgreen' }}>
-            {getPercentageLabel(greenPercentage)} Hecho
-          </span>
+          <span style={styles.yellow}>{getPercentageLabel(yellowPercentage)} No Asignado</span>
+          <span style={styles.blue}>{getPercentageLabel(bluePercentage)} Asignado</span>
+          <span style={styles.green}>{getPercentageLabel(greenPercentage)} Hecho</span>
         </>
       )}
     </div>

@@ -13,33 +13,34 @@ import { Login } from './Login'
 import { Assignments } from './Assignments'
 import { Statistics } from './Statistics'
 import { Campaigns } from './Campaigns'
+import { MyAssignments } from './My-Assignments'
 import { UserContext } from 'contexts'
 import { register as registerFetch } from 'utils'
 
 function App() {
-  const [admin, setAdmin] = useState(undefined)
+  const [user, setUser] = useState(undefined)
 
   useEffect(() => {
     const token = localStorage.getItem('token')
-    const localAdmin = localStorage.getItem('admin')
-    if (!token || !localAdmin) {
+    const localUser = localStorage.getItem('user')
+    if (!token || !localUser) {
       return
     }
     registerFetch(token)
-    setAdmin(JSON.parse(localAdmin))
+    setUser(JSON.parse(localUser))
   }, [])
 
   return (
     <>
       <ToastContainer />
-      <UserContext.Provider value={{ admin, setAdmin }}>
+      <UserContext.Provider value={{ user, setUser }}>
         <Router>
           <Switch>
             <Route exact path="/" component={Login} />
             <Route exact path="/login" component={Login} />
             <Layout>
               <Switch>
-                {!admin && (
+                {!user && (
                   <Route
                     render={({ location }) => (
                       <Redirect
@@ -51,15 +52,26 @@ function App() {
                     )}
                   />
                 )}
-                <Route exact path="/" component={Login} />
-                <Route exact path="/login" component={Login} />
-                <Route exact path="/users" component={Users} />
-                {admin && admin.is_superadmin && <Route exact path="/admins" component={Admins} />}
-                <Route exact path="/buildings" component={Buildings} />
-                <Route exact path="/assignments" component={Assignments} />
-                <Route exact path="/statistics" component={Statistics} />
-                <Route exact path="/campaigns" component={Campaigns} />
-                <Route component={() => <h1>404 no encontrado</h1>} />
+                {user && user.is_admin ? (
+                  <Switch>
+                    <Route exact path="/" component={Login} />
+                    <Route exact path="/login" component={Login} />
+                    <Route exact path="/users" component={Users} />
+                    {user && user.is_superadmin && (
+                      <Route exact path="/admins" component={Admins} />
+                    )}
+                    <Route exact path="/buildings" component={Buildings} />
+                    <Route exact path="/assignments" component={Assignments} />
+                    <Route exact path="/statistics" component={Statistics} />
+                    <Route exact path="/campaigns" component={Campaigns} />
+                    <Route component={() => <h1>404 no encontrado</h1>} />
+                  </Switch>
+                ) : (
+                  <Switch>
+                    <Route exact path="/my-assignments" component={MyAssignments} />
+                    <Route component={() => <h1>404 no encontrado</h1>} />
+                  </Switch>
+                )}
               </Switch>
             </Layout>
           </Switch>
@@ -69,4 +81,4 @@ function App() {
   )
 }
 
-export default hot(module)(App)
+export default process.env.NODE_ENV === 'development' ? hot(module)(App) : App

@@ -1,7 +1,7 @@
-import React, { useState } from "react"
-import { Modal } from "../modal"
-import { NewUserForm } from "./components/NewUserForm"
-import { DefaultTable } from "../DefaultTable"
+import React, { useState } from 'react'
+import { Modal } from '../modal'
+import { NewUserForm } from './components/NewUserForm'
+import { DefaultTable } from '../DefaultTable'
 
 const UsersTable = ({ isAdmin, data, loading, onCreateUser }) => {
   const [createModalOpen, setCreateModalOpen] = useState(false)
@@ -10,34 +10,34 @@ const UsersTable = ({ isAdmin, data, loading, onCreateUser }) => {
     closeCreateModal()
     onCreateUser()
   }
+
   return (
     <>
       <DefaultTable
         isLoading={loading}
         columns={[
           {
-            title: "Nombre y apellido",
-            field: "fullname"
+            title: 'Nombre y apellido',
+            field: 'fullname',
           },
-          { title: "Usuario", field: "username" }
+          { title: 'Usuario', field: 'username' },
+          isAdmin
+            ? { title: 'Es superadmin', render: admin => (admin.is_superadmin ? 'Sí' : 'No') }
+            : {},
         ]}
         data={data}
-        title={isAdmin ? "Administradores" : "Usuarios"}
+        title={isAdmin ? 'Administradores' : 'Usuarios'}
         actions={[
           {
-            icon: "add",
-            tooltip: "Crear usuario",
+            icon: 'add',
+            tooltip: 'Crear usuario',
             isFreeAction: true,
-            onClick: () => setCreateModalOpen(true)
-          }
+            onClick: () => setCreateModalOpen(true),
+          },
         ]}
       />
       <Modal open={createModalOpen} close={closeCreateModal}>
-        <NewUserForm
-          isAdmin={isAdmin}
-          onClose={closeCreateModal}
-          onDone={onCreatedUser}
-        />
+        <NewUserForm isAdmin={isAdmin} onClose={closeCreateModal} onDone={onCreatedUser} />
       </Modal>
     </>
   )

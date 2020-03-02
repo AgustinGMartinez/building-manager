@@ -1,9 +1,10 @@
 const Joi = require('joi')
 const express = require('express'),
   router = express.Router()
-const query = require('../mysql')
+const query = require('../db')
 const CustomError = require('../errors')
 const authenticated = require('../middlewares/authenticated')
+const createQueryValues = require('../utils/db').createQueryValues
 
 function validateUpsert(doorbells) {
   const schema = {
@@ -28,22 +29,20 @@ router.post('/', authenticated.admin, async (req, res, next) => {
     validateUpsert(req.body)
     const { buildingId, doorbells } = req.body
     const setAllDeletedQuery = `
-      UPDATE doorbells SET deleted = 1 where building_id = ?
+      UPDATE doorbells SET deleted = 1 where building_id = $1
     `
-    await query(setAllDeletedQuery, buildingId)
-    const queryTemplate = []
-    const queryValues = []
-    doorbells.forEach(({ floor, identifier }) => {
-      queryTemplate.push('(?, ?, ?, ?)')
-      queryValues.push(buildingId, floor, identifier, `${buildingId}${floor}${identifier}`)
-    })
-    const upsertQuery = `
-    INSERT INTO doorbells (building_id, floor, identifier, special_id)
-    VALUES ${queryTemplate.join(', ')}
-    ON DUPLICATE KEY
-    UPDATE deleted = 0
+    await query(setAllDeletedQuery, [buildingId])
+    const upsertQueryData = doorbells.reduce((acc, { floor, identifier }) => {
+      return acc.concat(buildingId, floor, identifier, `${buildingId}${floor}${identifier}`)
+    }, [])
+    const partialUpsertQuery = `
+      INSERT INTO doorbells (building_id, floor, identifier, special_id)
+      VALUES ?
+      ON CONFLICT (special_id) DO UPDATE
+        SET deleted = 0
     `
-    await query(upsertQuery, queryValues)
+    const upsertQuery = createQueryValues(partialUpsertQuery, upsertQueryData, 4)
+    await query(upsertQuery, upsertQueryData)
     res.send()
   } catch (err) {
     next(err)

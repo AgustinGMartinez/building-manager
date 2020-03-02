@@ -1,7 +1,7 @@
 const Joi = require('joi')
 const express = require('express'),
   router = express.Router()
-const query = require('../mysql')
+const query = require('../db')
 const CustomError = require('../errors')
 const AuthUtils = require('../utils/authentication')
 const authenticated = require('../middlewares/authenticated')
@@ -31,7 +31,7 @@ router.get('/', authenticated.superadmin, async (req, res) => {
     where is_admin = 1 OR is_superadmin = 1
   `
   const result = await query(queryString)
-  res.send(result)
+  res.send(result.rows)
 })
 
 router.post('/', authenticated.superadmin, async (req, res, next) => {
@@ -42,15 +42,15 @@ router.post('/', authenticated.superadmin, async (req, res, next) => {
       SELECT * from users where username = '${username}'
     `
     const result = await query(queryString)
-    if (result.length) {
+    if (result.rows.length) {
       return next(new CustomError(400, 'Ya existe un usuario con ese nombre'))
     }
     const saltedPassword = await AuthUtils.hashPassword(password)
     await query(
       `
-      INSERT INTO users (username, password, name, lastname, is_admin, is_superadmin) VALUES (?, ?, ?, ?, ?, ?)
+      INSERT INTO users (username, password, name, lastname, is_admin, is_superadmin) VALUES ($1, $2, $3, $4, $5, $6)
       `,
-      [username, saltedPassword, name, lastname, true, isSuperadmin],
+      [username, saltedPassword, name, lastname, 1, isSuperadmin ? 1 : 0],
     )
     res.send()
   } catch (err) {

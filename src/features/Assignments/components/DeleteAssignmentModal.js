@@ -21,7 +21,6 @@ const DeleteAssignmentModal = ({ onClose, onDone, assignment }) => {
       toast.error('No se pudo eliminar asignación. Intente de nuevo.')
     }
   }
-  console.log({ assignment })
 
   return (
     <Dialog open onClose={onClose}>

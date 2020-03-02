@@ -1,8 +1,8 @@
 import React from 'react'
 
 const UserContext = React.createContext({
-  admin: undefined,
-  setAdmin: () => {},
+  user: undefined,
+  setUser: () => {},
 })
 
 export { UserContext }

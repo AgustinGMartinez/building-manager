@@ -121,6 +121,7 @@ const SetBellsModal = ({ onClose, initialBells, buildingId, onDone }) => {
               const inSelection = selectedFloorBells.includes(value.toString())
               return (
                 <Button
+                  key={value}
                   onClick={() => toggleBell(value)}
                   size="small"
                   color={inSelection ? 'secondary' : undefined}

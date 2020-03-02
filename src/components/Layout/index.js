@@ -57,50 +57,59 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const NavOption = ({ to, Icon, text }) => (
-  <NavLink
-    exact
-    to={to}
-    style={{
-      textDecoration: 'none',
-      color: 'rgba(0, 0, 0, 0.87)',
-    }}
-    activeStyle={{
-      color: 'blue',
-    }}
-  >
-    <ListItem button key={text}>
-      <ListItemIcon>
-        <Icon />
-      </ListItemIcon>
-      <ListItemText primary={text} />
-    </ListItem>
-  </NavLink>
-)
-
 function ResponsiveDrawer({ children }) {
   const classes = useStyles()
   const theme = useTheme()
   const [mobileOpen, setMobileOpen] = React.useState(false)
-  const { admin } = useContext(UserContext)
+  const { user } = useContext(UserContext)
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen)
   }
+
+  const NavOption = ({ to, Icon, text }) => (
+    <NavLink
+      exact
+      to={to}
+      style={{
+        textDecoration: 'none',
+        color: 'rgba(0, 0, 0, 0.87)',
+      }}
+      activeStyle={{
+        color: 'blue',
+      }}
+      onClick={() => setMobileOpen(false)}
+    >
+      <ListItem button key={text}>
+        <ListItemIcon>
+          <Icon />
+        </ListItemIcon>
+        <ListItemText primary={text} />
+      </ListItem>
+    </NavLink>
+  )
 
   const drawer = (
     <div>
       <div className={classes.toolbar} />
       <Divider />
       <List>
-        <NavOption to={'/users'} text={'Usuarios'} Icon={PersonIcon} />
-        {admin && admin.is_superadmin && (
-          <NavOption to={'/admins'} text={'Administradores'} Icon={SupervisorAccountIcon} />
+        {user && user.is_admin === 1 ? (
+          <>
+            <NavOption to={'/users'} text={'Usuarios'} Icon={PersonIcon} />
+            {user && user.is_superadmin === 1 && (
+              <NavOption to={'/admins'} text={'Administradores'} Icon={SupervisorAccountIcon} />
+            )}
+            <NavOption to={'/buildings'} text={'Edificios'} Icon={ApartmentIcon} />
+            <NavOption to={'/assignments'} text={'Asignaciones'} Icon={AssignmentIcon} />
+            <NavOption to={'/statistics'} text={'Estadisticas'} Icon={MapIcon} />
+            <NavOption to={'/campaigns'} text={'Campañas'} Icon={FlagIcon} />
+          </>
+        ) : (
+          <>
+            <NavOption to={'/my-assignments'} text={'Mis Asignaciones'} Icon={AssignmentIcon} />
+          </>
         )}
-        <NavOption to={'/buildings'} text={'Edificios'} Icon={ApartmentIcon} />
-        <NavOption to={'/assignments'} text={'Asignaciones'} Icon={AssignmentIcon} />
-        <NavOption to={'/statistics'} text={'Estadisticas'} Icon={MapIcon} />
-        <NavOption to={'/campaigns'} text={'Campañas'} Icon={FlagIcon} />
       </List>
     </div>
   )
@@ -120,7 +129,7 @@ function ResponsiveDrawer({ children }) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Gestor de edificios - 0.9 Alpha
+            Gestor de edificios {user && user.is_admin === 1 ? '- 0.9 Alpha' : ''}
           </Typography>
         </Toolbar>
       </AppBar>

@@ -22,19 +22,21 @@ const rules = {
   password: [{ validate: password => password.length >= 6 }],
 }
 
-const INITIAL_PAGE = '/users' // must be other than /login and / or else will trigger an infinte lopp
+const INITIAL_PAGE = { admin: '/users', user: '/my-assignments' } // must be other than /login and / or else will trigger an infinte lopp
 
 const Login = () => {
+  const { user, setUser } = useContext(UserContext)
+
   const classes = useStyles()
   let history = useHistory()
   let location = useLocation()
-  let { from } = location.state || { from: { pathname: INITIAL_PAGE } }
+  let { from } = location.state || {
+    from: { pathname: user && user.is_admin ? INITIAL_PAGE.admin : INITIAL_PAGE.user },
+  }
 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-
-  const { admin, setAdmin } = useContext(UserContext)
 
   const handleChangeUsername = e => {
     setUsername(e.target.value)
@@ -68,18 +70,18 @@ const Login = () => {
       })
 
       const { token, user } = response
-      if (!user.is_admin) throw new Error()
       registerFetch(token)
-      setAdmin(user)
+      setUser(user)
       localStorage.setItem('token', token)
-      localStorage.setItem('admin', JSON.stringify(user))
+      localStorage.setItem('user', JSON.stringify(user))
     } catch (err) {
+      console.error(err.message)
       toast.error('Usuario o contraseña incorrectos.')
       setIsLoading(false)
     }
   }
 
-  if (admin) {
+  if (user) {
     history.replace(from)
     return null
   }

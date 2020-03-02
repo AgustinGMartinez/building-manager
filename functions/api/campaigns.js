@@ -1,7 +1,7 @@
 const Joi = require('joi')
 const express = require('express'),
   router = express.Router()
-const query = require('../mysql')
+const query = require('../db')
 const CustomError = require('../errors')
 const authenticated = require('../middlewares/authenticated')
 
@@ -21,7 +21,7 @@ router.get('/', authenticated.admin, async (req, res) => {
   FROM campaigns
   `
   const campaigns = await query(campaignsQuery)
-  res.send(campaigns)
+  res.send(campaigns.rows)
 })
 
 router.post('/', authenticated.admin, async (req, res, next) => {
@@ -29,15 +29,15 @@ router.post('/', authenticated.admin, async (req, res, next) => {
     validateCampaign(req.body)
     const { name } = req.body
     const checkUniqueNameQuery = `
-      SELECT * from campaigns where name = ?
+      SELECT * from campaigns where name = $1
     `
     const result = await query(checkUniqueNameQuery, [name])
-    if (result.length) {
+    if (result.rows.length) {
       return next(new CustomError(400, 'Ya existe una campaña con ese nombre'))
     }
     await query(
       `
-      INSERT INTO campaigns (name) VALUES (?)
+      INSERT INTO campaigns (name) VALUES ($1)
       `,
       [name],
     )
@@ -52,7 +52,7 @@ router.delete('/:id', authenticated.admin, async (req, res, next) => {
     const { id } = req.params
     await query(
       `
-      DELETE FROM campaigns WHERE id = ?
+      DELETE FROM campaigns WHERE id = $1
       `,
       [id],
     )
