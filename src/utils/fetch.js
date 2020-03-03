@@ -8,14 +8,9 @@ function register(token) {
   }
   unregisterFetch = fetchIntercept.register({
     request: function(url, config) {
-      const isDev = process.env.NODE_ENV === 'development'
       let newUrl, newConfig
 
-      if (isDev) {
-        newUrl = `http://localhost:5000/api${url}`
-      } else {
-        newUrl = url
-      }
+      newUrl = `${process.env.REACT_APP_API_URL}${url}`
 
       newConfig = {
         ...(config || {}),

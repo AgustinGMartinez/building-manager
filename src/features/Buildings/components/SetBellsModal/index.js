@@ -74,7 +74,11 @@ const SetBellsModal = ({ onClose, initialBells, buildingId, onDone }) => {
       : []
 
   const isSubmitDisabled =
-    floorsAndDoorbells.length === 0 || floorsAndDoorbells.some(floor => floor.bells.length === 0)
+    floorsAndDoorbells.length === 0 ||
+    floorsAndDoorbells.some((floor, index) => {
+      if (index === 0) return false // ignore PB as it sometimes does not have doorbells
+      return floor.bells.length === 0
+    })
 
   const onSubmit = async () => {
     let doorbells = []
@@ -98,7 +102,7 @@ const SetBellsModal = ({ onClose, initialBells, buildingId, onDone }) => {
   }
 
   return (
-    <Modal open close={onClose} noBackdrop>
+    <Modal open close={onClose} noBackdrop width={750}>
       <h2>Editar timbres</h2>
       <Box mb={2}>
         <Button variant="contained" color="primary" onClick={addFloor}>
@@ -114,7 +118,7 @@ const SetBellsModal = ({ onClose, initialBells, buildingId, onDone }) => {
       </Box>
       <Grid container spacing={3}>
         <Grid item xs={12}>
-          {Array(8)
+          {Array(10)
             .fill(1)
             .map((_, i) => {
               const value = numberToLetter(i + 1)
@@ -131,7 +135,7 @@ const SetBellsModal = ({ onClose, initialBells, buildingId, onDone }) => {
                 </Button>
               )
             })}
-          {Array(8)
+          {Array(10)
             .fill(1)
             .map((_, i) => {
               const value = i + 1
