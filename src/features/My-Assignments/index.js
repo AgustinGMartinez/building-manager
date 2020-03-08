@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Assignment } from 'components/Assignment'
 import { useContext } from 'react'
 import { UserContext } from 'contexts'
@@ -12,14 +12,18 @@ const MyAssignments = () => {
   const { user } = useContext(UserContext)
   const [assignments, isLoading] = useFetch({ url: `/assignments?user_id=${user.id}` })
 
-  return assignments.length
-    ? assignments.map((assignment, i) => (
-        <React.Fragment key={assignment.id}>
-          <Assignment assignment={assignment} />
-          {i + 1 !== assignments.length && <Separator />}
-        </React.Fragment>
-      ))
-    : null
+  return assignments.length ? (
+    assignments.map((assignment, i) => (
+      <React.Fragment key={assignment.id}>
+        <Assignment assignment={assignment} />
+        {i + 1 !== assignments.length && <Separator />}
+      </React.Fragment>
+    ))
+  ) : isLoading ? (
+    'Cargando...'
+  ) : (
+    <h4>No tenés asignaciones todavía</h4>
+  )
 }
 
 export { MyAssignments }

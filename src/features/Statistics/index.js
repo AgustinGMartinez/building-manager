@@ -15,6 +15,7 @@ const unassignedImage = yellowBuilding
 const neverDoneImage = redBuilding
 const doneImage = greenBuilding
 
+// TODO: fix campaign filters showing wrong assignments; make them complete only if 90%+ is done
 function handleFilter(type, buildings, assignments) {
   if (type === mapFilters.general) {
     return buildings.map(building => {

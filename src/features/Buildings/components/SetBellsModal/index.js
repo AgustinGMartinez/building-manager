@@ -3,6 +3,7 @@ import { Modal } from 'components/modal'
 import { Button, Grid, List, ListItem, Box, LinearProgress } from '@material-ui/core'
 import { toast } from 'react-toastify'
 import { usePassiveFetch } from 'hooks/usePassiveFetch'
+import { NumberUtils } from 'utils'
 
 function getInitialState(bells) {
   const floors = []
@@ -17,11 +18,14 @@ function getInitialState(bells) {
       bells: [bell.identifier],
     })
   })
+  const startsAtOne = floors[0] && floors[0].number === 1
+  if (startsAtOne) {
+    floors.unshift({
+      number: 0,
+      bells: [],
+    })
+  }
   return floors
-}
-
-function numberToLetter(n) {
-  return (n + 9).toString(36).toUpperCase()
 }
 
 const SetBellsModal = ({ onClose, initialBells, buildingId, onDone }) => {
@@ -32,7 +36,7 @@ const SetBellsModal = ({ onClose, initialBells, buildingId, onDone }) => {
   const [floorsAndDoorbells, setFloorsAndDoorbellsMap] = useState(initialData)
 
   const addFloor = () => {
-    const newFloorNumber = floorsAndDoorbells.length
+    let newFloorNumber = floorsAndDoorbells.length
     setFloorsAndDoorbellsMap([...floorsAndDoorbells, { number: newFloorNumber, bells: [] }])
     setSelectedFloor(newFloorNumber)
   }
@@ -121,7 +125,7 @@ const SetBellsModal = ({ onClose, initialBells, buildingId, onDone }) => {
           {Array(10)
             .fill(1)
             .map((_, i) => {
-              const value = numberToLetter(i + 1)
+              const value = NumberUtils.numberToLetter(i + 1)
               const inSelection = selectedFloorBells.includes(value.toString())
               return (
                 <Button
@@ -135,7 +139,8 @@ const SetBellsModal = ({ onClose, initialBells, buildingId, onDone }) => {
                 </Button>
               )
             })}
-          {Array(10)
+          {/* TODO: maybe re-add once I know how to deal with letters in assignment view calculations */}
+          {/* {Array(10)
             .fill(1)
             .map((_, i) => {
               const value = i + 1
@@ -151,7 +156,7 @@ const SetBellsModal = ({ onClose, initialBells, buildingId, onDone }) => {
                   {value}
                 </Button>
               )
-            })}
+            })} */}
         </Grid>
       </Grid>
       <Box mb={2} />

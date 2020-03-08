@@ -57,11 +57,11 @@ const References = ({ type, buildings }) => {
         <>
           <span style={styles.red}>{getPercentageLabel(redPercentage)} Nunca hecho</span>
           <span style={styles.yellow}>
-            {getPercentageLabel(yellowPercentage)} Hecho hace más de 2 meses
+            {getPercentageLabel(yellowPercentage)} 2+ meses sin hacer
           </span>
           <span style={styles.blue}>{getPercentageLabel(bluePercentage)} Asignado</span>
           <span style={styles.green}>
-            {getPercentageLabel(greenPercentage)} Hecho en los últimos 2 meses
+            {getPercentageLabel(greenPercentage)} Hecho en últimos 2 meses (al menos 1 timbre)
           </span>
         </>
       )}
@@ -69,20 +69,26 @@ const References = ({ type, buildings }) => {
         <>
           <span style={styles.yellow}>{getPercentageLabel(yellowPercentage)} No Asignado</span>
           <span style={styles.blue}>{getPercentageLabel(bluePercentage)} Asignado</span>
-          <span style={styles.green}>{getPercentageLabel(greenPercentage)} Hecho</span>
+          <span style={styles.green}>
+            {getPercentageLabel(greenPercentage)} Hecho (al menos 50%)
+          </span>
         </>
       )}
       {type === mapFilters.previousMonth && (
         <>
           <span style={styles.red}>{getPercentageLabel(redPercentage)} No hecho</span>
-          <span style={styles.green}>{getPercentageLabel(greenPercentage)} Hecho</span>
+          <span style={styles.green}>
+            {getPercentageLabel(greenPercentage)} Hecho (al menos 50%)
+          </span>
         </>
       )}
       {type === mapFilters.campaign && (
         <>
           <span style={styles.yellow}>{getPercentageLabel(yellowPercentage)} No Asignado</span>
           <span style={styles.blue}>{getPercentageLabel(bluePercentage)} Asignado</span>
-          <span style={styles.green}>{getPercentageLabel(greenPercentage)} Hecho</span>
+          <span style={styles.green}>
+            {getPercentageLabel(greenPercentage)} Hecho (al menos 90%)
+          </span>
         </>
       )}
     </div>

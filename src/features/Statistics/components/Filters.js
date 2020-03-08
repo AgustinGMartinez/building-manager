@@ -36,8 +36,7 @@ const Filters = ({ onSelect }) => {
       style={{
         position: 'absolute',
         top: 0,
-        left: '80%',
-        transform: 'translateX(-50%)',
+        right: 0,
         background: 'white',
         border: '1px solid #ccc',
         padding: '10px 20px',

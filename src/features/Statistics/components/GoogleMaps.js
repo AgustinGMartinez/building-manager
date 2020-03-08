@@ -5,7 +5,13 @@ const GoogleMaps = withGoogleMap(({ buildings }) => {
   const [hoveringInfoWindows, setHoveringInfoWindows] = useState(null)
 
   return (
-    <GoogleMap defaultZoom={14.6} defaultCenter={{ lat: -34.58578, lng: -58.532624 }}>
+    <GoogleMap
+      defaultZoom={14.6}
+      defaultCenter={{ lat: -34.58578, lng: -58.532624 }}
+      options={{
+        disableDefaultUI: true,
+      }}
+    >
       {buildings.map((building, index) => (
         <Marker
           key={index}
@@ -15,9 +21,10 @@ const GoogleMaps = withGoogleMap(({ buildings }) => {
           anchor={new google.maps.Point(0, 0)}
           onMouseOver={() => setHoveringInfoWindows(index)}
           onMouseOut={() => setHoveringInfoWindows(null)}
+          onClick={() => setHoveringInfoWindows(index)}
         >
           {hoveringInfoWindows === index && (
-            <InfoWindow>
+            <InfoWindow onCloseClick={() => setHoveringInfoWindows(null)}>
               <div style={{ color: 'black' }}>
                 <span style={{ display: 'block' }}>
                   {building.street} {building.house_number}

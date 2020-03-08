@@ -47,23 +47,20 @@ const getAssignments = async ({ id, campaign_id, user_id }) => {
     ${user_id ? 'AND ua.user_id = $1' : ''}
     ${noQueries ? 'AND a.completed = 0' : ''}
   `
-  const doorbellsQuery = `
-    SELECT *
-    from doorbells
-    where deleted = 0
-  `
   const doorbellsAssignmentsQuery = `
     SELECT *
-    from doorbells_assignments
-    ${id ? 'where assignment_id = $1' : ''}
+    from doorbells_assignments da
+    INNER JOIN doorbells d
+    ON d.special_id = da.doorbell_special_id
+    WHERE d.deleted = 0
+    ${id ? 'AND da.assignment_id = $1' : ''}
   `
   const buildingsQuery = `
     SELECT *
     from buildings
   `
-  const [assignments, doorbells, doorbellsAssignments, buildings] = await Promise.all([
+  const [assignments, doorbellsAssignments, buildings] = await Promise.all([
     query(assignmentsQuery, [id, campaign_id, user_id]),
-    query(doorbellsQuery),
     query(doorbellsAssignmentsQuery, [id]),
     query(buildingsQuery),
   ])
@@ -77,13 +74,8 @@ const getAssignments = async ({ id, campaign_id, user_id }) => {
 
     doorbellsAssignments.rows.forEach(doorbellAssigment => {
       if (doorbellAssigment.assignment_id === assignmentId) {
-        const doorbell = doorbells.rows.find(
-          d => d.special_id === doorbellAssigment.doorbell_special_id,
-        )
-        if (doorbell) {
-          aDoorbells.push({ ...doorbell, completed: doorbellAssigment.completed })
-          aBuildingsIds.push(doorbell.building_id)
-        }
+        aDoorbells.push({ ...doorbellAssigment, completed: doorbellAssigment.completed })
+        aBuildingsIds.push(doorbellAssigment.building_id)
       }
     })
     ;[...new Set(aBuildingsIds)].forEach(id => {
@@ -151,6 +143,59 @@ router.post('/', authenticated.admin, async (req, res, next) => {
       3,
     )
     await query(doorbellsAssignmentsQuery, doorbellsAssignmentsData)
+    res.send()
+  } catch (err) {
+    next(err)
+  }
+})
+
+router.put('/:id', authenticated.user, async (req, res, next) => {
+  try {
+    const { specialId, buildingId } = req.body
+    const assignmentId = req.params.id
+    // validate assignmet id belonging to user
+    const userId = req.user.id
+    const isAdmin = req.user.is_admin
+    const assignment = (await getAssignments({ id: assignmentId }))[0]
+    if (!assignment) throw new CustomError(404, 'Assignment not found')
+    if (!isAdmin && assignment.user_id !== userId) throw new CustomError(403, 'Sin trampas please')
+
+    // if assignment is complete, ignore petition
+    if (assignment.completed) throw new CustomError(400, "Can't modify completed assignment")
+
+    // toogle boorbell
+    const toggleDoorbellQuery = `
+      UPDATE doorbells_assignments
+      SET completed = 1 - completed
+      WHERE assignment_id = $1 AND doorbell_special_id = $2
+    `
+    await query(toggleDoorbellQuery, [assignmentId, specialId])
+
+    // update building last done
+    const updateBuildingLastDoneQuery = `
+      UPDATE buildings
+      SET last_done = NOW()
+      WHERE id = $1
+    `
+    await query(updateBuildingLastDoneQuery, [buildingId])
+
+    // TODO: revert last done if user toggles off building
+
+    // if toggled doorbell was last one, finish assignment
+    const pendingCompletion = []
+    assignment.doorbells.forEach(d => {
+      if (!d.completed) pendingCompletion.push(d.special_id)
+    })
+    const isCompleted = pendingCompletion.length === 1 && pendingCompletion.includes(specialId)
+    if (isCompleted) {
+      const setAssignmentCompletedQuery = `
+        UPDATE assignments
+        SET completed = 1
+        WHERE id = $1
+      `
+      await query(setAssignmentCompletedQuery, [assignmentId])
+    }
+
     res.send()
   } catch (err) {
     next(err)
