@@ -57,4 +57,17 @@ router.post('/', authenticated.admin, async (req, res, next) => {
   }
 })
 
+router.delete('/:id', authenticated.admin, async (req, res, next) => {
+  try {
+    const { id } = req.params
+    const deleteQuery = `
+      DELETE FROM users WHERE id = $1
+    `
+    await query(deleteQuery, [id])
+    res.send()
+  } catch (err) {
+    next(err)
+  }
+})
+
 module.exports = router

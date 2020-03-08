@@ -4,11 +4,16 @@ import { useFetch } from 'hooks/useFetch'
 
 const Admins = () => {
   const [admins, loading, fetchAdmins] = useFetch({ url: '/admins' })
-  const onCreateUser = () => {
-    fetchAdmins()
-  }
 
-  return <UsersTable isAdmin data={admins} loading={loading} onCreateUser={onCreateUser} />
+  return (
+    <UsersTable
+      isAdmin
+      data={admins}
+      loading={loading}
+      onCreateUser={fetchAdmins}
+      onDeleteUser={fetchAdmins}
+    />
+  )
 }
 
 export { Admins }

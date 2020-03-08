@@ -1,14 +1,33 @@
 import React, { useState } from 'react'
 import { Modal } from '../modal'
-import { NewUserForm } from './components/NewUserForm'
+import { NewUserForm, DeleteUserModal } from './components'
 import { DefaultTable } from '../DefaultTable'
 
-const UsersTable = ({ isAdmin, data, loading, onCreateUser }) => {
-  const [createModalOpen, setCreateModalOpen] = useState(false)
-  const closeCreateModal = () => setCreateModalOpen(false)
+const UsersTable = ({ isAdmin, data, loading, onCreateUser, onDeleteUser }) => {
+  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false)
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false)
+  const [userToDelete, setUserToDelete] = useState(null)
+
+  const closeCreateModal = () => setIsCreateModalOpen(false)
+
   const onCreatedUser = () => {
     closeCreateModal()
     onCreateUser()
+  }
+
+  const handleOpenDeleteModal = user => {
+    setIsDeleteModalOpen(true)
+    setUserToDelete(user)
+  }
+
+  const handleDeleteModalClose = () => {
+    setIsDeleteModalOpen(false)
+    setUserToDelete(null)
+  }
+
+  const onDeleteUserDone = () => {
+    handleDeleteModalClose()
+    onDeleteUser()
   }
 
   return (
@@ -30,15 +49,30 @@ const UsersTable = ({ isAdmin, data, loading, onCreateUser }) => {
         actions={[
           {
             icon: 'add',
-            tooltip: 'Crear usuario',
+            tooltip: `Crear ${isAdmin ? 'administrador' : 'usuario'}`,
             isFreeAction: true,
-            onClick: () => setCreateModalOpen(true),
+            onClick: () => setIsCreateModalOpen(true),
+          },
+          {
+            icon: 'delete',
+            tooltip: `Borrar ${isAdmin ? 'administrador' : 'usuario'}`,
+            onClick: (e, user) => handleOpenDeleteModal(user),
           },
         ]}
       />
-      <Modal open={createModalOpen} close={closeCreateModal}>
-        <NewUserForm isAdmin={isAdmin} onClose={closeCreateModal} onDone={onCreatedUser} />
-      </Modal>
+      {isCreateModalOpen && (
+        <Modal open close={closeCreateModal}>
+          <NewUserForm isAdmin={isAdmin} onClose={closeCreateModal} onDone={onCreatedUser} />
+        </Modal>
+      )}
+      {isDeleteModalOpen && userToDelete && (
+        <DeleteUserModal
+          isAdmin={isAdmin}
+          user={userToDelete}
+          onClose={handleDeleteModalClose}
+          onDone={onDeleteUserDone}
+        />
+      )}
     </>
   )
 }
