@@ -1,19 +1,25 @@
 import React from 'react'
 import { useFetch } from 'hooks/useFetch'
 import { useState } from 'react'
-import redBuilding from '../../assets/images/building-red.svg'
+/* import redBuilding from '../../assets/images/building-red.svg'
 import yellowBuilding from '../../assets/images/building-yellow.svg'
 import blueBuilding from '../../assets/images/building-blue.svg'
-import greenBuilding from '../../assets/images/building-green.svg'
+import greenBuilding from '../../assets/images/building-green.svg' */
 import { Filters, References, GoogleMaps } from './components'
 import { mapFilters } from 'const'
 import { useEffect } from 'react'
 import moment from 'moment'
 
-const assignedImage = blueBuilding
+// original icons
+/* const assignedImage = blueBuilding
 const unassignedImage = yellowBuilding
 const neverDoneImage = redBuilding
-const doneImage = greenBuilding
+const doneImage = greenBuilding */
+
+const assignedImage = 'blue'
+const unassignedImage = 'olive'
+const neverDoneImage = 'red'
+const doneImage = 'darkgreen'
 
 // TODO: fix campaign filters showing wrong assignments; make them complete only if 90%+ is done
 function handleFilter(type, buildings, assignments) {
