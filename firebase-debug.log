@@ -1,0 +1,1763 @@
+[debug] [2020-03-09T01:12:45.343Z] ----------------------------------------------------------------------
+[debug] [2020-03-09T01:12:45.348Z] Command:       /Users/xxx/.nvm/versions/node/v12.14.1/bin/node /Users/xxx/.nvm/versions/node/v12.14.1/bin/firebase serve
+[debug] [2020-03-09T01:12:45.348Z] CLI Version:   7.13.0
+[debug] [2020-03-09T01:12:45.348Z] Platform:      darwin
+[debug] [2020-03-09T01:12:45.348Z] Node Version:  v12.14.1
+[debug] [2020-03-09T01:12:45.351Z] Time:          Sun Mar 08 2020 22:12:45 GMT-0300 (Argentina Standard Time)
+[debug] [2020-03-09T01:12:45.351Z] ----------------------------------------------------------------------
+[debug] [2020-03-09T01:12:45.351Z] 
+[debug] [2020-03-09T01:12:45.365Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-03-09T01:12:45.366Z] > authorizing via signed-in user
+[debug] [2020-03-09T01:12:45.366Z] [iam] checking project building-manager-f6a0e for permissions ["firebase.projects.get"]
+[debug] [2020-03-09T01:12:45.368Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-03-09T01:12:45.368Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-03-09T01:12:45.518Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-09T01:12:45.526Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/building-manager-f6a0e:testIamPermissions  
+
+[debug] [2020-03-09T01:12:46.895Z] <<< HTTP RESPONSE 200
+[debug] [2020-03-09T01:12:46.897Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/building-manager-f6a0e  
+ 
+[debug] [2020-03-09T01:12:48.173Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/xxx/Desktop/proyectos/building-manager'...
+[info] 
+[debug] [2020-03-09T01:12:48.178Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/building-manager-f6a0e/webApps/-/config  
+ 
+[warn] ⚠  Your requested "node" version "8" doesn't match your global version "12"
+[info] ✔  functions: Emulator started at http://localhost:5001
+[debug] [2020-03-09T01:12:48.974Z] <<< HTTP RESPONSE 200
+[info] i  functions: Watching "/Users/xxx/Desktop/proyectos/building-manager/functions" for Cloud Functions...
+[debug] [2020-03-09T01:12:49.020Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-03-09T01:12:49.021Z] [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2020-03-09T01:12:49.021Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-03-09T01:12:49.021Z] [worker-~diagnostic~-d44804bb-1c7e-4385-a51a-0519e81a883b]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99499.sock
+[debug] [2020-03-09T01:12:49.022Z] [worker-~diagnostic~-d44804bb-1c7e-4385-a51a-0519e81a883b]: BUSY
+[info] i  hosting: Serving hosting files from: build
+[info] ✔  hosting: Local server: http://localhost:5000
+[debug] [2020-03-09T01:12:49.889Z] [runtime-status] [99499] Functions runtime initialized. {"cwd":"/Users/xxx/Desktop/proyectos/building-manager/functions","node_version":"12.14.1"}
+[debug] [2020-03-09T01:12:49.890Z] [runtime-status] [99499] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-09T01:12:49.896Z] [runtime-status] [99499] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-09T01:12:49.898Z] [runtime-status] [99499] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-09T01:12:49.900Z] [runtime-status] [99499] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-09T01:12:50.999Z] [worker-~diagnostic~-d44804bb-1c7e-4385-a51a-0519e81a883b]: IDLE
+[info] ✔  functions[api]: http function initialized (http://localhost:5001/building-manager-f6a0e/us-central1/api).
+[info] [hosting] Rewriting /api/assignments to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:13:07.776Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:13:07.776Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:13:07.776Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/api/assignments --> api
+[debug] [2020-03-09T01:13:07.788Z] [worker-pool] addWorker(api)
+[debug] [2020-03-09T01:13:07.788Z] [worker-pool] Adding worker with key api, total=1
+[debug] [2020-03-09T01:13:07.788Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:13:07.788Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:13:07.788Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:13:08.806Z] [runtime-status] [99502] Functions runtime initialized. {"cwd":"/Users/xxx/Desktop/proyectos/building-manager/functions","node_version":"12.14.1"}
+[debug] [2020-03-09T01:13:08.808Z] [runtime-status] [99502] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-09T01:13:08.811Z] [runtime-status] [99502] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-09T01:13:08.812Z] [runtime-status] [99502] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-09T01:13:08.814Z] [runtime-status] [99502] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-09T01:13:09.242Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:13:09.242Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:13:09.242Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:13:09.259Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:13:09.264Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:13:09.275Z] [runtime-status] [99502] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:13:09.289Z] [runtime-status] [99502] Ephemeral server survived.
+[info] [hosting] Rewriting /api/assignments to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:13:09.302Z] [work-queue] {"queueLength":1,"workRunningCount":1}
+[debug] [2020-03-09T01:13:09.302Z] [work-queue] {"queueLength":0,"workRunningCount":2}
+[debug] [2020-03-09T01:13:09.302Z] Accepted request GET /building-manager-f6a0e/us-central1/api/api/assignments --> api
+[debug] [2020-03-09T01:13:09.307Z] [worker-pool] addWorker(api)
+[debug] [2020-03-09T01:13:09.307Z] [worker-pool] Adding worker with key api, total=2
+[debug] [2020-03-09T01:13:09.307Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:13:09.308Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99503.sock
+[debug] [2020-03-09T01:13:09.308Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: BUSY
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:13:09.308Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:13:09.309Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:13:09.554Z] [runtime-status] [99503] Functions runtime initialized. {"cwd":"/Users/xxx/Desktop/proyectos/building-manager/functions","node_version":"12.14.1"}
+[debug] [2020-03-09T01:13:09.556Z] [runtime-status] [99503] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-09T01:13:09.558Z] [runtime-status] [99503] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-09T01:13:09.559Z] [runtime-status] [99503] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-09T01:13:09.560Z] [runtime-status] [99503] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-09T01:13:09.792Z] [runtime-status] [99503] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:13:09.792Z] [runtime-status] [99503] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:13:09.792Z] [runtime-status] [99503] Running api in mode HTTPS
+[debug] [2020-03-09T01:13:09.796Z] [runtime-status] [99503] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99503.sock
+[debug] [2020-03-09T01:13:09.799Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:13:09.812Z] [runtime-status] [99503] Ephemeral server handling GET request
+[debug] [2020-03-09T01:13:09.841Z] [runtime-status] [99503] Ephemeral server survived.
+[info] >  (node:99503) DeprecationWarning: Implicit disabling of certificate verification is deprecated and will be removed in pg 8. Specify `rejectUnauthorized: true` to require a valid CA or `rejectUnauthorized: false` to explicitly opt out of MITM protection.
+[info] i  functions: Finished "api" in ~4s
+[debug] [2020-03-09T01:13:14.497Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: IDLE
+[debug] [2020-03-09T01:13:14.504Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/campaigns to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[info] [hosting] Rewriting /api/buildings to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:13:32.936Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:13:32.936Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:13:32.936Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/api/campaigns --> api
+[debug] [2020-03-09T01:13:32.936Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:13:32.937Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:13:32.937Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:13:32.940Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:13:32.942Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:13:32.942Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:13:32.942Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:13:32.944Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:13:32.948Z] [work-queue] {"queueLength":1,"workRunningCount":1}
+[debug] [2020-03-09T01:13:32.948Z] [work-queue] {"queueLength":0,"workRunningCount":2}
+[debug] [2020-03-09T01:13:32.948Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/api/buildings --> api
+[debug] [2020-03-09T01:13:32.948Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:13:32.948Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99503.sock
+[debug] [2020-03-09T01:13:32.950Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: BUSY
+[debug] [2020-03-09T01:13:32.950Z] [runtime-status] [99502] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:13:32.950Z] [runtime-status] [99502] Ephemeral server survived.
+[debug] [2020-03-09T01:13:32.952Z] [runtime-status] [99503] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:13:32.953Z] [runtime-status] [99503] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:13:32.953Z] [runtime-status] [99503] Running api in mode HTTPS
+[debug] [2020-03-09T01:13:32.954Z] [runtime-status] [99503] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99503.sock
+[debug] [2020-03-09T01:13:32.956Z] [functions] Runtime ready! Sending request!
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:13:32.957Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:13:32.958Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[info] [hosting] Rewriting /api/assignments to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:13:32.962Z] [work-queue] {"queueLength":1,"workRunningCount":1}
+[debug] [2020-03-09T01:13:32.963Z] [work-queue] {"queueLength":0,"workRunningCount":2}
+[debug] [2020-03-09T01:13:32.963Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/api/assignments --> api
+[debug] [2020-03-09T01:13:32.963Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:13:32.963Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:13:32.963Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:13:32.963Z] [runtime-status] [99503] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:13:32.964Z] [runtime-status] [99503] Ephemeral server survived.
+[info] [hosting] Rewriting /api/campaigns to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:13:32.968Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:13:32.968Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:13:32.968Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:13:32.969Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:13:32.970Z] [functions] Runtime ready! Sending request!
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:13:32.972Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: IDLE
+[debug] [2020-03-09T01:13:32.972Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:13:32.976Z] [runtime-status] [99502] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:13:32.977Z] [work-queue] {"queueLength":1,"workRunningCount":1}
+[debug] [2020-03-09T01:13:32.977Z] [work-queue] {"queueLength":0,"workRunningCount":2}
+[debug] [2020-03-09T01:13:32.977Z] Accepted request GET /building-manager-f6a0e/us-central1/api/api/campaigns --> api
+[debug] [2020-03-09T01:13:32.977Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:13:32.978Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99503.sock
+[debug] [2020-03-09T01:13:32.978Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: BUSY
+[debug] [2020-03-09T01:13:32.978Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:13:32.979Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:13:32.979Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[info] [hosting] Rewriting /api/buildings to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:13:32.982Z] [runtime-status] [99503] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:13:32.982Z] [runtime-status] [99503] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:13:32.982Z] [runtime-status] [99503] Running api in mode HTTPS
+[debug] [2020-03-09T01:13:32.982Z] [runtime-status] [99503] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99503.sock
+[debug] [2020-03-09T01:13:32.983Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:13:32.987Z] [work-queue] {"queueLength":1,"workRunningCount":1}
+[debug] [2020-03-09T01:13:32.987Z] [work-queue] {"queueLength":0,"workRunningCount":2}
+[debug] [2020-03-09T01:13:32.987Z] Accepted request GET /building-manager-f6a0e/us-central1/api/api/buildings --> api
+[debug] [2020-03-09T01:13:32.987Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:13:32.988Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:13:32.988Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:13:32.988Z] [runtime-status] [99503] Ephemeral server handling GET request
+[debug] [2020-03-09T01:13:32.990Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:13:32.991Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:13:32.991Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:13:32.991Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:13:32.992Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:13:32.992Z] [runtime-status] [99503] Ephemeral server survived.
+[info] [hosting] Rewriting /api/assignments to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:13:32.996Z] [runtime-status] [99502] Ephemeral server handling GET request
+[debug] [2020-03-09T01:13:32.998Z] [work-queue] {"queueLength":1,"workRunningCount":2}
+[debug] [2020-03-09T01:13:32.998Z] [work-queue] {"queueLength":0,"workRunningCount":3}
+[debug] [2020-03-09T01:13:32.998Z] Accepted request GET /building-manager-f6a0e/us-central1/api/api/assignments --> api
+[debug] [2020-03-09T01:13:33.006Z] [worker-pool] addWorker(api)
+[debug] [2020-03-09T01:13:33.006Z] [worker-pool] Adding worker with key api, total=3
+[debug] [2020-03-09T01:13:33.006Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:13:33.007Z] [worker-api-68454e28-5d2a-4860-895e-78b966fed475]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99504.sock
+[debug] [2020-03-09T01:13:33.007Z] [worker-api-68454e28-5d2a-4860-895e-78b966fed475]: BUSY
+[debug] [2020-03-09T01:13:33.008Z] [runtime-status] [99502] Ephemeral server survived.
+[info] >  (node:99502) DeprecationWarning: Implicit disabling of certificate verification is deprecated and will be removed in pg 8. Specify `rejectUnauthorized: true` to require a valid CA or `rejectUnauthorized: false` to explicitly opt out of MITM protection.
+[debug] [2020-03-09T01:13:33.935Z] [runtime-status] [99504] Functions runtime initialized. {"cwd":"/Users/xxx/Desktop/proyectos/building-manager/functions","node_version":"12.14.1"}
+[debug] [2020-03-09T01:13:33.938Z] [runtime-status] [99504] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-09T01:13:33.942Z] [runtime-status] [99504] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-09T01:13:33.944Z] [runtime-status] [99504] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-09T01:13:33.950Z] [runtime-status] [99504] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:13:34.142Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: IDLE
+[debug] [2020-03-09T01:13:34.142Z] [work-queue] {"queueLength":0,"workRunningCount":2}
+[debug] [2020-03-09T01:13:34.597Z] [runtime-status] [99504] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:13:34.598Z] [runtime-status] [99504] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:13:34.598Z] [runtime-status] [99504] Running api in mode HTTPS
+[debug] [2020-03-09T01:13:34.602Z] [runtime-status] [99504] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99504.sock
+[debug] [2020-03-09T01:13:34.605Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:13:34.614Z] [runtime-status] [99504] Ephemeral server handling GET request
+[debug] [2020-03-09T01:13:34.635Z] [runtime-status] [99504] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:13:34.688Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:13:34.688Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[info] >  (node:99504) DeprecationWarning: Implicit disabling of certificate verification is deprecated and will be removed in pg 8. Specify `rejectUnauthorized: true` to require a valid CA or `rejectUnauthorized: false` to explicitly opt out of MITM protection.
+[info] [hosting] Rewriting /api/campaigns to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:13:35.663Z] [work-queue] {"queueLength":1,"workRunningCount":1}
+[debug] [2020-03-09T01:13:35.663Z] [work-queue] {"queueLength":0,"workRunningCount":2}
+[debug] [2020-03-09T01:13:35.663Z] Accepted request GET /building-manager-f6a0e/us-central1/api/api/campaigns --> api
+[debug] [2020-03-09T01:13:35.663Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:13:35.663Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:13:35.664Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:13:35.666Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:13:35.666Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:13:35.667Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:13:35.668Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:13:35.670Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:13:35.676Z] [runtime-status] [99502] Ephemeral server handling GET request
+[debug] [2020-03-09T01:13:35.676Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:13:35.840Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:13:35.841Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:13:35.882Z] [worker-api-68454e28-5d2a-4860-895e-78b966fed475]: IDLE
+[debug] [2020-03-09T01:13:35.882Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/assignments to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:13:37.703Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:13:37.703Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:13:37.703Z] Accepted request GET /building-manager-f6a0e/us-central1/api/api/assignments --> api
+[debug] [2020-03-09T01:13:37.704Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:13:37.704Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:13:37.704Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:13:37.704Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:13:37.704Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:13:37.704Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:13:37.705Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:13:37.706Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:13:37.709Z] [runtime-status] [99502] Ephemeral server handling GET request
+[debug] [2020-03-09T01:13:37.710Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:13:39.011Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:13:39.011Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/buildings to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:13:41.580Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:13:41.580Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:13:41.580Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/api/buildings --> api
+[debug] [2020-03-09T01:13:41.580Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:13:41.580Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:13:41.580Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:13:41.581Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:13:41.581Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:13:41.581Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:13:41.581Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:13:41.582Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:13:41.584Z] [runtime-status] [99502] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:13:41.586Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:13:41.587Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:13:41.587Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/buildings to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:13:41.594Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:13:41.594Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:13:41.594Z] Accepted request GET /building-manager-f6a0e/us-central1/api/api/buildings --> api
+[debug] [2020-03-09T01:13:41.594Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:13:41.595Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:13:41.595Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:13:41.598Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:13:41.599Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:13:41.599Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:13:41.599Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:13:41.600Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:13:41.607Z] [runtime-status] [99502] Ephemeral server handling GET request
+[debug] [2020-03-09T01:13:41.607Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:13:42.156Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:13:42.156Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/admins to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:13:47.013Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:13:47.014Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:13:47.014Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/api/admins --> api
+[debug] [2020-03-09T01:13:47.014Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:13:47.014Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:13:47.014Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:13:47.014Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:13:47.015Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:13:47.015Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:13:47.015Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:13:47.016Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:13:47.018Z] [runtime-status] [99502] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:13:47.019Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:13:47.020Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:13:47.020Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/admins to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:13:47.028Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:13:47.029Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:13:47.029Z] Accepted request GET /building-manager-f6a0e/us-central1/api/api/admins --> api
+[debug] [2020-03-09T01:13:47.029Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:13:47.029Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:13:47.029Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:13:47.030Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:13:47.031Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:13:47.031Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:13:47.031Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:13:47.032Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:13:47.036Z] [runtime-status] [99502] Ephemeral server handling GET request
+[debug] [2020-03-09T01:13:47.037Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:13:47.220Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:13:47.220Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/admins to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:16:45.160Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:16:45.160Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:16:45.160Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/api/admins --> api
+[debug] [2020-03-09T01:16:45.160Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:16:45.160Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:16:45.161Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:16:45.164Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:16:45.165Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:16:45.165Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:16:45.167Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:16:45.171Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:16:45.177Z] [runtime-status] [99502] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:16:45.181Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:16:45.181Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:16:45.181Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/admins to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:16:45.188Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:16:45.188Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:16:45.188Z] Accepted request GET /building-manager-f6a0e/us-central1/api/api/admins --> api
+[debug] [2020-03-09T01:16:45.188Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:16:45.188Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:16:45.188Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:16:45.191Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:16:45.191Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:16:45.191Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:16:45.194Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:16:45.195Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:16:45.197Z] [runtime-status] [99502] Ephemeral server handling GET request
+[debug] [2020-03-09T01:16:45.201Z] [runtime-status] [99502] Ephemeral server survived.
+[info] [hosting] Rewriting /api/buildings to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:16:46.378Z] [work-queue] {"queueLength":1,"workRunningCount":1}
+[debug] [2020-03-09T01:16:46.379Z] [work-queue] {"queueLength":0,"workRunningCount":2}
+[debug] [2020-03-09T01:16:46.379Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/api/buildings --> api
+[debug] [2020-03-09T01:16:46.379Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:16:46.379Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99503.sock
+[debug] [2020-03-09T01:16:46.379Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: BUSY
+[debug] [2020-03-09T01:16:46.383Z] [runtime-status] [99503] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:16:46.383Z] [runtime-status] [99503] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:16:46.383Z] [runtime-status] [99503] Running api in mode HTTPS
+[debug] [2020-03-09T01:16:46.391Z] [runtime-status] [99503] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99503.sock
+[debug] [2020-03-09T01:16:46.398Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:16:46.407Z] [runtime-status] [99503] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:16:46.411Z] [runtime-status] [99503] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:16:46.415Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: IDLE
+[debug] [2020-03-09T01:16:46.415Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[info] [hosting] Rewriting /api/buildings to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:16:46.423Z] [work-queue] {"queueLength":1,"workRunningCount":1}
+[debug] [2020-03-09T01:16:46.423Z] [work-queue] {"queueLength":0,"workRunningCount":2}
+[debug] [2020-03-09T01:16:46.423Z] Accepted request GET /building-manager-f6a0e/us-central1/api/api/buildings --> api
+[debug] [2020-03-09T01:16:46.423Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:16:46.423Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99503.sock
+[debug] [2020-03-09T01:16:46.423Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: BUSY
+[debug] [2020-03-09T01:16:46.424Z] [runtime-status] [99503] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:16:46.426Z] [runtime-status] [99503] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:16:46.426Z] [runtime-status] [99503] Running api in mode HTTPS
+[debug] [2020-03-09T01:16:46.426Z] [runtime-status] [99503] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99503.sock
+[debug] [2020-03-09T01:16:46.427Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:16:46.432Z] [runtime-status] [99503] Ephemeral server handling GET request
+[debug] [2020-03-09T01:16:46.436Z] [runtime-status] [99503] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:16:46.927Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:16:46.928Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:16:48.310Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: IDLE
+[debug] [2020-03-09T01:16:48.310Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/buildings to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:17:54.653Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:17:54.653Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:17:54.654Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/api/buildings --> api
+[debug] [2020-03-09T01:17:54.654Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:17:54.654Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:17:54.654Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:17:54.655Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:17:54.655Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:17:54.655Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:17:54.655Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:17:54.656Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:17:54.665Z] [runtime-status] [99502] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:17:54.667Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:17:54.668Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:17:54.669Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/buildings to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:17:54.680Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:17:54.681Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:17:54.681Z] Accepted request POST /building-manager-f6a0e/us-central1/api/api/buildings --> api
+[debug] [2020-03-09T01:17:54.681Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:17:54.681Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:17:54.681Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:17:54.682Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:17:54.683Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:17:54.683Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:17:54.683Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:17:54.685Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:17:54.745Z] [runtime-status] [99502] Ephemeral server handling POST request
+[debug] [2020-03-09T01:17:54.753Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~2s
+[debug] [2020-03-09T01:17:56.840Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:17:56.840Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/buildings to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:17:57.058Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:17:57.058Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:17:57.058Z] Accepted request GET /building-manager-f6a0e/us-central1/api/api/buildings --> api
+[debug] [2020-03-09T01:17:57.059Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:17:57.059Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:17:57.059Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:17:57.059Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:17:57.060Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:17:57.060Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:17:57.060Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:17:57.061Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:17:57.063Z] [runtime-status] [99502] Ephemeral server handling GET request
+[debug] [2020-03-09T01:17:57.064Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:17:57.558Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:17:57.558Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/doorbells to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:18:14.272Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:18:14.272Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:18:14.272Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/api/doorbells --> api
+[debug] [2020-03-09T01:18:14.272Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:18:14.272Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:18:14.272Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:18:14.276Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:18:14.276Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:18:14.276Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:18:14.276Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:18:14.281Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:18:14.286Z] [runtime-status] [99502] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:18:14.286Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:18:14.289Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:18:14.289Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/doorbells to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:18:14.314Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:18:14.314Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:18:14.314Z] Accepted request POST /building-manager-f6a0e/us-central1/api/api/doorbells --> api
+[debug] [2020-03-09T01:18:14.314Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:18:14.314Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:18:14.314Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:18:14.317Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:18:14.317Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:18:14.317Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:18:14.321Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:18:14.325Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:18:14.332Z] [runtime-status] [99502] Ephemeral server handling POST request
+[debug] [2020-03-09T01:18:14.332Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~2s
+[debug] [2020-03-09T01:18:16.998Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:18:16.998Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/buildings to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:18:17.287Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:18:17.287Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:18:17.287Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/api/buildings --> api
+[debug] [2020-03-09T01:18:17.287Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:18:17.288Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:18:17.288Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:18:17.288Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:18:17.288Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:18:17.288Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:18:17.288Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:18:17.289Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:18:17.291Z] [runtime-status] [99502] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:18:17.292Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:18:17.292Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:18:17.293Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/buildings to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:18:17.299Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:18:17.300Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:18:17.300Z] Accepted request GET /building-manager-f6a0e/us-central1/api/api/buildings --> api
+[debug] [2020-03-09T01:18:17.300Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:18:17.300Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:18:17.300Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:18:17.303Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:18:17.304Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:18:17.304Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:18:17.307Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:18:17.307Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:18:17.313Z] [runtime-status] [99502] Ephemeral server handling GET request
+[debug] [2020-03-09T01:18:17.313Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:18:17.869Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:18:17.869Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/assignments to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:18:18.840Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:18:18.840Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:18:18.840Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/api/assignments --> api
+[debug] [2020-03-09T01:18:18.841Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:18:18.841Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:18:18.841Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:18:18.842Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:18:18.845Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:18:18.845Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:18:18.846Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:18:18.848Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:18:18.854Z] [runtime-status] [99502] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:18:18.854Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:18:18.860Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:18:18.861Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/assignments to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:18:18.870Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:18:18.870Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:18:18.870Z] Accepted request GET /building-manager-f6a0e/us-central1/api/api/assignments --> api
+[debug] [2020-03-09T01:18:18.870Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:18:18.870Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:18:18.870Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:18:18.872Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:18:18.873Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:18:18.873Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:18:18.873Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:18:18.878Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:18:18.880Z] [runtime-status] [99502] Ephemeral server handling GET request
+[debug] [2020-03-09T01:18:18.881Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:18:20.291Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:18:20.292Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/users to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:18:21.823Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:18:21.824Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:18:21.824Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/api/users --> api
+[debug] [2020-03-09T01:18:21.824Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:18:21.824Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:18:21.824Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:18:21.827Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:18:21.828Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:18:21.828Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:18:21.828Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:18:21.829Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:18:21.832Z] [runtime-status] [99502] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:18:21.833Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:18:21.841Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:18:21.841Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/users to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:18:21.853Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:18:21.853Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:18:21.853Z] Accepted request GET /building-manager-f6a0e/us-central1/api/api/users --> api
+[debug] [2020-03-09T01:18:21.853Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:18:21.853Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:18:21.853Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:18:21.854Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:18:21.854Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:18:21.854Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:18:21.855Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:18:21.856Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:18:21.859Z] [runtime-status] [99502] Ephemeral server handling GET request
+[debug] [2020-03-09T01:18:21.859Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:18:22.029Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:18:22.030Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/campaigns to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:18:23.270Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:18:23.271Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:18:23.271Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/api/campaigns --> api
+[debug] [2020-03-09T01:18:23.271Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:18:23.271Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:18:23.271Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:18:23.273Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:18:23.273Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:18:23.273Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:18:23.273Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:18:23.274Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:18:23.277Z] [runtime-status] [99502] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:18:23.277Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:18:23.279Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:18:23.279Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/campaigns to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:18:23.291Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:18:23.291Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:18:23.291Z] Accepted request GET /building-manager-f6a0e/us-central1/api/api/campaigns --> api
+[debug] [2020-03-09T01:18:23.292Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:18:23.292Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:18:23.292Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:18:23.297Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:18:23.297Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:18:23.298Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:18:23.299Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:18:23.300Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:18:23.306Z] [runtime-status] [99502] Ephemeral server handling GET request
+[debug] [2020-03-09T01:18:23.306Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:18:23.468Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:18:23.469Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/buildings to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:18:24.853Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:18:24.853Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:18:24.853Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/api/buildings --> api
+[debug] [2020-03-09T01:18:24.853Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:18:24.853Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:18:24.853Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:18:24.854Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:18:24.854Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:18:24.854Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:18:24.854Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:18:24.856Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:18:24.858Z] [runtime-status] [99502] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:18:24.860Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:18:24.860Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:18:24.860Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/buildings to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:18:24.866Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:18:24.866Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:18:24.866Z] Accepted request GET /building-manager-f6a0e/us-central1/api/api/buildings --> api
+[debug] [2020-03-09T01:18:24.866Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:18:24.866Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:18:24.866Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:18:24.871Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:18:24.872Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:18:24.872Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:18:24.872Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:18:24.873Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:18:24.878Z] [runtime-status] [99502] Ephemeral server handling GET request
+[debug] [2020-03-09T01:18:24.878Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:18:25.444Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:18:25.444Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/buildings/46/doorbells to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:18:31.562Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:18:31.562Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:18:31.562Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/api/buildings/46/doorbells --> api
+[debug] [2020-03-09T01:18:31.562Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:18:31.562Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:18:31.562Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:18:31.563Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:18:31.563Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:18:31.563Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:18:31.563Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:18:31.565Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:18:31.568Z] [runtime-status] [99502] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:18:31.568Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:18:31.572Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:18:31.572Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/buildings/46/doorbells to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:18:31.577Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:18:31.578Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:18:31.578Z] Accepted request GET /building-manager-f6a0e/us-central1/api/api/buildings/46/doorbells --> api
+[debug] [2020-03-09T01:18:31.578Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:18:31.578Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:18:31.578Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:18:31.584Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:18:31.584Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:18:31.584Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:18:31.584Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:18:31.585Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:18:31.589Z] [runtime-status] [99502] Ephemeral server handling GET request
+[debug] [2020-03-09T01:18:31.589Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:18:31.913Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:18:31.913Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/assignments to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:22:18.685Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:22:18.685Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:22:18.685Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/api/assignments --> api
+[debug] [2020-03-09T01:22:18.685Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:22:18.685Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:22:18.685Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:22:18.686Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:22:18.686Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:22:18.686Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:22:18.687Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:22:18.689Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:22:18.691Z] [runtime-status] [99502] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:22:18.692Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:22:18.693Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:22:18.693Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/assignments to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:22:18.699Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:22:18.699Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:22:18.699Z] Accepted request POST /building-manager-f6a0e/us-central1/api/api/assignments --> api
+[debug] [2020-03-09T01:22:18.699Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:22:18.699Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:22:18.699Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:22:18.702Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:22:18.702Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:22:18.703Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:22:18.703Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:22:18.704Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:22:18.707Z] [runtime-status] [99502] Ephemeral server handling POST request
+[debug] [2020-03-09T01:22:18.709Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~3s
+[debug] [2020-03-09T01:22:21.779Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:22:21.779Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/assignments to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:22:22.046Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:22:22.046Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:22:22.046Z] Accepted request GET /building-manager-f6a0e/us-central1/api/api/assignments --> api
+[debug] [2020-03-09T01:22:22.046Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:22:22.046Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:22:22.047Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:22:22.048Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:22:22.048Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:22:22.049Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:22:22.051Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:22:22.052Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:22:22.054Z] [runtime-status] [99502] Ephemeral server handling GET request
+[debug] [2020-03-09T01:22:22.055Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:22:23.272Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:22:23.272Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /apihttp://localhost:3006/static/js/main.chunk.js to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[info] [hosting] Rewriting /apihttp://localhost:3006/static/js/0.chunk.js to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[info] [hosting] Rewriting /apihttp://localhost:3006/static/js/main.chunk.js to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[info] [hosting] Rewriting /apihttp://localhost:3006/static/js/0.chunk.js to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[info] [hosting] Rewriting /apihttp://localhost:3006/static/js/main.chunk.js to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[info] [hosting] Rewriting /apihttp://localhost:3006/static/js/0.chunk.js to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:22:30.444Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:22:30.444Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:22:30.444Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/apihttp://localhost:3006/static/js/main.chunk.js --> api
+[debug] [2020-03-09T01:22:30.444Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:22:30.444Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:22:30.444Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:22:30.445Z] [work-queue] {"queueLength":1,"workRunningCount":1}
+[debug] [2020-03-09T01:22:30.445Z] [work-queue] {"queueLength":0,"workRunningCount":2}
+[debug] [2020-03-09T01:22:30.445Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/apihttp://localhost:3006/static/js/0.chunk.js --> api
+[debug] [2020-03-09T01:22:30.446Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:22:30.446Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99503.sock
+[debug] [2020-03-09T01:22:30.446Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: BUSY
+[debug] [2020-03-09T01:22:30.446Z] [work-queue] {"queueLength":1,"workRunningCount":2}
+[debug] [2020-03-09T01:22:30.446Z] [work-queue] {"queueLength":0,"workRunningCount":3}
+[debug] [2020-03-09T01:22:30.446Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/apihttp://localhost:3006/static/js/main.chunk.js --> api
+[debug] [2020-03-09T01:22:30.446Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:22:30.446Z] [worker-api-68454e28-5d2a-4860-895e-78b966fed475]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99504.sock
+[debug] [2020-03-09T01:22:30.446Z] [worker-api-68454e28-5d2a-4860-895e-78b966fed475]: BUSY
+[debug] [2020-03-09T01:22:30.447Z] [work-queue] {"queueLength":1,"workRunningCount":3}
+[debug] [2020-03-09T01:22:30.447Z] [work-queue] {"queueLength":0,"workRunningCount":4}
+[debug] [2020-03-09T01:22:30.447Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/apihttp://localhost:3006/static/js/0.chunk.js --> api
+[debug] [2020-03-09T01:22:30.455Z] [worker-pool] addWorker(api)
+[debug] [2020-03-09T01:22:30.455Z] [worker-pool] Adding worker with key api, total=4
+[debug] [2020-03-09T01:22:30.455Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:22:30.456Z] [worker-api-b0f0e248-d64a-464e-a3bf-6e974c176776]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99612.sock
+[debug] [2020-03-09T01:22:30.456Z] [worker-api-b0f0e248-d64a-464e-a3bf-6e974c176776]: BUSY
+[debug] [2020-03-09T01:22:30.457Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:22:30.457Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:22:30.457Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:22:30.457Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:22:30.458Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:22:30.459Z] [runtime-status] [99503] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:22:30.459Z] [runtime-status] [99503] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:22:30.459Z] [runtime-status] [99503] Running api in mode HTTPS
+[debug] [2020-03-09T01:22:30.459Z] [runtime-status] [99503] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99503.sock
+[debug] [2020-03-09T01:22:30.462Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:22:30.463Z] [runtime-status] [99504] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:22:30.463Z] [runtime-status] [99504] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:22:30.463Z] [runtime-status] [99504] Running api in mode HTTPS
+[debug] [2020-03-09T01:22:30.463Z] [runtime-status] [99504] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99504.sock
+[debug] [2020-03-09T01:22:30.464Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:22:30.464Z] [work-queue] {"queueLength":1,"workRunningCount":4}
+[debug] [2020-03-09T01:22:30.464Z] [work-queue] {"queueLength":0,"workRunningCount":5}
+[debug] [2020-03-09T01:22:30.465Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/apihttp://localhost:3006/static/js/main.chunk.js --> api
+[debug] [2020-03-09T01:22:30.470Z] [worker-pool] addWorker(api)
+[debug] [2020-03-09T01:22:30.470Z] [worker-pool] Adding worker with key api, total=5
+[debug] [2020-03-09T01:22:30.470Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:22:30.470Z] [worker-api-f4797b03-a7f2-4810-96b6-8651fec4c7bd]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99613.sock
+[debug] [2020-03-09T01:22:30.470Z] [worker-api-f4797b03-a7f2-4810-96b6-8651fec4c7bd]: BUSY
+[debug] [2020-03-09T01:22:30.473Z] [work-queue] {"queueLength":1,"workRunningCount":5}
+[debug] [2020-03-09T01:22:30.473Z] [work-queue] {"queueLength":0,"workRunningCount":6}
+[debug] [2020-03-09T01:22:30.473Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/apihttp://localhost:3006/static/js/0.chunk.js --> api
+[debug] [2020-03-09T01:22:30.482Z] [worker-pool] addWorker(api)
+[debug] [2020-03-09T01:22:30.483Z] [worker-pool] Adding worker with key api, total=6
+[debug] [2020-03-09T01:22:30.483Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:22:30.483Z] [worker-api-e1886ae1-01ba-4590-ae3e-b1fd279d293b]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99614.sock
+[debug] [2020-03-09T01:22:30.484Z] [worker-api-e1886ae1-01ba-4590-ae3e-b1fd279d293b]: BUSY
+[debug] [2020-03-09T01:22:30.490Z] [runtime-status] [99502] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:22:30.490Z] [runtime-status] [99502] Ephemeral server survived.
+[debug] [2020-03-09T01:22:30.491Z] [runtime-status] [99503] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:22:30.492Z] [runtime-status] [99504] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:22:30.494Z] [runtime-status] [99504] Ephemeral server survived.
+[debug] [2020-03-09T01:22:30.495Z] [runtime-status] [99503] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:22:30.499Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: IDLE
+[debug] [2020-03-09T01:22:30.499Z] [work-queue] {"queueLength":0,"workRunningCount":5}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:22:30.500Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:22:30.500Z] [work-queue] {"queueLength":0,"workRunningCount":4}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:22:30.502Z] [worker-api-68454e28-5d2a-4860-895e-78b966fed475]: IDLE
+[debug] [2020-03-09T01:22:30.502Z] [work-queue] {"queueLength":0,"workRunningCount":3}
+[info] [hosting] Rewriting /apihttp://localhost:3006/static/js/main.chunk.js to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[info] [hosting] Rewriting /apihttp://localhost:3006/static/js/0.chunk.js to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:22:30.652Z] [work-queue] {"queueLength":1,"workRunningCount":3}
+[debug] [2020-03-09T01:22:30.652Z] [work-queue] {"queueLength":0,"workRunningCount":4}
+[debug] [2020-03-09T01:22:30.652Z] Accepted request GET /building-manager-f6a0e/us-central1/api/apihttp://localhost:3006/static/js/main.chunk.js --> api
+[debug] [2020-03-09T01:22:30.652Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:22:30.652Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:22:30.652Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:22:30.652Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:22:30.653Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:22:30.653Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:22:30.653Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:22:30.653Z] [work-queue] {"queueLength":1,"workRunningCount":4}
+[debug] [2020-03-09T01:22:30.653Z] [work-queue] {"queueLength":0,"workRunningCount":5}
+[debug] [2020-03-09T01:22:30.653Z] Accepted request GET /building-manager-f6a0e/us-central1/api/apihttp://localhost:3006/static/js/0.chunk.js --> api
+[debug] [2020-03-09T01:22:30.653Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:22:30.654Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99503.sock
+[debug] [2020-03-09T01:22:30.654Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: BUSY
+[debug] [2020-03-09T01:22:30.654Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:22:30.656Z] [runtime-status] [99503] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:22:30.656Z] [runtime-status] [99503] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:22:30.656Z] [runtime-status] [99503] Running api in mode HTTPS
+[debug] [2020-03-09T01:22:30.656Z] [runtime-status] [99503] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99503.sock
+[debug] [2020-03-09T01:22:30.657Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:22:30.658Z] [runtime-status] [99502] Ephemeral server handling GET request
+[debug] [2020-03-09T01:22:30.658Z] [runtime-status] [99502] Ephemeral server survived.
+[debug] [2020-03-09T01:22:30.662Z] [runtime-status] [99503] Ephemeral server handling GET request
+[debug] [2020-03-09T01:22:30.662Z] [runtime-status] [99503] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:22:30.665Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:22:30.665Z] [work-queue] {"queueLength":0,"workRunningCount":4}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:22:30.700Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: IDLE
+[debug] [2020-03-09T01:22:30.700Z] [work-queue] {"queueLength":0,"workRunningCount":3}
+[info] [hosting] Rewriting /apihttp://localhost:3006/static/js/main.chunk.js to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:22:30.705Z] [work-queue] {"queueLength":1,"workRunningCount":3}
+[debug] [2020-03-09T01:22:30.705Z] [work-queue] {"queueLength":0,"workRunningCount":4}
+[debug] [2020-03-09T01:22:30.705Z] Accepted request GET /building-manager-f6a0e/us-central1/api/apihttp://localhost:3006/static/js/main.chunk.js --> api
+[debug] [2020-03-09T01:22:30.705Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:22:30.706Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:22:30.706Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:22:30.706Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:22:30.706Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:22:30.706Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:22:30.706Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:22:30.707Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:22:30.711Z] [runtime-status] [99502] Ephemeral server handling GET request
+[debug] [2020-03-09T01:22:30.711Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:22:30.715Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:22:30.715Z] [work-queue] {"queueLength":0,"workRunningCount":3}
+[debug] [2020-03-09T01:22:31.002Z] [runtime-status] [99613] Functions runtime initialized. {"cwd":"/Users/xxx/Desktop/proyectos/building-manager/functions","node_version":"12.14.1"}
+[debug] [2020-03-09T01:22:31.004Z] [runtime-status] [99614] Functions runtime initialized. {"cwd":"/Users/xxx/Desktop/proyectos/building-manager/functions","node_version":"12.14.1"}
+[debug] [2020-03-09T01:22:31.006Z] [runtime-status] [99614] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-09T01:22:31.010Z] [runtime-status] [99613] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-09T01:22:31.013Z] [runtime-status] [99613] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-09T01:22:31.014Z] [runtime-status] [99614] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-09T01:22:31.019Z] [runtime-status] [99614] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-09T01:22:31.020Z] [runtime-status] [99613] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-09T01:22:31.021Z] [runtime-status] [99613] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-09T01:22:31.023Z] [runtime-status] [99614] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-09T01:22:31.121Z] [runtime-status] [99612] Functions runtime initialized. {"cwd":"/Users/xxx/Desktop/proyectos/building-manager/functions","node_version":"12.14.1"}
+[debug] [2020-03-09T01:22:31.122Z] [runtime-status] [99612] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-03-09T01:22:31.125Z] [runtime-status] [99612] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-03-09T01:22:31.126Z] [runtime-status] [99612] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-09T01:22:31.127Z] [runtime-status] [99612] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-03-09T01:22:31.554Z] [runtime-status] [99612] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:22:31.554Z] [runtime-status] [99612] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:22:31.554Z] [runtime-status] [99612] Running api in mode HTTPS
+[debug] [2020-03-09T01:22:31.557Z] [runtime-status] [99614] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:22:31.557Z] [runtime-status] [99614] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:22:31.558Z] [runtime-status] [99614] Running api in mode HTTPS
+[debug] [2020-03-09T01:22:31.560Z] [runtime-status] [99612] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99612.sock
+[debug] [2020-03-09T01:22:31.561Z] [runtime-status] [99614] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99614.sock
+[debug] [2020-03-09T01:22:31.563Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:22:31.575Z] [runtime-status] [99612] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:22:31.577Z] [functions] Runtime ready! Sending request!
+[info] [hosting] Rewriting /apihttp://localhost:3006/static/js/0.chunk.js to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:22:31.585Z] [runtime-status] [99612] Ephemeral server survived.
+[debug] [2020-03-09T01:22:31.586Z] [work-queue] {"queueLength":1,"workRunningCount":3}
+[debug] [2020-03-09T01:22:31.586Z] [work-queue] {"queueLength":0,"workRunningCount":4}
+[debug] [2020-03-09T01:22:31.586Z] Accepted request GET /building-manager-f6a0e/us-central1/api/apihttp://localhost:3006/static/js/0.chunk.js --> api
+[debug] [2020-03-09T01:22:31.586Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:22:31.586Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:22:31.586Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:22:31.586Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:22:31.587Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:22:31.587Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:22:31.587Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:22:31.588Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:22:31.590Z] [runtime-status] [99502] Ephemeral server handling GET request
+[debug] [2020-03-09T01:22:31.590Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:22:31.594Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:22:31.594Z] [work-queue] {"queueLength":0,"workRunningCount":3}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:22:31.610Z] [worker-api-b0f0e248-d64a-464e-a3bf-6e974c176776]: IDLE
+[debug] [2020-03-09T01:22:31.610Z] [work-queue] {"queueLength":0,"workRunningCount":2}
+[debug] [2020-03-09T01:22:31.629Z] [runtime-status] [99614] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:22:31.653Z] [runtime-status] [99614] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:22:31.654Z] [worker-api-e1886ae1-01ba-4590-ae3e-b1fd279d293b]: IDLE
+[debug] [2020-03-09T01:22:31.654Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[info] [hosting] Rewriting /apihttp://localhost:3006/static/js/0.chunk.js to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:22:31.656Z] [work-queue] {"queueLength":1,"workRunningCount":1}
+[debug] [2020-03-09T01:22:31.657Z] [work-queue] {"queueLength":0,"workRunningCount":2}
+[debug] [2020-03-09T01:22:31.657Z] Accepted request GET /building-manager-f6a0e/us-central1/api/apihttp://localhost:3006/static/js/0.chunk.js --> api
+[debug] [2020-03-09T01:22:31.657Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:22:31.657Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:22:31.657Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:22:31.657Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:22:31.657Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:22:31.657Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:22:31.658Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:22:31.658Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:22:31.661Z] [runtime-status] [99502] Ephemeral server handling GET request
+[debug] [2020-03-09T01:22:31.662Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:22:31.665Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:22:31.665Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:22:31.690Z] [runtime-status] [99613] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:22:31.691Z] [runtime-status] [99613] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:22:31.691Z] [runtime-status] [99613] Running api in mode HTTPS
+[debug] [2020-03-09T01:22:31.696Z] [runtime-status] [99613] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99613.sock
+[debug] [2020-03-09T01:22:31.699Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:22:31.717Z] [runtime-status] [99613] Ephemeral server handling OPTIONS request
+[info] [hosting] Rewriting /apihttp://localhost:3006/static/js/main.chunk.js to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:22:31.729Z] [work-queue] {"queueLength":1,"workRunningCount":1}
+[debug] [2020-03-09T01:22:31.729Z] [work-queue] {"queueLength":0,"workRunningCount":2}
+[debug] [2020-03-09T01:22:31.729Z] Accepted request GET /building-manager-f6a0e/us-central1/api/apihttp://localhost:3006/static/js/main.chunk.js --> api
+[debug] [2020-03-09T01:22:31.729Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:22:31.729Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:22:31.729Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:22:31.729Z] [runtime-status] [99613] Ephemeral server survived.
+[debug] [2020-03-09T01:22:31.730Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:22:31.731Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:22:31.731Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:22:31.731Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:22:31.732Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:22:31.734Z] [runtime-status] [99502] Ephemeral server handling GET request
+[debug] [2020-03-09T01:22:31.735Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:22:31.738Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:22:31.738Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:22:31.754Z] [worker-api-f4797b03-a7f2-4810-96b6-8651fec4c7bd]: IDLE
+[debug] [2020-03-09T01:22:31.754Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/assignments to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:23:10.619Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:23:10.619Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:23:10.619Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/api/assignments --> api
+[debug] [2020-03-09T01:23:10.620Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:23:10.620Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:23:10.620Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:23:10.620Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:23:10.620Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:23:10.621Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:23:10.621Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:23:10.622Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:23:10.625Z] [runtime-status] [99502] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:23:10.625Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:23:10.627Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:23:10.627Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/assignments to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:23:10.633Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:23:10.634Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:23:10.634Z] Accepted request GET /building-manager-f6a0e/us-central1/api/api/assignments --> api
+[debug] [2020-03-09T01:23:10.634Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:23:10.634Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:23:10.634Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:23:10.636Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:23:10.637Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:23:10.637Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:23:10.637Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:23:10.638Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:23:10.640Z] [runtime-status] [99502] Ephemeral server handling GET request
+[debug] [2020-03-09T01:23:10.641Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:23:11.855Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:23:11.855Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /apihttp://localhost:3006/static/js/main.chunk.js to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:23:14.784Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:23:14.784Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:23:14.784Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/apihttp://localhost:3006/static/js/main.chunk.js --> api
+[debug] [2020-03-09T01:23:14.784Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:23:14.784Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:23:14.784Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:23:14.786Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:23:14.786Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:23:14.787Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:23:14.787Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:23:14.792Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:23:14.795Z] [runtime-status] [99502] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:23:14.795Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:23:14.798Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:23:14.798Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /apihttp://localhost:3006/static/js/main.chunk.js to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:23:14.805Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:23:14.806Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:23:14.806Z] Accepted request GET /building-manager-f6a0e/us-central1/api/apihttp://localhost:3006/static/js/main.chunk.js --> api
+[debug] [2020-03-09T01:23:14.806Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:23:14.806Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:23:14.806Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:23:14.808Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:23:14.808Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:23:14.808Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:23:14.808Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:23:14.809Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:23:14.811Z] [runtime-status] [99502] Ephemeral server handling GET request
+[debug] [2020-03-09T01:23:14.812Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:23:14.977Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:23:14.977Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /apihttp://localhost:3006/static/js/0.chunk.js to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[info] [hosting] Rewriting /apihttp://localhost:3006/static/js/main.chunk.js to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[info] [hosting] Rewriting /apihttp://localhost:3006/static/js/0.chunk.js to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[info] [hosting] Rewriting /apihttp://localhost:3006/static/js/0.chunk.js to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:23:14.991Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:23:14.991Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:23:14.991Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/apihttp://localhost:3006/static/js/0.chunk.js --> api
+[debug] [2020-03-09T01:23:14.991Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:23:14.991Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:23:14.991Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:23:14.992Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:23:14.992Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:23:14.993Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:23:14.993Z] [work-queue] {"queueLength":1,"workRunningCount":1}
+[debug] [2020-03-09T01:23:14.993Z] [work-queue] {"queueLength":0,"workRunningCount":2}
+[debug] [2020-03-09T01:23:14.993Z] Accepted request GET /building-manager-f6a0e/us-central1/api/apihttp://localhost:3006/static/js/main.chunk.js --> api
+[debug] [2020-03-09T01:23:14.993Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:23:14.993Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99503.sock
+[debug] [2020-03-09T01:23:14.993Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: BUSY
+[debug] [2020-03-09T01:23:14.994Z] [work-queue] {"queueLength":1,"workRunningCount":2}
+[debug] [2020-03-09T01:23:14.994Z] [work-queue] {"queueLength":0,"workRunningCount":3}
+[debug] [2020-03-09T01:23:14.994Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/apihttp://localhost:3006/static/js/0.chunk.js --> api
+[debug] [2020-03-09T01:23:14.994Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:23:14.994Z] [worker-api-68454e28-5d2a-4860-895e-78b966fed475]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99504.sock
+[debug] [2020-03-09T01:23:14.994Z] [worker-api-68454e28-5d2a-4860-895e-78b966fed475]: BUSY
+[debug] [2020-03-09T01:23:14.995Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:23:14.996Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:23:14.996Z] [runtime-status] [99503] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:23:14.997Z] [runtime-status] [99503] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:23:14.997Z] [runtime-status] [99503] Running api in mode HTTPS
+[debug] [2020-03-09T01:23:14.997Z] [runtime-status] [99503] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99503.sock
+[debug] [2020-03-09T01:23:14.997Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:23:14.998Z] [runtime-status] [99504] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:23:14.998Z] [runtime-status] [99504] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:23:14.998Z] [runtime-status] [99504] Running api in mode HTTPS
+[debug] [2020-03-09T01:23:14.998Z] [runtime-status] [99504] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99504.sock
+[debug] [2020-03-09T01:23:14.998Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:23:14.999Z] [work-queue] {"queueLength":1,"workRunningCount":3}
+[debug] [2020-03-09T01:23:14.999Z] [work-queue] {"queueLength":0,"workRunningCount":4}
+[debug] [2020-03-09T01:23:14.999Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/apihttp://localhost:3006/static/js/0.chunk.js --> api
+[debug] [2020-03-09T01:23:14.999Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:23:14.999Z] [worker-api-b0f0e248-d64a-464e-a3bf-6e974c176776]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99612.sock
+[debug] [2020-03-09T01:23:14.999Z] [worker-api-b0f0e248-d64a-464e-a3bf-6e974c176776]: BUSY
+[debug] [2020-03-09T01:23:15.006Z] [runtime-status] [99612] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:23:15.006Z] [runtime-status] [99612] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:23:15.006Z] [runtime-status] [99612] Running api in mode HTTPS
+[debug] [2020-03-09T01:23:15.007Z] [runtime-status] [99612] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99612.sock
+[debug] [2020-03-09T01:23:15.007Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:23:15.012Z] [runtime-status] [99502] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:23:15.012Z] [runtime-status] [99502] Ephemeral server survived.
+[debug] [2020-03-09T01:23:15.012Z] [runtime-status] [99503] Ephemeral server handling GET request
+[debug] [2020-03-09T01:23:15.012Z] [runtime-status] [99503] Ephemeral server survived.
+[debug] [2020-03-09T01:23:15.012Z] [runtime-status] [99504] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:23:15.012Z] [runtime-status] [99504] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:23:15.015Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:23:15.015Z] [work-queue] {"queueLength":0,"workRunningCount":3}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:23:15.027Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: IDLE
+[debug] [2020-03-09T01:23:15.027Z] [work-queue] {"queueLength":0,"workRunningCount":2}
+[debug] [2020-03-09T01:23:15.029Z] [runtime-status] [99612] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:23:15.029Z] [runtime-status] [99612] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:23:15.032Z] [worker-api-b0f0e248-d64a-464e-a3bf-6e974c176776]: IDLE
+[debug] [2020-03-09T01:23:15.033Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:23:15.033Z] [worker-api-68454e28-5d2a-4860-895e-78b966fed475]: IDLE
+[debug] [2020-03-09T01:23:15.034Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /apihttp://localhost:3006/static/js/0.chunk.js to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[info] [hosting] Rewriting /apihttp://localhost:3006/static/js/main.chunk.js to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:23:15.086Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:23:15.086Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:23:15.086Z] Accepted request GET /building-manager-f6a0e/us-central1/api/apihttp://localhost:3006/static/js/0.chunk.js --> api
+[debug] [2020-03-09T01:23:15.086Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:23:15.086Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:23:15.086Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:23:15.086Z] [work-queue] {"queueLength":1,"workRunningCount":1}
+[debug] [2020-03-09T01:23:15.086Z] [work-queue] {"queueLength":0,"workRunningCount":2}
+[debug] [2020-03-09T01:23:15.086Z] Accepted request GET /building-manager-f6a0e/us-central1/api/apihttp://localhost:3006/static/js/main.chunk.js --> api
+[debug] [2020-03-09T01:23:15.087Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:23:15.087Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99503.sock
+[debug] [2020-03-09T01:23:15.087Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: BUSY
+[debug] [2020-03-09T01:23:15.087Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:23:15.088Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:23:15.088Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:23:15.088Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:23:15.090Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:23:15.090Z] [runtime-status] [99503] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:23:15.091Z] [runtime-status] [99503] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:23:15.091Z] [runtime-status] [99503] Running api in mode HTTPS
+[debug] [2020-03-09T01:23:15.091Z] [runtime-status] [99503] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99503.sock
+[debug] [2020-03-09T01:23:15.091Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:23:15.097Z] [runtime-status] [99502] Ephemeral server handling GET request
+[debug] [2020-03-09T01:23:15.098Z] [runtime-status] [99502] Ephemeral server survived.
+[debug] [2020-03-09T01:23:15.098Z] [runtime-status] [99503] Ephemeral server handling GET request
+[debug] [2020-03-09T01:23:15.098Z] [runtime-status] [99503] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:23:15.101Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:23:15.101Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:23:15.126Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: IDLE
+[debug] [2020-03-09T01:23:15.126Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /apihttp://localhost:3006/static/js/0.chunk.js to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:23:15.132Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:23:15.133Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:23:15.133Z] Accepted request GET /building-manager-f6a0e/us-central1/api/apihttp://localhost:3006/static/js/0.chunk.js --> api
+[debug] [2020-03-09T01:23:15.133Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:23:15.134Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:23:15.134Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:23:15.138Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:23:15.139Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:23:15.139Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:23:15.140Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:23:15.141Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:23:15.149Z] [runtime-status] [99502] Ephemeral server handling GET request
+[debug] [2020-03-09T01:23:15.150Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:23:15.151Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:23:15.151Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /apihttp://localhost:3006/static/js/0.chunk.js to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:23:15.160Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:23:15.160Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:23:15.160Z] Accepted request GET /building-manager-f6a0e/us-central1/api/apihttp://localhost:3006/static/js/0.chunk.js --> api
+[debug] [2020-03-09T01:23:15.160Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:23:15.160Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:23:15.160Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:23:15.163Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:23:15.178Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:23:15.178Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:23:15.179Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:23:15.179Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:23:15.182Z] [runtime-status] [99502] Ephemeral server handling GET request
+[debug] [2020-03-09T01:23:15.182Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:23:15.185Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:23:15.185Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/assignments to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:23:50.569Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:23:50.569Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:23:50.569Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/api/assignments --> api
+[debug] [2020-03-09T01:23:50.569Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:23:50.569Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:23:50.569Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:23:50.570Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:23:50.570Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:23:50.570Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:23:50.570Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:23:50.572Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:23:50.574Z] [runtime-status] [99502] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:23:50.575Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:23:50.576Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:23:50.576Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/assignments to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:23:50.582Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:23:50.582Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:23:50.582Z] Accepted request GET /building-manager-f6a0e/us-central1/api/api/assignments --> api
+[debug] [2020-03-09T01:23:50.582Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:23:50.582Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:23:50.582Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:23:50.586Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:23:50.586Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:23:50.586Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:23:50.587Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:23:50.587Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:23:50.592Z] [runtime-status] [99502] Ephemeral server handling GET request
+[debug] [2020-03-09T01:23:50.593Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:23:51.946Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:23:51.946Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /apihttp://localhost:3006/static/js/main.chunk.js to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:23:54.125Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:23:54.125Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:23:54.125Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/apihttp://localhost:3006/static/js/main.chunk.js --> api
+[debug] [2020-03-09T01:23:54.125Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:23:54.125Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:23:54.125Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:23:54.126Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:23:54.127Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:23:54.127Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:23:54.136Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:23:54.137Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:23:54.143Z] [runtime-status] [99502] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:23:54.143Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:23:54.151Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:23:54.152Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /apihttp://localhost:3006/static/js/main.chunk.js to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:23:54.171Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:23:54.171Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:23:54.171Z] Accepted request GET /building-manager-f6a0e/us-central1/api/apihttp://localhost:3006/static/js/main.chunk.js --> api
+[debug] [2020-03-09T01:23:54.172Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:23:54.172Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:23:54.172Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:23:54.174Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:23:54.174Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:23:54.174Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:23:54.174Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:23:54.175Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:23:54.179Z] [runtime-status] [99502] Ephemeral server handling GET request
+[debug] [2020-03-09T01:23:54.179Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:23:54.337Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:23:54.337Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /apihttp://localhost:3006/static/js/0.chunk.js to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[info] [hosting] Rewriting /apihttp://localhost:3006/static/js/main.chunk.js to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[info] [hosting] Rewriting /apihttp://localhost:3006/static/js/0.chunk.js to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[info] [hosting] Rewriting /apihttp://localhost:3006/static/js/0.chunk.js to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:23:54.352Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:23:54.352Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:23:54.352Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/apihttp://localhost:3006/static/js/0.chunk.js --> api
+[debug] [2020-03-09T01:23:54.352Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:23:54.353Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:23:54.353Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:23:54.353Z] [work-queue] {"queueLength":1,"workRunningCount":1}
+[debug] [2020-03-09T01:23:54.353Z] [work-queue] {"queueLength":0,"workRunningCount":2}
+[debug] [2020-03-09T01:23:54.353Z] Accepted request GET /building-manager-f6a0e/us-central1/api/apihttp://localhost:3006/static/js/main.chunk.js --> api
+[debug] [2020-03-09T01:23:54.353Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:23:54.353Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99503.sock
+[debug] [2020-03-09T01:23:54.353Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: BUSY
+[debug] [2020-03-09T01:23:54.354Z] [work-queue] {"queueLength":1,"workRunningCount":2}
+[debug] [2020-03-09T01:23:54.354Z] [work-queue] {"queueLength":0,"workRunningCount":3}
+[debug] [2020-03-09T01:23:54.354Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/apihttp://localhost:3006/static/js/0.chunk.js --> api
+[debug] [2020-03-09T01:23:54.354Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:23:54.354Z] [worker-api-68454e28-5d2a-4860-895e-78b966fed475]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99504.sock
+[debug] [2020-03-09T01:23:54.354Z] [worker-api-68454e28-5d2a-4860-895e-78b966fed475]: BUSY
+[debug] [2020-03-09T01:23:54.355Z] [work-queue] {"queueLength":1,"workRunningCount":3}
+[debug] [2020-03-09T01:23:54.355Z] [work-queue] {"queueLength":0,"workRunningCount":4}
+[debug] [2020-03-09T01:23:54.355Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/apihttp://localhost:3006/static/js/0.chunk.js --> api
+[debug] [2020-03-09T01:23:54.355Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:23:54.355Z] [worker-api-b0f0e248-d64a-464e-a3bf-6e974c176776]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99612.sock
+[debug] [2020-03-09T01:23:54.355Z] [worker-api-b0f0e248-d64a-464e-a3bf-6e974c176776]: BUSY
+[debug] [2020-03-09T01:23:54.356Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:23:54.356Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:23:54.356Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:23:54.356Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:23:54.357Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:23:54.358Z] [runtime-status] [99503] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:23:54.358Z] [runtime-status] [99503] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:23:54.359Z] [runtime-status] [99503] Running api in mode HTTPS
+[debug] [2020-03-09T01:23:54.359Z] [runtime-status] [99503] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99503.sock
+[debug] [2020-03-09T01:23:54.360Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:23:54.361Z] [runtime-status] [99504] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:23:54.361Z] [runtime-status] [99504] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:23:54.361Z] [runtime-status] [99504] Running api in mode HTTPS
+[debug] [2020-03-09T01:23:54.361Z] [runtime-status] [99504] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99504.sock
+[debug] [2020-03-09T01:23:54.362Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:23:54.363Z] [runtime-status] [99612] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:23:54.364Z] [runtime-status] [99612] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:23:54.364Z] [runtime-status] [99612] Running api in mode HTTPS
+[debug] [2020-03-09T01:23:54.364Z] [runtime-status] [99612] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99612.sock
+[debug] [2020-03-09T01:23:54.367Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:23:54.391Z] [runtime-status] [99503] Ephemeral server handling GET request
+[debug] [2020-03-09T01:23:54.391Z] [runtime-status] [99503] Ephemeral server survived.
+[debug] [2020-03-09T01:23:54.391Z] [runtime-status] [99502] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:23:54.391Z] [runtime-status] [99502] Ephemeral server survived.
+[debug] [2020-03-09T01:23:54.391Z] [runtime-status] [99612] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:23:54.391Z] [runtime-status] [99612] Ephemeral server survived.
+[debug] [2020-03-09T01:23:54.391Z] [runtime-status] [99504] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:23:54.391Z] [runtime-status] [99504] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:23:54.395Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: IDLE
+[debug] [2020-03-09T01:23:54.395Z] [work-queue] {"queueLength":0,"workRunningCount":3}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:23:54.430Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:23:54.430Z] [work-queue] {"queueLength":0,"workRunningCount":2}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:23:54.431Z] [worker-api-68454e28-5d2a-4860-895e-78b966fed475]: IDLE
+[debug] [2020-03-09T01:23:54.431Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:23:54.478Z] [worker-api-b0f0e248-d64a-464e-a3bf-6e974c176776]: IDLE
+[debug] [2020-03-09T01:23:54.478Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /apihttp://localhost:3006/static/js/0.chunk.js to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[info] [hosting] Rewriting /apihttp://localhost:3006/static/js/main.chunk.js to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:23:54.488Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:23:54.489Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:23:54.489Z] Accepted request GET /building-manager-f6a0e/us-central1/api/apihttp://localhost:3006/static/js/0.chunk.js --> api
+[debug] [2020-03-09T01:23:54.489Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:23:54.489Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:23:54.489Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:23:54.489Z] [work-queue] {"queueLength":1,"workRunningCount":1}
+[debug] [2020-03-09T01:23:54.489Z] [work-queue] {"queueLength":0,"workRunningCount":2}
+[debug] [2020-03-09T01:23:54.489Z] Accepted request GET /building-manager-f6a0e/us-central1/api/apihttp://localhost:3006/static/js/main.chunk.js --> api
+[debug] [2020-03-09T01:23:54.489Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:23:54.490Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99503.sock
+[debug] [2020-03-09T01:23:54.490Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: BUSY
+[debug] [2020-03-09T01:23:54.490Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:23:54.491Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:23:54.491Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:23:54.493Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:23:54.494Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:23:54.495Z] [runtime-status] [99503] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:23:54.496Z] [runtime-status] [99503] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:23:54.496Z] [runtime-status] [99503] Running api in mode HTTPS
+[debug] [2020-03-09T01:23:54.496Z] [runtime-status] [99503] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99503.sock
+[debug] [2020-03-09T01:23:54.499Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:23:54.509Z] [runtime-status] [99502] Ephemeral server handling GET request
+[debug] [2020-03-09T01:23:54.510Z] [runtime-status] [99502] Ephemeral server survived.
+[debug] [2020-03-09T01:23:54.510Z] [runtime-status] [99503] Ephemeral server handling GET request
+[debug] [2020-03-09T01:23:54.510Z] [runtime-status] [99503] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:23:54.512Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:23:54.512Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:23:54.529Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: IDLE
+[debug] [2020-03-09T01:23:54.529Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /apihttp://localhost:3006/static/js/0.chunk.js to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:23:54.536Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:23:54.537Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:23:54.537Z] Accepted request GET /building-manager-f6a0e/us-central1/api/apihttp://localhost:3006/static/js/0.chunk.js --> api
+[debug] [2020-03-09T01:23:54.537Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:23:54.537Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:23:54.537Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:23:54.538Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:23:54.539Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:23:54.539Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:23:54.539Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:23:54.540Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:23:54.542Z] [runtime-status] [99502] Ephemeral server handling GET request
+[debug] [2020-03-09T01:23:54.543Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:23:54.546Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:23:54.546Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /apihttp://localhost:3006/static/js/0.chunk.js to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:23:54.553Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:23:54.553Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:23:54.553Z] Accepted request GET /building-manager-f6a0e/us-central1/api/apihttp://localhost:3006/static/js/0.chunk.js --> api
+[debug] [2020-03-09T01:23:54.553Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:23:54.553Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:23:54.553Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:23:54.556Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:23:54.556Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:23:54.556Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:23:54.557Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:23:54.557Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:23:54.562Z] [runtime-status] [99502] Ephemeral server handling GET request
+[debug] [2020-03-09T01:23:54.562Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:23:54.564Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:23:54.564Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/assignments to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:24:20.567Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:24:20.567Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:24:20.567Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/api/assignments --> api
+[debug] [2020-03-09T01:24:20.567Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:24:20.567Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:24:20.567Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:24:20.568Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:24:20.568Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:24:20.568Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:24:20.568Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:24:20.570Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:24:20.571Z] [runtime-status] [99502] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:24:20.573Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:24:20.573Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:24:20.573Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/assignments to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:24:20.581Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:24:20.581Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:24:20.581Z] Accepted request GET /building-manager-f6a0e/us-central1/api/api/assignments --> api
+[debug] [2020-03-09T01:24:20.581Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:24:20.581Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:24:20.581Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:24:20.584Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:24:20.585Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:24:20.585Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:24:20.585Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:24:20.586Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:24:20.589Z] [runtime-status] [99502] Ephemeral server handling GET request
+[debug] [2020-03-09T01:24:20.591Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:24:21.877Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:24:21.877Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/users to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:24:42.870Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:24:42.870Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:24:42.870Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/api/users --> api
+[debug] [2020-03-09T01:24:42.870Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:24:42.870Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:24:42.870Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:24:42.870Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:24:42.871Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:24:42.871Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:24:42.871Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:24:42.872Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:24:42.874Z] [runtime-status] [99502] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:24:42.875Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:24:42.876Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:24:42.876Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/users to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:24:42.883Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:24:42.883Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:24:42.884Z] Accepted request GET /building-manager-f6a0e/us-central1/api/api/users --> api
+[debug] [2020-03-09T01:24:42.884Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:24:42.884Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:24:42.884Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:24:42.886Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:24:42.886Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:24:42.886Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:24:42.886Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:24:42.887Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:24:42.889Z] [runtime-status] [99502] Ephemeral server handling GET request
+[debug] [2020-03-09T01:24:42.890Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:24:44.321Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:24:44.321Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/buildings to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:24:47.009Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:24:47.009Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:24:47.009Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/api/buildings --> api
+[debug] [2020-03-09T01:24:47.009Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:24:47.009Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:24:47.009Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:24:47.012Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:24:47.012Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:24:47.012Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:24:47.012Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:24:47.013Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:24:47.020Z] [runtime-status] [99502] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:24:47.021Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:24:47.023Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:24:47.023Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/buildings to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:24:47.040Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:24:47.041Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:24:47.041Z] Accepted request GET /building-manager-f6a0e/us-central1/api/api/buildings --> api
+[debug] [2020-03-09T01:24:47.041Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:24:47.041Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:24:47.041Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:24:47.043Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:24:47.043Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:24:47.043Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:24:47.043Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:24:47.044Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:24:47.047Z] [runtime-status] [99502] Ephemeral server handling GET request
+[debug] [2020-03-09T01:24:47.047Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:24:47.614Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:24:47.614Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/buildings/46/doorbells to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:24:56.720Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:24:56.721Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:24:56.721Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/api/buildings/46/doorbells --> api
+[debug] [2020-03-09T01:24:56.721Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:24:56.721Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:24:56.721Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:24:56.722Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:24:56.722Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:24:56.722Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:24:56.722Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:24:56.724Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:24:56.729Z] [runtime-status] [99502] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:24:56.731Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:24:56.731Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:24:56.731Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/buildings/46/doorbells to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:24:56.743Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:24:56.743Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:24:56.743Z] Accepted request GET /building-manager-f6a0e/us-central1/api/api/buildings/46/doorbells --> api
+[debug] [2020-03-09T01:24:56.743Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:24:56.743Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:24:56.743Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:24:56.744Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:24:56.745Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:24:56.745Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:24:56.745Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:24:56.746Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:24:56.750Z] [runtime-status] [99502] Ephemeral server handling GET request
+[debug] [2020-03-09T01:24:56.750Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:24:57.077Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:24:57.077Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/assignments to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:25:10.004Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:25:10.004Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:25:10.004Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/api/assignments --> api
+[debug] [2020-03-09T01:25:10.004Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:25:10.004Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:25:10.004Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:25:10.005Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:25:10.005Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:25:10.006Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:25:10.006Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:25:10.006Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:25:10.009Z] [runtime-status] [99502] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:25:10.009Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:25:10.012Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:25:10.012Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/assignments to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:25:10.026Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:25:10.026Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:25:10.027Z] Accepted request POST /building-manager-f6a0e/us-central1/api/api/assignments --> api
+[debug] [2020-03-09T01:25:10.027Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:25:10.027Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:25:10.027Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:25:10.029Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:25:10.030Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:25:10.030Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:25:10.030Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:25:10.031Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:25:10.036Z] [runtime-status] [99502] Ephemeral server handling POST request
+[debug] [2020-03-09T01:25:10.037Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~2s
+[debug] [2020-03-09T01:25:12.540Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:25:12.540Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/assignments to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:25:12.740Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:25:12.740Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:25:12.740Z] Accepted request GET /building-manager-f6a0e/us-central1/api/api/assignments --> api
+[debug] [2020-03-09T01:25:12.740Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:25:12.741Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:25:12.741Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:25:12.751Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:25:12.751Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:25:12.751Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:25:12.753Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:25:12.754Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:25:12.762Z] [runtime-status] [99502] Ephemeral server handling GET request
+[debug] [2020-03-09T01:25:12.769Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:25:14.141Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:25:14.141Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/buildings to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:27:06.827Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:27:06.827Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:27:06.827Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/api/buildings --> api
+[debug] [2020-03-09T01:27:06.827Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:27:06.827Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:27:06.828Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:27:06.831Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:27:06.831Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:27:06.832Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:27:06.832Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:27:06.835Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:27:06.843Z] [runtime-status] [99502] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:27:06.844Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:27:06.851Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:27:06.851Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/buildings to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:27:06.864Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:27:06.864Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:27:06.864Z] Accepted request GET /building-manager-f6a0e/us-central1/api/api/buildings --> api
+[debug] [2020-03-09T01:27:06.864Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:27:06.864Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:27:06.864Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:27:06.865Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:27:06.865Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:27:06.865Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:27:06.866Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:27:06.867Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:27:06.870Z] [runtime-status] [99502] Ephemeral server handling GET request
+[debug] [2020-03-09T01:27:06.872Z] [runtime-status] [99502] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~2s
+[debug] [2020-03-09T01:27:09.329Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:27:09.329Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/buildings to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[info] [hosting] Rewriting /api/assignments to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[info] [hosting] Rewriting /api/campaigns to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:28:31.250Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:28:31.250Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:28:31.250Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/api/buildings --> api
+[debug] [2020-03-09T01:28:31.251Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:28:31.251Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:28:31.251Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:28:31.256Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:28:31.256Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:28:31.261Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:28:31.261Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:28:31.262Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:28:31.267Z] [work-queue] {"queueLength":1,"workRunningCount":1}
+[debug] [2020-03-09T01:28:31.268Z] [work-queue] {"queueLength":0,"workRunningCount":2}
+[debug] [2020-03-09T01:28:31.268Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/api/campaigns --> api
+[debug] [2020-03-09T01:28:31.268Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:28:31.268Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99503.sock
+[debug] [2020-03-09T01:28:31.268Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: BUSY
+[debug] [2020-03-09T01:28:31.268Z] [work-queue] {"queueLength":1,"workRunningCount":2}
+[debug] [2020-03-09T01:28:31.268Z] [work-queue] {"queueLength":0,"workRunningCount":3}
+[debug] [2020-03-09T01:28:31.268Z] Accepted request OPTIONS /building-manager-f6a0e/us-central1/api/api/assignments --> api
+[debug] [2020-03-09T01:28:31.268Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:28:31.268Z] [worker-api-68454e28-5d2a-4860-895e-78b966fed475]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99504.sock
+[debug] [2020-03-09T01:28:31.268Z] [worker-api-68454e28-5d2a-4860-895e-78b966fed475]: BUSY
+[debug] [2020-03-09T01:28:31.278Z] [runtime-status] [99502] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:28:31.278Z] [runtime-status] [99502] Ephemeral server survived.
+[debug] [2020-03-09T01:28:31.278Z] [runtime-status] [99503] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:28:31.279Z] [runtime-status] [99503] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:28:31.279Z] [runtime-status] [99503] Running api in mode HTTPS
+[debug] [2020-03-09T01:28:31.279Z] [runtime-status] [99503] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99503.sock
+[debug] [2020-03-09T01:28:31.279Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:28:31.280Z] [runtime-status] [99504] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:28:31.280Z] [runtime-status] [99504] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:28:31.280Z] [runtime-status] [99504] Running api in mode HTTPS
+[debug] [2020-03-09T01:28:31.280Z] [runtime-status] [99504] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99504.sock
+[debug] [2020-03-09T01:28:31.280Z] [functions] Runtime ready! Sending request!
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:28:31.285Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:28:31.285Z] [work-queue] {"queueLength":0,"workRunningCount":2}
+[debug] [2020-03-09T01:28:31.299Z] [runtime-status] [99504] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:28:31.299Z] [runtime-status] [99504] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:28:31.371Z] [worker-api-68454e28-5d2a-4860-895e-78b966fed475]: IDLE
+[debug] [2020-03-09T01:28:31.372Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:28:31.373Z] [runtime-status] [99503] Ephemeral server handling OPTIONS request
+[debug] [2020-03-09T01:28:31.373Z] [runtime-status] [99503] Ephemeral server survived.
+[info] [hosting] Rewriting /api/buildings to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:28:31.378Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: IDLE
+[debug] [2020-03-09T01:28:31.378Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[info] [hosting] Rewriting /api/assignments to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[info] [hosting] Rewriting /api/campaigns to http://localhost:5001/building-manager-f6a0e/us-central1/api for local Function api
+[debug] [2020-03-09T01:28:31.386Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-03-09T01:28:31.386Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-03-09T01:28:31.386Z] Accepted request GET /building-manager-f6a0e/us-central1/api/api/buildings --> api
+[debug] [2020-03-09T01:28:31.386Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:28:31.386Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:28:31.386Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: BUSY
+[debug] [2020-03-09T01:28:31.387Z] [work-queue] {"queueLength":1,"workRunningCount":1}
+[debug] [2020-03-09T01:28:31.387Z] [work-queue] {"queueLength":0,"workRunningCount":2}
+[debug] [2020-03-09T01:28:31.387Z] Accepted request GET /building-manager-f6a0e/us-central1/api/api/assignments --> api
+[debug] [2020-03-09T01:28:31.387Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:28:31.387Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99503.sock
+[debug] [2020-03-09T01:28:31.387Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: BUSY
+[debug] [2020-03-09T01:28:31.390Z] [runtime-status] [99503] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:28:31.390Z] [runtime-status] [99503] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:28:31.390Z] [runtime-status] [99503] Running api in mode HTTPS
+[debug] [2020-03-09T01:28:31.390Z] [runtime-status] [99503] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99503.sock
+[debug] [2020-03-09T01:28:31.391Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:28:31.391Z] [runtime-status] [99502] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:28:31.391Z] [runtime-status] [99502] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:28:31.392Z] [runtime-status] [99502] Running api in mode HTTPS
+[debug] [2020-03-09T01:28:31.392Z] [runtime-status] [99502] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99502.sock
+[debug] [2020-03-09T01:28:31.392Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:28:31.397Z] [work-queue] {"queueLength":1,"workRunningCount":2}
+[debug] [2020-03-09T01:28:31.397Z] [work-queue] {"queueLength":0,"workRunningCount":3}
+[debug] [2020-03-09T01:28:31.397Z] Accepted request GET /building-manager-f6a0e/us-central1/api/api/campaigns --> api
+[debug] [2020-03-09T01:28:31.397Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-03-09T01:28:31.398Z] [worker-api-68454e28-5d2a-4860-895e-78b966fed475]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99504.sock
+[debug] [2020-03-09T01:28:31.398Z] [worker-api-68454e28-5d2a-4860-895e-78b966fed475]: BUSY
+[debug] [2020-03-09T01:28:31.398Z] [runtime-status] [99503] Ephemeral server handling GET request
+[debug] [2020-03-09T01:28:31.400Z] [runtime-status] [99502] Ephemeral server handling GET request
+[debug] [2020-03-09T01:28:31.400Z] [runtime-status] [99502] Ephemeral server survived.
+[debug] [2020-03-09T01:28:31.400Z] [runtime-status] [99504] Trigger "api" has been found, beginning invocation!
+[debug] [2020-03-09T01:28:31.400Z] [runtime-status] [99503] Ephemeral server survived.
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-03-09T01:28:31.401Z] [runtime-status] [99504] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-03-09T01:28:31.401Z] [runtime-status] [99504] Running api in mode HTTPS
+[debug] [2020-03-09T01:28:31.402Z] [runtime-status] [99504] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_99504.sock
+[debug] [2020-03-09T01:28:31.402Z] [functions] Runtime ready! Sending request!
+[debug] [2020-03-09T01:28:31.407Z] [runtime-status] [99504] Ephemeral server handling GET request
+[debug] [2020-03-09T01:28:31.413Z] [runtime-status] [99504] Ephemeral server survived.
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:28:32.591Z] [worker-api-da8a4e39-70d2-4b39-8ff0-e058127c08ff]: IDLE
+[debug] [2020-03-09T01:28:32.591Z] [work-queue] {"queueLength":0,"workRunningCount":2}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:28:32.600Z] [worker-api-68454e28-5d2a-4860-895e-78b966fed475]: IDLE
+[debug] [2020-03-09T01:28:32.607Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-03-09T01:28:33.027Z] [worker-api-6833629a-e3b6-4e38-9101-a1fb7aa02602]: IDLE
+[debug] [2020-03-09T01:28:33.027Z] [work-queue] {"queueLength":0,"workRunningCount":0}

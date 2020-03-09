@@ -18,12 +18,15 @@ const AsyncAutocomplete = ({
   multiple,
   getOptionLabel,
   enableSelectAll,
+  sort,
   ...restProps
 }) => {
   const [open, setOpen] = React.useState(false)
   const [options, setOptions] = React.useState([])
   const [allSelected, setAllSelected] = React.useState(false)
   const [isLoading, setIsLoading] = React.useState(false)
+
+  if (sort) options.sort(sort)
 
   React.useEffect(() => {
     if (open && options.length === 0) {

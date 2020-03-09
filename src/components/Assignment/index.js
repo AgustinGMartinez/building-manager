@@ -123,7 +123,7 @@ const Assignment = ({ assignment: initialAssignment }) => {
               let withEmptySpaces = []
               let maxSurpassed = false
               floor.doorbells.forEach(bell => {
-                const number = NumberUtils.letterToNumber(bell)
+                const number = isNaN(bell) ? NumberUtils.letterToNumber(bell) : Number(bell)
                 if (number !== currentDoorbellNumber && !maxSurpassed) {
                   const exceedingMaxLength = number > maxLength
                   if (exceedingMaxLength) maxSurpassed = true

@@ -152,8 +152,11 @@ const CreateAssignmentModal = ({ onClose, onDone }) => {
           <Grid item xs={12}>
             <AsyncAutocomplete
               request={{ url: '/buildings' }}
+              sort={(a, b) => b.territory - a.territory}
               getOptionSelected={(option, value) => option.id === value.id}
-              getOptionLabel={option => StringUtils.getBuildingFullAddress(option)}
+              getOptionLabel={option =>
+                `${StringUtils.getBuildingFullAddress(option)} (${option.territory})`
+              }
               rememberOptions
               onChange={handleChangeBuildings}
               multiple

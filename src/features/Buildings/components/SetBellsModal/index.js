@@ -122,7 +122,7 @@ const SetBellsModal = ({ onClose, initialBells, buildingId, onDone }) => {
       </Box>
       <Grid container spacing={3}>
         <Grid item xs={12}>
-          {Array(10)
+          {Array(13)
             .fill(1)
             .map((_, i) => {
               const value = NumberUtils.numberToLetter(i + 1)
@@ -139,8 +139,7 @@ const SetBellsModal = ({ onClose, initialBells, buildingId, onDone }) => {
                 </Button>
               )
             })}
-          {/* TODO: maybe re-add once I know how to deal with letters in assignment view calculations */}
-          {/* {Array(10)
+          {Array(13)
             .fill(1)
             .map((_, i) => {
               const value = i + 1
@@ -156,7 +155,7 @@ const SetBellsModal = ({ onClose, initialBells, buildingId, onDone }) => {
                   {value}
                 </Button>
               )
-            })} */}
+            })}
         </Grid>
       </Grid>
       <Box mb={2} />
