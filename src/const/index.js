@@ -4,3 +4,10 @@ export const mapFilters = {
   previousMonth: 'mes anterior',
   campaign: 'campaign',
 }
+
+export const statisticColors = {
+  assigned: 'blue',
+  unassigned: 'goldenrod',
+  neverDone: 'red',
+  done: 'darkgreen',
+}

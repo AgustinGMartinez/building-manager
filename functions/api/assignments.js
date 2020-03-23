@@ -96,7 +96,7 @@ const getAssignments = async ({ id, campaign_id, user_id }) => {
 router.get('/', authenticated.user, async (req, res, next) => {
   try {
     validateUserId(req)
-    // this is only prepared to take one value as defined
+    // this is only prepared to take one query value
     const { campaign_id, user_id } = req.query
     const assignments = await getAssignments({ campaign_id, user_id })
     res.send(assignments)
@@ -179,7 +179,31 @@ router.put('/:id', authenticated.user, async (req, res, next) => {
     `
     await query(updateBuildingLastDoneQuery, [buildingId])
 
-    // TODO: revert last done if user toggles off building
+    // TODO: revert building last done if user toggles off building
+
+    // check if this it was already registered in history
+    const checkIfInHistoryQuery = `
+      SELECT *
+      FROM history
+      WHERE doorbell_special_id = $1
+      AND assignment_id = $2
+    `
+    const result = await query(checkIfInHistoryQuery, [specialId, assignment.id])
+    const inHistory = result.rows.length === 1
+    // update history
+    if (inHistory) {
+      const updateHistoryQuery = `
+        DELETE FROM history
+        WHERE id = $1
+      `
+      await query(updateHistoryQuery, [result.rows[0].id])
+    } else {
+      const updateHistoryQuery = `
+        INSERT INTO history (doorbell_special_id, assignment_id)
+        VALUES ($1, $2)
+      `
+      await query(updateHistoryQuery, [specialId, assignment.id])
+    }
 
     // if toggled doorbell was last one, finish assignment
     const pendingCompletion = []

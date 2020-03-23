@@ -1,15 +1,31 @@
 import React, { useState, useEffect } from 'react'
-import { mapFilters } from 'const'
-import redBuilding from '../../../assets/images/building-red.svg'
-import yellowBuilding from '../../../assets/images/building-yellow.svg'
-import blueBuilding from '../../../assets/images/building-blue.svg'
-import greenBuilding from '../../../assets/images/building-green.svg'
+import { mapFilters, statisticColors } from 'const'
 
 const styles = {
-  red: { fontWeight: 500, margin: '0 0.5rem', display: 'inline-block', color: 'red' },
-  yellow: { fontWeight: 500, margin: '0 0.5rem', display: 'inline-block', color: 'olive' },
-  blue: { fontWeight: 500, margin: '0 0.5rem', display: 'inline-block', color: 'blue' },
-  green: { fontWeight: 500, margin: '0 0.5rem', display: 'inline-block', color: 'darkgreen' },
+  red: {
+    fontWeight: 500,
+    margin: '0 0.5rem',
+    display: 'inline-block',
+    color: statisticColors.neverDone,
+  },
+  yellow: {
+    fontWeight: 500,
+    margin: '0 0.5rem',
+    display: 'inline-block',
+    color: statisticColors.unassigned,
+  },
+  blue: {
+    fontWeight: 500,
+    margin: '0 0.5rem',
+    display: 'inline-block',
+    color: statisticColors.assigned,
+  },
+  green: {
+    fontWeight: 500,
+    margin: '0 0.5rem',
+    display: 'inline-block',
+    color: statisticColors.done,
+  },
 }
 
 const References = ({ type, buildings }) => {
@@ -25,10 +41,10 @@ const References = ({ type, buildings }) => {
       green = 0,
       total = buildings.length || 1
     buildings.forEach(building => {
-      if (building.marker === redBuilding) return red++
-      if (building.marker === yellowBuilding) return yellow++
-      if (building.marker === blueBuilding) return blue++
-      if (building.marker === greenBuilding) return green++
+      if (building.marker === statisticColors.neverDone) return red++
+      if (building.marker === statisticColors.unassigned) return yellow++
+      if (building.marker === statisticColors.assigned) return blue++
+      if (building.marker === statisticColors.done) return green++
     })
     setRedPercentage(red / total)
     setYellowPercentage(yellow / total)
