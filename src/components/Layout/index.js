@@ -129,7 +129,8 @@ function ResponsiveDrawer({ children }) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Gestor de edificios {user && user.is_admin === 1 ? `- ${process.env.VERSION}` : ''}
+            Gestor de edificios{' '}
+            {user && user.is_admin === 1 ? `- ${process.env.REACT_APP_VERSION}` : ''}
           </Typography>
         </Toolbar>
       </AppBar>
