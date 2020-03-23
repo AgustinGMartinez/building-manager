@@ -61,7 +61,7 @@ function handleFilter(type, buildings, assignments, lastMonthHistory) {
       let isBuildingAssigned = false
       // this building can be assigned in multiple assignments,
       // lets let's push the state of doorbells in each assignment and calculate an average later
-      const doorbellsStateInThisAssignmentForThisBuilding = []
+      const doorbellsStateInEachAssignmentForThisBuilding = []
       assignments.forEach(assignment => {
         assignment.buildings.forEach(b => {
           if (b.id === building.id) isBuildingAssigned = true
@@ -69,7 +69,7 @@ function handleFilter(type, buildings, assignments, lastMonthHistory) {
         if (isBuildingAssigned) {
           assignment.doorbells.forEach(d => {
             if (d.building_id === building.id) {
-              doorbellsStateInThisAssignmentForThisBuilding.push(d.completed)
+              doorbellsStateInEachAssignmentForThisBuilding.push(d.completed)
             }
           })
         }
@@ -77,8 +77,8 @@ function handleFilter(type, buildings, assignments, lastMonthHistory) {
       if (isBuildingAssigned) {
         // set done if 50%+ is done
         const averageDone =
-          doorbellsStateInThisAssignmentForThisBuilding.filter(Boolean).length /
-          doorbellsStateInThisAssignmentForThisBuilding.length
+          doorbellsStateInEachAssignmentForThisBuilding.filter(Boolean).length /
+          doorbellsStateInEachAssignmentForThisBuilding.length
 
         if (averageDone >= 0.5) {
           building.marker = statisticColors.done
@@ -108,15 +108,25 @@ function handleFilter(type, buildings, assignments, lastMonthHistory) {
     // here we expect to already receive assignments filtered by campaign
     return buildings.map(building => {
       let currentlyAssigned = false
-      let done = false
+      const doorbellsStateInEachAssignmentForThisBuilding = []
       assignments.forEach(assignment => {
         assignment.buildings.forEach(b => {
           if (b.id === building.id) {
             currentlyAssigned = true
-            done = assignment.completed
+          }
+          if (currentlyAssigned) {
+            assignment.doorbells.forEach(d => {
+              if (d.building_id === building.id) {
+                doorbellsStateInEachAssignmentForThisBuilding.push(d.completed)
+              }
+            })
           }
         })
       })
+      const done =
+        doorbellsStateInEachAssignmentForThisBuilding.filter(Boolean).length /
+          doorbellsStateInEachAssignmentForThisBuilding.length >=
+        0.9
       if (currentlyAssigned) {
         building.marker = done ? statisticColors.done : statisticColors.assigned
         return building
