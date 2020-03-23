@@ -21,7 +21,14 @@ const columns = [
   },
   {
     title: 'Vencimiento',
-    render: row => (row.expiry_date ? moment(row.expiry_date).format(StringUtils.DATE_FORMAT) : ''),
+    render: row =>
+      row.expiry_date ? (
+        <span style={{ color: moment(row.expiry_date).isBefore(moment()) ? 'red' : 'inherit' }}>
+          {moment(row.expiry_date).format(StringUtils.DATE_FORMAT)}
+        </span>
+      ) : (
+        '-'
+      ),
   },
   {
     title: 'Territorios',

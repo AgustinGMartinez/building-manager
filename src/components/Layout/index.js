@@ -61,6 +61,12 @@ const useStyles = makeStyles(theme => ({
   logOutButton: {
     marginLeft: 'auto',
   },
+  mobileVersionDisplay: {
+    position: 'absolute',
+    bottom: 5,
+    right: 5,
+    fontSize: '0.6rem',
+  },
 }))
 
 function ResponsiveDrawer({ children }) {
@@ -117,6 +123,10 @@ function ResponsiveDrawer({ children }) {
           <NavOption to={'/assignments'} text={'Asignaciones'} Icon={AssignmentIcon} />
           <NavOption to={'/statistics'} text={'Estadisticas'} Icon={MapIcon} />
           <NavOption to={'/campaigns'} text={'Campañas'} Icon={FlagIcon} />
+          <Hidden smUp>
+            <Divider />
+            <NavOption text={'Cerrar sesión'} onClick={logOut} Icon={LogOutIcon} />
+          </Hidden>
         </List>
       ) : (
         <>
@@ -174,6 +184,10 @@ function ResponsiveDrawer({ children }) {
             }}
           >
             {drawer}
+
+            <span className={classes.mobileVersionDisplay}>
+              Versión {process.env.REACT_APP_VERSION}
+            </span>
           </Drawer>
         </Hidden>
         <Hidden xsDown implementation="css">

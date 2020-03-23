@@ -247,7 +247,7 @@ const Assignment = ({ assignment: initialAssignment }) => {
             <TextField fullWidth label="Nota" multiline value={assignment.admin_note} />
           </Grid>
         )}
-        {!!assignment.usersSharingBuildings.length && (
+        {assignment.usersSharingBuildings && assignment.usersSharingBuildings.length && (
           <Grid item xs={12}>
             <TextField
               fullWidth
