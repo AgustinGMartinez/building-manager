@@ -43,11 +43,26 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
     padding: '5px',
   },
+  card: {
+    background: '#fff',
+    borderRadius: '2px',
+    padding: '1rem',
+    boxShadow: '0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)',
+    transition: 'all 0.3s cubic-bezier(.25,.8,.25,1)',
+  },
+  userTitle: {
+    margin: '0 0 1rem',
+  },
+  hint: {
+    fontSize: '0.7rem',
+    color: '#666',
+  },
 }))
 
 const Assignment = ({ assignment: initialAssignment }) => {
   const { user } = useContext(UserContext)
-  const isAdmin = Boolean(user.is_admin)
+  const isAdmin = !!user.is_admin
+  const isUser = !isAdmin
   const [fetch, isLoading] = usePassiveFetch()
   const [assignment, setAssignment] = useState(initialAssignment)
 
@@ -115,7 +130,7 @@ const Assignment = ({ assignment: initialAssignment }) => {
       <Grid key={building.id} item xs={12} sm={6}>
         <div className={classes.buildingWrapper}>
           <h4 className={classes.buildingTitle}>
-            {building.street} {building.house_number}
+            {building.street} {building.house_number} - Territorio {building.territory}
           </h4>
           <div className={classes.buildingContainer}>
             {sortedFloors.map(floor => {
@@ -175,11 +190,16 @@ const Assignment = ({ assignment: initialAssignment }) => {
   }
 
   return (
-    <form className={classes.root} autoComplete="off" style={{ opacity: isLoading ? 0.5 : 1 }}>
+    <form
+      className={`${classes.root} ${isUser ? classes.card : ''}`}
+      autoComplete="off"
+      style={{ opacity: isLoading ? 0.5 : 1 }}
+    >
       {isAdmin && <h2>Asignación de {assignment.user_name}</h2>}
+      {isUser && <h3 className={classes.userTitle}>Asignación {assignment.id}</h3>}
       <Grid container spacing={3}>
         {isAdmin && (
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={4}>
             <TextField
               fullWidth
               label="Publicador asignado"
@@ -187,11 +207,11 @@ const Assignment = ({ assignment: initialAssignment }) => {
             />
           </Grid>
         )}
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={4}>
           <TextField fullWidth label="Campaña" value={assignment.campaign_name || 'Ninguna'} />
         </Grid>
         {isAdmin && (
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={4}>
             <TextField
               fullWidth
               label="Fecha de creación"
@@ -199,17 +219,52 @@ const Assignment = ({ assignment: initialAssignment }) => {
             />
           </Grid>
         )}
-        <Grid item xs={12} sm={3}>
-          <TextField fullWidth label="Finalizada" value={assignment.completed ? 'Sí' : 'No'} />
-        </Grid>
-        <Grid item xs={12} sm={3}>
-          <TextField fullWidth label="Territorio/s" value={assignment.territories.join(', ')} />
-        </Grid>
+        {isAdmin && (
+          <Grid item xs={12} sm={6}>
+            <TextField
+              fullWidth
+              label="Vencimiento"
+              value={
+                assignment.expiry_date
+                  ? moment(assignment.expiry_date).format(StringUtils.DATE_FORMAT)
+                  : 'Sin vencimiento'
+              }
+            />
+          </Grid>
+        )}
+        {isAdmin && (
+          <Grid item xs={12} sm={3}>
+            <TextField fullWidth label="Finalizada" value={assignment.completed ? 'Sí' : 'No'} />
+          </Grid>
+        )}
+        {isAdmin && (
+          <Grid item xs={12} sm={3}>
+            <TextField fullWidth label="Territorio/s" value={assignment.territories.join(', ')} />
+          </Grid>
+        )}
         {(isAdmin || assignment.admin_note) && (
           <Grid item xs={12}>
             <TextField fullWidth label="Nota" multiline value={assignment.admin_note} />
           </Grid>
         )}
+        {!!assignment.usersSharingBuildings.length && (
+          <Grid item xs={12}>
+            <TextField
+              fullWidth
+              label="Coordinarse con"
+              value={assignment.usersSharingBuildings.map(u => u.fullname).join(', ')}
+              helperText="Los publicadores de arriba tienen asignados algunos de tus mismos edificios, pero otros timbres."
+            />
+          </Grid>
+        )}
+        <Grid item xs={12}>
+          <h3 style={{ margin: 0 }}>Edificios:</h3>
+          {isUser && (
+            <span className={classes.hint}>
+              Pista: hacé click sobre un timbre para marcarlo como hecho.
+            </span>
+          )}
+        </Grid>
         {assignment.buildings.map(building => renderBuilding(building, assignment.doorbells))}
       </Grid>
     </form>

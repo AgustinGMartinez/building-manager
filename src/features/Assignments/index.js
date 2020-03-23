@@ -98,6 +98,7 @@ const Assignments = () => {
 
   return (
     <>
+      <p>Nota: Los usuarios no verán la fecha de vencimiento de sus asignaciones.</p>
       <DefaultTable
         title="Asignaciones"
         columns={columns}

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import Grid from '@material-ui/core/Grid'
-import { Button, Box, LinearProgress } from '@material-ui/core'
+import { Button, Box, LinearProgress, FormControlLabel } from '@material-ui/core'
 import FormHelperText from '@material-ui/core/FormHelperText'
 import { useCheckFormErrors } from 'hooks/useCheckFormErrors'
 import { toast } from 'react-toastify'
@@ -10,6 +10,13 @@ import { usePassiveFetch } from 'hooks/usePassiveFetch'
 import { Modal } from 'components/modal'
 import { AsyncAutocomplete } from 'components/AsyncAutocomplete'
 import { StringUtils } from 'utils'
+import { DatePicker } from '@material-ui/pickers'
+import Checkbox from '@material-ui/core/Checkbox'
+import moment from 'moment'
+
+const nextMonthFirstDay = moment()
+  .add(1, 'month')
+  .startOf('month')
 
 const rules = {
   user: [],
@@ -59,9 +66,27 @@ const CreateAssignmentModal = ({ onClose, onDone }) => {
 
   const [user, setUser] = useState(null)
   const [note, setNote] = useState('')
-  const [campaign, setCampaign] = useState(undefined)
+  const [campaign, setCampaign] = useState(null)
   const [buildings, setBuildings] = useState([])
   const [doorbells, setDoorbells] = useState([])
+  const [expiryDate, setExpiryDate] = useState(null)
+  const [noExpiration, setNoExpiration] = useState(true)
+  const [expiresThisMonth, setExpiresThisMonth] = useState(false)
+
+  const handleExpiresThisMonthCheckChange = event => {
+    const checked = event.target.checked
+    setExpiresThisMonth(checked)
+  }
+
+  const handleNoExpirationChange = e => {
+    const checked = e.target.checked
+    setNoExpiration(checked)
+    if (checked) setExpiresThisMonth(false)
+  }
+
+  const handleDateChange = newDate => {
+    setExpiryDate(newDate)
+  }
 
   const handleAdminNoteChange = e => {
     setNote(e.target.value)
@@ -109,6 +134,7 @@ const CreateAssignmentModal = ({ onClose, onDone }) => {
           note,
           doorbells: dblls,
           campaign_id: campaign,
+          expiry_date: noExpiration ? null : expiresThisMonth ? nextMonthFirstDay : expiryDate,
         },
       })
       toast.success('Asignación creada con éxito.')
@@ -120,7 +146,8 @@ const CreateAssignmentModal = ({ onClose, onDone }) => {
 
   const dataToCheck = { user, buildings, doorbells }
   const { errors, isAnyFieldEmpty, hasErrors } = useCheckFormErrors(dataToCheck, rules)
-  const disabled = isAnyFieldEmpty || hasErrors || isFetching
+  const hasPickedValidDate = noExpiration || expiresThisMonth || expiryDate
+  const disabled = isAnyFieldEmpty || hasErrors || isFetching || !hasPickedValidDate
 
   return (
     <Modal open close={onClose}>
@@ -183,6 +210,44 @@ const CreateAssignmentModal = ({ onClose, onDone }) => {
               />
             </Grid>
           ))}
+          <Grid item xs={12} sm={3}>
+            <DatePicker
+              value={noExpiration ? null : expiresThisMonth ? nextMonthFirstDay : expiryDate}
+              onChange={handleDateChange}
+              autoOk
+              disablePast
+              format={StringUtils.DATE_FORMAT}
+              initialFocusedDate={new Date()}
+              disabled={expiresThisMonth || noExpiration}
+              style={{ width: '100%' }}
+              label="Vencimiento"
+            />
+          </Grid>
+          <Grid item xs={12} sm={5} style={{ display: 'flex', alignItems: 'flex-end' }}>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={expiresThisMonth}
+                  onChange={handleExpiresThisMonthCheckChange}
+                  color="secondary"
+                  disabled={noExpiration}
+                />
+              }
+              label="¿Vence a fin de mes?"
+            />
+          </Grid>
+          <Grid item xs={12} sm={4} style={{ display: 'flex', alignItems: 'flex-end' }}>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={noExpiration}
+                  onChange={handleNoExpirationChange}
+                  color="secondary"
+                />
+              }
+              label="No vence"
+            />
+          </Grid>
           <Grid item xs={12}>
             <TextField
               fullWidth

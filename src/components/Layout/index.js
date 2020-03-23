@@ -16,12 +16,15 @@ import PersonIcon from '@material-ui/icons/Person'
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount'
 import ApartmentIcon from '@material-ui/icons/Apartment'
 import AssignmentIcon from '@material-ui/icons/Assignment'
+import ArchiveIcon from '@material-ui/icons/Archive'
 import MapIcon from '@material-ui/icons/Map'
 import FlagIcon from '@material-ui/icons/Flag'
+import LogOutIcon from '@material-ui/icons/ExitToApp'
 
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import { NavLink } from 'react-router-dom'
 import { UserContext } from 'contexts'
+import { Button, ListSubheader } from '@material-ui/core'
 
 const drawerWidth = 240
 
@@ -55,6 +58,9 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     padding: theme.spacing(3),
   },
+  logOutButton: {
+    marginLeft: 'auto',
+  },
 }))
 
 function ResponsiveDrawer({ children }) {
@@ -67,10 +73,15 @@ function ResponsiveDrawer({ children }) {
     setMobileOpen(!mobileOpen)
   }
 
-  const NavOption = ({ to, Icon, text }) => (
+  const logOut = () => {
+    localStorage.clear()
+    window.location.reload()
+  }
+
+  const NavOption = ({ to, Icon, text, onClick }) => (
     <NavLink
       exact
-      to={to}
+      to={to || ''}
       style={{
         textDecoration: 'none',
         color: 'rgba(0, 0, 0, 0.87)',
@@ -78,7 +89,10 @@ function ResponsiveDrawer({ children }) {
       activeStyle={{
         color: 'blue',
       }}
-      onClick={() => setMobileOpen(false)}
+      onClick={() => {
+        setMobileOpen(false)
+        onClick && onClick()
+      }}
     >
       <ListItem button key={text}>
         <ListItemIcon>
@@ -93,24 +107,29 @@ function ResponsiveDrawer({ children }) {
     <div>
       <div className={classes.toolbar} />
       <Divider />
-      <List>
-        {user && user.is_admin === 1 ? (
-          <>
-            <NavOption to={'/users'} text={'Usuarios'} Icon={PersonIcon} />
-            {user && user.is_superadmin === 1 && (
-              <NavOption to={'/admins'} text={'Administradores'} Icon={SupervisorAccountIcon} />
-            )}
-            <NavOption to={'/buildings'} text={'Edificios'} Icon={ApartmentIcon} />
-            <NavOption to={'/assignments'} text={'Asignaciones'} Icon={AssignmentIcon} />
-            <NavOption to={'/statistics'} text={'Estadisticas'} Icon={MapIcon} />
-            <NavOption to={'/campaigns'} text={'Campañas'} Icon={FlagIcon} />
-          </>
-        ) : (
-          <>
-            <NavOption to={'/my-assignments'} text={'Mis Asignaciones'} Icon={AssignmentIcon} />
-          </>
-        )}
-      </List>
+      {user && user.is_admin === 1 ? (
+        <List>
+          <NavOption to={'/users'} text={'Usuarios'} Icon={PersonIcon} />
+          {user && user.is_superadmin === 1 && (
+            <NavOption to={'/admins'} text={'Administradores'} Icon={SupervisorAccountIcon} />
+          )}
+          <NavOption to={'/buildings'} text={'Edificios'} Icon={ApartmentIcon} />
+          <NavOption to={'/assignments'} text={'Asignaciones'} Icon={AssignmentIcon} />
+          <NavOption to={'/statistics'} text={'Estadisticas'} Icon={MapIcon} />
+          <NavOption to={'/campaigns'} text={'Campañas'} Icon={FlagIcon} />
+        </List>
+      ) : (
+        <>
+          <List subheader={<ListSubheader>Asignaciones</ListSubheader>}>
+            <NavOption to={'/my-active-assignments'} text={'Activas'} Icon={AssignmentIcon} />
+            <NavOption to={'/my-active-assignments'} text={'Anteriores'} Icon={ArchiveIcon} />
+          </List>
+          <Divider />
+          <List>
+            <NavOption text={'Cerrar sesión'} onClick={logOut} Icon={LogOutIcon} />
+          </List>
+        </>
+      )}
     </div>
   )
 
@@ -132,6 +151,11 @@ function ResponsiveDrawer({ children }) {
             Gestor de edificios{' '}
             {user && user.is_admin === 1 ? `- ${process.env.REACT_APP_VERSION}` : ''}
           </Typography>
+          <Hidden xsDown>
+            <Button className={classes.logOutButton} color="inherit" onClick={logOut}>
+              Cerrar sesión
+            </Button>
+          </Hidden>
         </Toolbar>
       </AppBar>
       <nav className={classes.drawer} aria-label="navegación">

@@ -5,6 +5,8 @@ import 'react-toastify/dist/ReactToastify.min.css'
 import { Switch, Route, Redirect } from 'react-router'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { hot } from 'react-hot-loader'
+import MomentUtils from '@date-io/moment'
+import { MuiPickersUtilsProvider } from '@material-ui/pickers'
 
 import { Users } from 'features/Users'
 import { Admins } from 'features/Admins'
@@ -31,7 +33,7 @@ function App() {
   }, [])
 
   return (
-    <>
+    <MuiPickersUtilsProvider utils={MomentUtils}>
       <ToastContainer />
       <UserContext.Provider value={{ user, setUser }}>
         <Router>
@@ -68,7 +70,7 @@ function App() {
                   </Switch>
                 ) : (
                   <Switch>
-                    <Route exact path="/my-assignments" component={MyAssignments} />
+                    <Route exact path="/my-active-assignments" component={MyAssignments} />
                     <Route component={() => <h1>404 no encontrado</h1>} />
                   </Switch>
                 )}
@@ -77,7 +79,7 @@ function App() {
           </Switch>
         </Router>
       </UserContext.Provider>
-    </>
+    </MuiPickersUtilsProvider>
   )
 }
 

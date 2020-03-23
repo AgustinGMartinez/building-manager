@@ -7,7 +7,7 @@ const authenticated = require('../middlewares/authenticated')
 const createQueryValues = require('../utils/db').createQueryValues
 const validateUserId = require('../utils/validateUserId').validateUserId
 
-function validateAssignment(assigment) {
+function validateAssignment(assignment) {
   const schema = {
     user_id: Joi.number().required(),
     note: Joi.string()
@@ -22,9 +22,14 @@ function validateAssignment(assigment) {
         }),
       )
       .required(),
-    campaign_id: Joi.number().optional(),
+    campaign_id: Joi.number()
+      .optional()
+      .allow(null),
+    expiry_date: Joi.date()
+      .optional()
+      .allow(null),
   }
-  const { error } = Joi.validate(assigment, schema)
+  const { error } = Joi.validate(assignment, schema)
   if (error) {
     throw new CustomError(400, error)
   }
@@ -65,31 +70,67 @@ const getAssignments = async ({ id, campaign_id, user_id }) => {
     query(buildingsQuery),
   ])
 
-  assignments.rows.forEach(assigment => {
-    const assignmentId = assigment.id
-    const aBuildingsIds = []
-    const aBuildings = []
-    const aDoorbells = []
-    const aTerritories = []
+  await Promise.all(
+    assignments.rows.map(async assignment => {
+      const assignmentId = assignment.id
+      const aBuildingsIds = []
+      const aBuildings = []
+      const aDoorbells = []
+      const aTerritories = []
 
-    doorbellsAssignments.rows.forEach(doorbellAssigment => {
-      if (doorbellAssigment.assignment_id === assignmentId) {
-        aDoorbells.push({ ...doorbellAssigment, completed: doorbellAssigment.completed })
-        aBuildingsIds.push(doorbellAssigment.building_id)
-      }
-    })
-    ;[...new Set(aBuildingsIds)].forEach(id => {
-      const building = buildings.rows.find(b => b.id === id)
-      if (building) {
-        aBuildings.push(building)
-        aTerritories.push(building.territory)
-      }
-    })
+      doorbellsAssignments.rows.forEach(doorbellAssignment => {
+        if (doorbellAssignment.assignment_id === assignmentId) {
+          aDoorbells.push({ ...doorbellAssignment, completed: doorbellAssignment.completed })
+          aBuildingsIds.push(doorbellAssignment.building_id)
+        }
+      })
+      ;[...new Set(aBuildingsIds)].forEach(id => {
+        const building = buildings.rows.find(b => b.id === id)
+        if (building) {
+          aBuildings.push(building)
+          aTerritories.push(building.territory)
+        }
+      })
 
-    assigment.doorbells = aDoorbells
-    assigment.buildings = aBuildings
-    assigment.territories = [...new Set(aTerritories)]
-  })
+      assignment.doorbells = aDoorbells
+      assignment.buildings = aBuildings
+      assignment.territories = [...new Set(aTerritories)]
+
+      if (user_id) {
+        const usersWithSameBuildingsAssignedQuery = `
+          SELECT distinct(da.assignment_id), u.name, u.lastname, ua.user_id
+          FROM doorbells_assignments da
+          INNER JOIN assignments a
+          ON a.id = da.assignment_id
+          INNER JOIN user_assignments ua
+          ON a.id = ua.assignment_id
+          INNER JOIN users u
+          ON u.id = ua.user_id
+          WHERE da.building_id in (${assignment.buildings.map((_, i) => `$${i + 2}`).join(', ')})
+          AND a.completed = 0
+          AND (a.expiry_date is null or a.expiry_date > now())
+          AND ua.user_id != $1
+        `
+        const { rows } = await query(
+          usersWithSameBuildingsAssignedQuery,
+          [user_id, assignment.buildings.map(b => b.id)].flat(),
+        )
+        const users = []
+        if (rows.length) {
+          rows.forEach(row => {
+            const fullname = `${row.name} ${row.lastname}`
+            if (!users.some(u => u.id === row.user_id))
+              users.push({
+                fullname,
+                id: row.user_id,
+              })
+          })
+        }
+        assignment.usersSharingBuildings = users
+      }
+    }),
+  )
+
   return assignments.rows
 }
 
@@ -117,13 +158,13 @@ router.get('/:id', authenticated.user, async (req, res) => {
 router.post('/', authenticated.admin, async (req, res, next) => {
   try {
     validateAssignment(req.body)
-    const { user_id, note, doorbells, campaign_id } = req.body
+    const { user_id, note, doorbells, campaign_id, expiry_date } = req.body
     const assignmentQuery = `
-      INSERT INTO assignments (admin_note, campaign_id)
-      VALUES ($1, $2)
+      INSERT INTO assignments (admin_note, expiry_date, campaign_id)
+      VALUES ($1, $2, $3)
       RETURNING id
     `
-    const { rows } = await query(assignmentQuery, [note, campaign_id || null])
+    const { rows } = await query(assignmentQuery, [note, expiry_date, campaign_id])
     const assignment_id = rows[0].id
     const userAssignmentsQuery = `
       INSERT INTO user_assignments (user_id, assignment_id)

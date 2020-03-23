@@ -22,7 +22,7 @@ const rules = {
   password: [{ validate: password => password.length >= 6 }],
 }
 
-const INITIAL_PAGE = { admin: '/users', user: '/my-assignments' } // must be other than /login and / or else will trigger an infinte lopp
+const INITIAL_PAGE = { admin: '/users', user: '/my-active-assignments' } // must be other than /login and / or else will trigger an infinte lopp
 
 const Login = () => {
   const { user, setUser } = useContext(UserContext)
