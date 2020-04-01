@@ -32,3 +32,34 @@ app.use((err, req, res, next) => {
 })
 
 exports.api = functions.https.onRequest(app)
+
+// proxy implementation
+
+var http = require('http')
+var url = require('url')
+
+exports.proxy = functions.https.onRequest(function onRequest(client_req, client_res) {
+  console.log('gonna fetch:', client_req.url.slice(1))
+
+  const parsedUrl = url.parse('http://' + client_req.url.slice(1))
+  console.log('hostname:', parsedUrl.hostname)
+  console.log('path:', parsedUrl.pathname)
+
+  var options = {
+    hostname: parsedUrl.hostname,
+    path: parsedUrl.pathname,
+    method: client_req.method,
+    headers: client_req.headers,
+  }
+
+  var proxy = http.request(options, function(res) {
+    client_res.writeHead(res.statusCode, res.headers)
+    res.pipe(client_res, {
+      end: true,
+    })
+  })
+
+  client_req.pipe(proxy, {
+    end: true,
+  })
+})
