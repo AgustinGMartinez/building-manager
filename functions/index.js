@@ -1,65 +1,69 @@
-const functions = require('firebase-functions')
-const admin = require('firebase-admin')
-admin.initializeApp(functions.config().firebase)
+"use strict";
 
-const express = require('express')
-const cors = require('cors')
-const app = express()
-const api = require('./api')
-const bodyParser = require('body-parser')
-const CustomError = require('./errors')
+var functions = require('firebase-functions');
 
-app.use(cors())
+var admin = require('firebase-admin');
 
-app.use(bodyParser.json())
+admin.initializeApp(functions.config().firebase);
 
-app.use('/api', api)
+var express = require('express');
 
-app.use((err, req, res, next) => {
+var cors = require('cors');
+
+var app = express();
+
+var api = require('./api');
+
+var bodyParser = require('body-parser');
+
+var CustomError = require('./errors');
+/* const graphqlHTTP = require('express-graphql') */
+
+
+app.use(cors());
+app.use(bodyParser.json());
+app.use(api);
+app.use(function (err, req, res, next) {
   if (err instanceof CustomError) {
     if (!err.message.isJoi) {
       return res.status(err.status).send({
-        error: err.message,
-      })
+        error: err.message
+      });
     }
+
     return res.status(err.status).send({
-      error: err.message.details[0].message,
-    })
+      error: err.message.details[0].message
+    });
   }
+
   return res.status(500).send({
-    error: err.message,
-  })
-})
+    error: err.message
+  });
+});
+exports.api = functions.https.onRequest(app); // proxy implementation
 
-exports.api = functions.https.onRequest(app)
+var http = require('http');
 
-// proxy implementation
-
-var http = require('http')
-var url = require('url')
+var url = require('url');
 
 exports.proxy = functions.https.onRequest(function onRequest(client_req, client_res) {
-  console.log('gonna fetch:', client_req.url.slice(1))
-
-  const parsedUrl = url.parse('http://' + client_req.url.slice(1))
-  console.log('hostname:', parsedUrl.hostname)
-  console.log('path:', parsedUrl.pathname)
-
+  console.log('gonna fetch:', client_req.url.slice(1));
+  var parsedUrl = url.parse('http://' + client_req.url.slice(1));
+  console.log('hostname:', parsedUrl.hostname);
+  console.log('path:', parsedUrl.pathname);
   var options = {
     hostname: parsedUrl.hostname,
     path: parsedUrl.pathname,
     method: client_req.method,
-    headers: client_req.headers,
-  }
-
-  var proxy = http.request(options, function(res) {
-    client_res.writeHead(res.statusCode, res.headers)
+    headers: client_req.headers
+  };
+  var proxy = http.request(options, function (res) {
+    client_res.writeHead(res.statusCode, res.headers);
     res.pipe(client_res, {
-      end: true,
-    })
-  })
-
+      end: true
+    });
+  });
   client_req.pipe(proxy, {
-    end: true,
-  })
-})
+    end: true
+  });
+});

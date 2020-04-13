@@ -1,0 +1,11 @@
+{
+  "jwt": {
+    "secret": "jw1914dev"
+  },
+  "db": {
+    "host": "ec2-3-234-109-123.compute-1.amazonaws.com",
+    "password": "5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8",
+    "user": "lvjtvaulhbuzhu",
+    "database": "da5pbdk3oqtn3v"
+  }
+}
