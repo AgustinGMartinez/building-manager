@@ -9,3 +9,4 @@ exports.removeUndefined = function (array) {
   if (!filtered.length && returnNullIfEmpty) return null;
   return filtered;
 };
+//# sourceMappingURL=arrays.js.map

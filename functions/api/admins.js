@@ -155,3 +155,4 @@ router.delete('/:id', authenticated.superadmin, /*#__PURE__*/function () {
   };
 }());
 module.exports = router;
+//# sourceMappingURL=admins.js.map

@@ -28,3 +28,4 @@ router.use('/admins', admins);
 router.use('/assignments', assignments);
 router.use('/history', history);
 module.exports = router;
+//# sourceMappingURL=index.js.map

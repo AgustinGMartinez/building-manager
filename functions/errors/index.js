@@ -29,3 +29,4 @@ var CustomError = /*#__PURE__*/function (_Error) {
 }((0, _wrapNativeSuper2.default)(Error));
 
 module.exports = CustomError;
+//# sourceMappingURL=index.js.map

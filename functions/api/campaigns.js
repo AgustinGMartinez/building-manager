@@ -142,3 +142,4 @@ router.delete('/:id', authenticated.admin, /*#__PURE__*/function () {
   };
 }());
 module.exports = router;
+//# sourceMappingURL=campaigns.js.map

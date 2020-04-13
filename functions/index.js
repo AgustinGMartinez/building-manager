@@ -1,30 +1,40 @@
 "use strict";
 
-var functions = require('firebase-functions');
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var admin = require('firebase-admin');
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.api = exports.proxy = void 0;
 
-admin.initializeApp(functions.config().firebase);
+var _firebaseFunctions = require("firebase-functions");
 
-var express = require('express');
+var _firebaseAdmin = _interopRequireDefault(require("firebase-admin"));
 
-var cors = require('cors');
+var _http = _interopRequireDefault(require("http"));
 
-var app = express();
+var _url = _interopRequireDefault(require("url"));
 
-var api = require('./api');
+var _express = _interopRequireDefault(require("express"));
 
-var bodyParser = require('body-parser');
+var _cors = _interopRequireDefault(require("cors"));
 
-var CustomError = require('./errors');
-/* const graphqlHTTP = require('express-graphql') */
+var _api = _interopRequireDefault(require("./api"));
 
+var _bodyParser = _interopRequireDefault(require("body-parser"));
 
-app.use(cors());
-app.use(bodyParser.json());
-app.use(api);
+var _errors = _interopRequireDefault(require("./errors"));
+
+var _expressGraphql = _interopRequireDefault(require("express-graphql"));
+
+_firebaseAdmin.default.initializeApp((0, _firebaseFunctions.config)().firebase);
+
+var app = (0, _express.default)();
+app.use((0, _cors.default)());
+app.use(_bodyParser.default.json());
+app.use(_api.default);
 app.use(function (err, req, res, next) {
-  if (err instanceof CustomError) {
+  if (err instanceof _errors.default) {
     if (!err.message.isJoi) {
       return res.status(err.status).send({
         error: err.message
@@ -40,15 +50,17 @@ app.use(function (err, req, res, next) {
     error: err.message
   });
 });
-exports.api = functions.https.onRequest(app); // proxy implementation
 
-var http = require('http');
+var api = _firebaseFunctions.https.onRequest(app); // proxy implementation
 
-var url = require('url');
 
-exports.proxy = functions.https.onRequest(function onRequest(client_req, client_res) {
+exports.api = api;
+
+var proxy = _firebaseFunctions.https.onRequest(function onRequest(client_req, client_res) {
   console.log('gonna fetch:', client_req.url.slice(1));
-  var parsedUrl = url.parse('http://' + client_req.url.slice(1));
+
+  var parsedUrl = _url.default.parse('http://' + client_req.url.slice(1));
+
   console.log('hostname:', parsedUrl.hostname);
   console.log('path:', parsedUrl.pathname);
   var options = {
@@ -57,13 +69,18 @@ exports.proxy = functions.https.onRequest(function onRequest(client_req, client_
     method: client_req.method,
     headers: client_req.headers
   };
-  var proxy = http.request(options, function (res) {
+
+  var proxy = _http.default.request(options, function (res) {
     client_res.writeHead(res.statusCode, res.headers);
     res.pipe(client_res, {
       end: true
     });
   });
+
   client_req.pipe(proxy, {
     end: true
   });
 });
+
+exports.proxy = proxy;
+//# sourceMappingURL=index.js.map

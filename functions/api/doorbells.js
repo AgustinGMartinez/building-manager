@@ -85,3 +85,4 @@ router.post('/', authenticated.admin, /*#__PURE__*/function () {
   };
 }());
 module.exports = router;
+//# sourceMappingURL=doorbells.js.map

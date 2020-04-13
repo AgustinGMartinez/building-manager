@@ -5,3 +5,4 @@ var validateUserId = function validateUserId(req) {
 };
 
 exports.validateUserId = validateUserId;
+//# sourceMappingURL=validateUserId.js.map

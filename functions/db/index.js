@@ -34,3 +34,4 @@ function query(query) {
 }
 
 module.exports = query;
+//# sourceMappingURL=index.js.map

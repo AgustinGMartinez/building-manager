@@ -68,3 +68,4 @@ module.exports = {
   comparePassword: comparePassword,
   generateHash: generateHash
 };
+//# sourceMappingURL=authentication.js.map

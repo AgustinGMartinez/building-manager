@@ -104,3 +104,4 @@ router.post('/login', /*#__PURE__*/function () {
   };
 }());
 module.exports = router;
+//# sourceMappingURL=auth.js.map

@@ -105,3 +105,4 @@ var authenticated = {
   user: authenticate('user')
 };
 module.exports = authenticated;
+//# sourceMappingURL=authenticated.js.map

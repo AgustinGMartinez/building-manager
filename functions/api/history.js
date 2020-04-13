@@ -51,3 +51,4 @@ router.get('/', authenticated.admin, /*#__PURE__*/function () {
   };
 }());
 module.exports = router;
+//# sourceMappingURL=history.js.map

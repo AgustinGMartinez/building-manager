@@ -462,3 +462,4 @@ router.delete('/:id', authenticated.admin, /*#__PURE__*/function () {
   };
 }());
 module.exports = router;
+//# sourceMappingURL=assignments.js.map
