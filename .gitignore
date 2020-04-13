@@ -19,8 +19,8 @@
 .env.development.local
 .env.test.local
 .env.production.local
-/functions/.runtimeconfig.json
-/functions/node_modules
+/functions
+/backend/.runtimeconfig.json
 /backend/node_modules
 
 npm-debug.log*

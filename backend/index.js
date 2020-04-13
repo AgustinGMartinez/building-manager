@@ -1,20 +1,23 @@
-const functions = require('firebase-functions')
-const admin = require('firebase-admin')
-admin.initializeApp(functions.config().firebase)
+import { config, https } from 'firebase-functions'
+import admin from 'firebase-admin'
+import http from 'http'
+import url from 'url'
+import express from 'express'
+import cors from 'cors'
 
-const express = require('express')
-const cors = require('cors')
+import mainRouter from './api'
+import bodyParser from 'body-parser'
+import CustomError from './errors'
+import graphqlHTTP from 'express-graphql'
+
+admin.initializeApp(config().firebase)
 const app = express()
-const api = require('./api')
-const bodyParser = require('body-parser')
-const CustomError = require('./errors')
-/* const graphqlHTTP = require('express-graphql') */
 
 app.use(cors())
 
 app.use(bodyParser.json())
 
-app.use(api)
+app.use(mainRouter)
 
 app.use((err, req, res, next) => {
   if (err instanceof CustomError) {
@@ -32,28 +35,25 @@ app.use((err, req, res, next) => {
   })
 })
 
-exports.api = functions.https.onRequest(app)
+const api = https.onRequest(app)
 
 // proxy implementation
 
-var http = require('http')
-var url = require('url')
-
-exports.proxy = functions.https.onRequest(function onRequest(client_req, client_res) {
+const proxy = https.onRequest(function onRequest(client_req, client_res) {
   console.log('gonna fetch:', client_req.url.slice(1))
 
   const parsedUrl = url.parse('http://' + client_req.url.slice(1))
   console.log('hostname:', parsedUrl.hostname)
   console.log('path:', parsedUrl.pathname)
 
-  var options = {
+  const options = {
     hostname: parsedUrl.hostname,
     path: parsedUrl.pathname,
     method: client_req.method,
     headers: client_req.headers,
   }
 
-  var proxy = http.request(options, function(res) {
+  const proxy = http.request(options, function(res) {
     client_res.writeHead(res.statusCode, res.headers)
     res.pipe(client_res, {
       end: true,
@@ -64,3 +64,5 @@ exports.proxy = functions.https.onRequest(function onRequest(client_req, client_
     end: true,
   })
 })
+
+export { proxy, api }

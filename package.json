@@ -40,7 +40,7 @@
     "build": "react-app-rewired build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "concurrently \"yarn babel-backend-watch\" \"cd functions & firebase serve --only functions\"",
+    "server": "clear & concurrently \"yarn babel-backend-watch\" \"cd functions & firebase serve --only functions\"",
     "babel-backend-watch": "yarn babel backend --watch \"backend/*.js\" --out-dir functions --compact false --copy-files --ignore \"backend/node_modules\" --presets=@babel/preset-env --plugins=@babel/plugin-transform-runtime --source-maps --include-dotfiles",
     "babel-backend": "yarn babel backend \"backend/*.js\" --out-dir functions --compact false --copy-files --ignore \"backend/node_modules\" --presets=@babel/preset-env --plugins=@babel/plugin-transform-runtime --include-dotfiles",
     "deploy": "yarn build && yarn babel-backend && firebase deploy"
