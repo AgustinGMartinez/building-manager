@@ -1,0 +1,716 @@
+[debug] [2020-04-20T04:18:41.670Z] ----------------------------------------------------------------------
+[debug] [2020-04-20T04:18:41.672Z] Command:       /Users/xxx/.nvm/versions/node/v12.14.1/bin/node /Users/xxx/.nvm/versions/node/v12.14.1/bin/firebase serve --only functions
+[debug] [2020-04-20T04:18:41.673Z] CLI Version:   8.0.0
+[debug] [2020-04-20T04:18:41.673Z] Platform:      darwin
+[debug] [2020-04-20T04:18:41.673Z] Node Version:  v12.14.1
+[debug] [2020-04-20T04:18:41.676Z] Time:          Mon Apr 20 2020 01:18:41 GMT-0300 (Argentina Standard Time)
+[debug] [2020-04-20T04:18:41.678Z] ----------------------------------------------------------------------
+[debug] [2020-04-20T04:18:41.679Z] 
+[debug] [2020-04-20T04:18:41.694Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-04-20T04:18:41.694Z] > authorizing via signed-in user
+[debug] [2020-04-20T04:18:41.695Z] [iam] checking project building-manager-f6a0e for permissions ["firebase.projects.get"]
+[debug] [2020-04-20T04:18:41.698Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-04-20T04:18:41.699Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-04-20T04:18:41.909Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 20 Apr 2020 04:18:41 GMT","server":"scaffolding on HTTPServer2","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"quic=\":443\"; ma=2592000; v=\"46,43\",h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-04-20T04:18:41.932Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/building-manager-f6a0e:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2020-04-20T04:18:43.159Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 20 Apr 2020 04:18:43 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1081","alt-svc":"quic=\":443\"; ma=2592000; v=\"46,43\",h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-04-20T04:18:43.160Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/building-manager-f6a0e  
+ 
+[debug] [2020-04-20T04:18:43.773Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 20 Apr 2020 04:18:43 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"quic=\":443\"; ma=2592000; v=\"46,43\",h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000","accept-ranges":"none","transfer-encoding":"chunked"}
+[warn] ⚠  Your requested "node" version "10" doesn't match your global version "12"
+[info] ✔  functions: functions emulator started at http://localhost:5000
+[info] i  functions: Watching "/Users/xxx/Desktop/proyectos/building-manager/functions" for Cloud Functions...
+[debug] [2020-04-20T04:18:43.827Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-04-20T04:18:43.827Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 
+[debug] [2020-04-20T04:18:43.828Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-04-20T04:18:43.828Z] [worker-~diagnostic~-05c2a9bc-9f43-46de-8f51-a93e435ff64c]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22358.sock 
+[debug] [2020-04-20T04:18:43.829Z] [worker-~diagnostic~-05c2a9bc-9f43-46de-8f51-a93e435ff64c]: BUSY 
+[debug] [2020-04-20T04:18:44.261Z] [runtime-status] [22358] Functions runtime initialized. {"cwd":"/Users/xxx/Desktop/proyectos/building-manager/functions","node_version":"12.14.1"} 
+[debug] [2020-04-20T04:18:44.268Z] [runtime-status] [22358] Disabled runtime features: undefined 
+[debug] [2020-04-20T04:18:44.271Z] [runtime-status] [22358] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-04-20T04:18:44.275Z] [runtime-status] [22358] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:18:44.276Z] [runtime-status] [22358] Found local functions config: /Users/xxx/Desktop/proyectos/building-manager/functions/.runtimeconfig.json 
+[debug] [2020-04-20T04:18:44.277Z] [runtime-status] [22358] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-04-20T04:18:44.321Z] [runtime-status] [22358] Checked functions.config() {"config":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:18:44.322Z] [runtime-status] [22358] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:18:44.323Z] [runtime-status] [22358] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-04-20T04:18:44.323Z] [runtime-status] [22358] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:18:44.323Z] [runtime-status] [22358] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"}} 
+[debug] [2020-04-20T04:18:44.518Z] [runtime-status] [22358] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:18:44.518Z] [runtime-status] [22358] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:18:44.518Z] [runtime-status] [22358] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:18:44.518Z] [runtime-status] [22358] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[warn] ⚠  ReferenceError: GraphQLNonNull is not defined
+    at Object.<anonymous> (/Users/xxx/Desktop/proyectos/building-manager/functions/graphql/schema/schema.js:173:23)
+    at Module._compile (internal/modules/cjs/loader.js:955:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:991:10)
+    at Module.load (internal/modules/cjs/loader.js:811:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:723:14)
+    at Module.require (internal/modules/cjs/loader.js:848:19)
+    at require (internal/modules/cjs/helpers.js:74:18)
+    at Object.<anonymous> (/Users/xxx/Desktop/proyectos/building-manager/functions/index.js:30:38)
+    at Module._compile (internal/modules/cjs/loader.js:955:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:991:10)
+[warn] ⚠  We were unable to load your functions code. (see above)
+[debug] [2020-04-20T04:18:44.866Z] [worker-~diagnostic~-05c2a9bc-9f43-46de-8f51-a93e435ff64c]: exited 
+[debug] [2020-04-20T04:18:44.866Z] [worker-~diagnostic~-05c2a9bc-9f43-46de-8f51-a93e435ff64c]: FINISHED 
+[debug] [2020-04-20T04:18:45.126Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/api/admins.js.map changed, reloading triggers 
+[debug] [2020-04-20T04:18:45.127Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/api/admins.js changed, reloading triggers 
+[debug] [2020-04-20T04:18:45.558Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/api/assignments.js.map changed, reloading triggers 
+[debug] [2020-04-20T04:18:45.558Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/api/assignments.js changed, reloading triggers 
+[debug] [2020-04-20T04:18:45.558Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/api/auth.js.map changed, reloading triggers 
+[debug] [2020-04-20T04:18:45.558Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/api/auth.js changed, reloading triggers 
+[debug] [2020-04-20T04:18:45.660Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/api/auth.js changed, reloading triggers 
+[debug] [2020-04-20T04:18:45.759Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/api/buildings.js.map changed, reloading triggers 
+[debug] [2020-04-20T04:18:45.759Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/api/buildings.js changed, reloading triggers 
+[debug] [2020-04-20T04:18:45.760Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/api/campaigns.js.map changed, reloading triggers 
+[debug] [2020-04-20T04:18:45.760Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/api/campaigns.js changed, reloading triggers 
+[debug] [2020-04-20T04:18:45.859Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/api/doorbells.js.map changed, reloading triggers 
+[debug] [2020-04-20T04:18:45.860Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/api/campaigns.js changed, reloading triggers 
+[debug] [2020-04-20T04:18:45.860Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/api/history.js.map changed, reloading triggers 
+[debug] [2020-04-20T04:18:45.860Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/api/doorbells.js changed, reloading triggers 
+[debug] [2020-04-20T04:18:45.860Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/api/index.js.map changed, reloading triggers 
+[debug] [2020-04-20T04:18:45.860Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/api/index.js changed, reloading triggers 
+[debug] [2020-04-20T04:18:45.860Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/api/history.js changed, reloading triggers 
+[debug] [2020-04-20T04:18:45.960Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/api/index.js changed, reloading triggers 
+[debug] [2020-04-20T04:18:45.961Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/api/users.js.map changed, reloading triggers 
+[debug] [2020-04-20T04:18:45.961Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/db/index.js.map changed, reloading triggers 
+[debug] [2020-04-20T04:18:45.961Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/db/index.js changed, reloading triggers 
+[debug] [2020-04-20T04:18:45.961Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/api/users.js changed, reloading triggers 
+[debug] [2020-04-20T04:18:46.061Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/db/index.js changed, reloading triggers 
+[debug] [2020-04-20T04:18:46.061Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/errors/index.js.map changed, reloading triggers 
+[debug] [2020-04-20T04:18:46.061Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/errors/index.js changed, reloading triggers 
+[debug] [2020-04-20T04:18:46.161Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/graphql/schema/schema.js.map changed, reloading triggers 
+[debug] [2020-04-20T04:18:46.161Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/graphql/schema/schema.js changed, reloading triggers 
+[debug] [2020-04-20T04:18:46.162Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/index.js.map changed, reloading triggers 
+[debug] [2020-04-20T04:18:46.162Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/index.js changed, reloading triggers 
+[debug] [2020-04-20T04:18:46.162Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/middlewares/authenticated.js.map changed, reloading triggers 
+[debug] [2020-04-20T04:18:46.162Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/middlewares/authenticated.js changed, reloading triggers 
+[debug] [2020-04-20T04:18:46.262Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/middlewares/authenticated.js changed, reloading triggers 
+[debug] [2020-04-20T04:18:47.268Z] [worker-pool] Cleaned up workers for ~diagnostic~: 1 --> 0 
+[debug] [2020-04-20T04:18:47.275Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-04-20T04:18:47.275Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 
+[debug] [2020-04-20T04:18:47.275Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-04-20T04:18:47.275Z] [worker-~diagnostic~-29f52e69-a655-459c-bd27-e107bb87e606]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22373.sock 
+[debug] [2020-04-20T04:18:47.276Z] [worker-~diagnostic~-29f52e69-a655-459c-bd27-e107bb87e606]: BUSY 
+[debug] [2020-04-20T04:18:48.064Z] [runtime-status] [22373] Functions runtime initialized. {"cwd":"/Users/xxx/Desktop/proyectos/building-manager/functions","node_version":"12.14.1"} 
+[debug] [2020-04-20T04:18:48.094Z] [runtime-status] [22373] Disabled runtime features: undefined 
+[debug] [2020-04-20T04:18:48.102Z] [runtime-status] [22373] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-04-20T04:18:48.109Z] [runtime-status] [22373] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:18:48.110Z] [runtime-status] [22373] Found local functions config: /Users/xxx/Desktop/proyectos/building-manager/functions/.runtimeconfig.json 
+[debug] [2020-04-20T04:18:48.112Z] [runtime-status] [22373] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-04-20T04:18:48.220Z] [runtime-status] [22373] Checked functions.config() {"config":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:18:48.221Z] [runtime-status] [22373] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:18:48.225Z] [runtime-status] [22373] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-04-20T04:18:48.226Z] [runtime-status] [22373] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:18:48.226Z] [runtime-status] [22373] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"}} 
+[debug] [2020-04-20T04:18:48.481Z] [runtime-status] [22373] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:18:48.481Z] [runtime-status] [22373] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:18:48.482Z] [runtime-status] [22373] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:18:48.482Z] [runtime-status] [22373] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[warn] ⚠  ReferenceError: GraphQLNonNull is not defined
+    at Object.<anonymous> (/Users/xxx/Desktop/proyectos/building-manager/functions/graphql/schema/schema.js:173:23)
+    at Module._compile (internal/modules/cjs/loader.js:955:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:991:10)
+    at Module.load (internal/modules/cjs/loader.js:811:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:723:14)
+    at Module.require (internal/modules/cjs/loader.js:848:19)
+    at require (internal/modules/cjs/helpers.js:74:18)
+    at Object.<anonymous> (/Users/xxx/Desktop/proyectos/building-manager/functions/index.js:30:38)
+    at Module._compile (internal/modules/cjs/loader.js:955:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:991:10)
+[warn] ⚠  We were unable to load your functions code. (see above)
+[debug] [2020-04-20T04:18:49.033Z] [worker-~diagnostic~-29f52e69-a655-459c-bd27-e107bb87e606]: exited 
+[debug] [2020-04-20T04:18:49.033Z] [worker-~diagnostic~-29f52e69-a655-459c-bd27-e107bb87e606]: FINISHED 
+[debug] [2020-04-20T04:19:07.334Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/package.json changed, reloading triggers 
+[debug] [2020-04-20T04:19:07.335Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/utils/arrays.js.map changed, reloading triggers 
+[debug] [2020-04-20T04:19:07.335Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/utils/arrays.js changed, reloading triggers 
+[debug] [2020-04-20T04:19:07.335Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/package-lock.json changed, reloading triggers 
+[debug] [2020-04-20T04:19:07.434Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/package-lock.json changed, reloading triggers 
+[debug] [2020-04-20T04:19:07.435Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/package.json changed, reloading triggers 
+[debug] [2020-04-20T04:19:07.435Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/utils/arrays.js changed, reloading triggers 
+[debug] [2020-04-20T04:19:07.435Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/utils/authentication.js.map changed, reloading triggers 
+[debug] [2020-04-20T04:19:07.435Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/utils/authentication.js changed, reloading triggers 
+[debug] [2020-04-20T04:19:07.536Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/utils/db.js.map changed, reloading triggers 
+[debug] [2020-04-20T04:19:07.537Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/utils/db.js changed, reloading triggers 
+[debug] [2020-04-20T04:19:07.538Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/index.js changed, reloading triggers 
+[debug] [2020-04-20T04:19:07.538Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/utils/validateUserId.js.map changed, reloading triggers 
+[debug] [2020-04-20T04:19:07.539Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/utils/validateUserId.js changed, reloading triggers 
+[debug] [2020-04-20T04:19:07.634Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/index.js.map changed, reloading triggers 
+[debug] [2020-04-20T04:19:07.634Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/index.js changed, reloading triggers 
+[debug] [2020-04-20T04:19:08.634Z] [worker-pool] Cleaned up workers for ~diagnostic~: 1 --> 0 
+[debug] [2020-04-20T04:19:08.646Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-04-20T04:19:08.646Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 
+[debug] [2020-04-20T04:19:08.646Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-04-20T04:19:08.647Z] [worker-~diagnostic~-2d07ea2d-9296-4487-a0ba-2cbc4d3ad47a]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22423.sock 
+[debug] [2020-04-20T04:19:08.647Z] [worker-~diagnostic~-2d07ea2d-9296-4487-a0ba-2cbc4d3ad47a]: BUSY 
+[debug] [2020-04-20T04:19:09.942Z] [runtime-status] [22423] Functions runtime initialized. {"cwd":"/Users/xxx/Desktop/proyectos/building-manager/functions","node_version":"12.14.1"} 
+[debug] [2020-04-20T04:19:09.953Z] [runtime-status] [22423] Disabled runtime features: undefined 
+[debug] [2020-04-20T04:19:09.956Z] [runtime-status] [22423] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-04-20T04:19:09.960Z] [runtime-status] [22423] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:19:09.961Z] [runtime-status] [22423] Found local functions config: /Users/xxx/Desktop/proyectos/building-manager/functions/.runtimeconfig.json 
+[debug] [2020-04-20T04:19:09.963Z] [runtime-status] [22423] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-04-20T04:19:10.103Z] [runtime-status] [22423] Checked functions.config() {"config":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:19:10.104Z] [runtime-status] [22423] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:19:10.105Z] [runtime-status] [22423] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-04-20T04:19:10.106Z] [runtime-status] [22423] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:19:10.106Z] [runtime-status] [22423] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"}} 
+[debug] [2020-04-20T04:19:10.465Z] [runtime-status] [22423] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:19:10.467Z] [runtime-status] [22423] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:19:10.469Z] [runtime-status] [22423] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:19:10.470Z] [runtime-status] [22423] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[warn] ⚠  ReferenceError: GraphQLNonNull is not defined
+    at Object.<anonymous> (/Users/xxx/Desktop/proyectos/building-manager/functions/graphql/schema/schema.js:173:23)
+    at Module._compile (internal/modules/cjs/loader.js:955:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:991:10)
+    at Module.load (internal/modules/cjs/loader.js:811:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:723:14)
+    at Module.require (internal/modules/cjs/loader.js:848:19)
+    at require (internal/modules/cjs/helpers.js:74:18)
+    at Object.<anonymous> (/Users/xxx/Desktop/proyectos/building-manager/functions/index.js:30:38)
+    at Module._compile (internal/modules/cjs/loader.js:955:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:991:10)
+[warn] ⚠  We were unable to load your functions code. (see above)
+[debug] [2020-04-20T04:19:10.910Z] [worker-~diagnostic~-2d07ea2d-9296-4487-a0ba-2cbc4d3ad47a]: exited 
+[debug] [2020-04-20T04:19:10.910Z] [worker-~diagnostic~-2d07ea2d-9296-4487-a0ba-2cbc4d3ad47a]: FINISHED 
+[debug] [2020-04-20T04:19:15.239Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/graphql/schema/schema.js.map changed, reloading triggers 
+[debug] [2020-04-20T04:19:15.239Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/graphql/schema/schema.js changed, reloading triggers 
+[debug] [2020-04-20T04:19:16.243Z] [worker-pool] Cleaned up workers for ~diagnostic~: 1 --> 0 
+[debug] [2020-04-20T04:19:16.247Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-04-20T04:19:16.248Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 
+[debug] [2020-04-20T04:19:16.248Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-04-20T04:19:16.248Z] [worker-~diagnostic~-5da06236-918f-49af-ae06-3e76194d9a31]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22433.sock 
+[debug] [2020-04-20T04:19:16.248Z] [worker-~diagnostic~-5da06236-918f-49af-ae06-3e76194d9a31]: BUSY 
+[debug] [2020-04-20T04:19:16.673Z] [runtime-status] [22433] Functions runtime initialized. {"cwd":"/Users/xxx/Desktop/proyectos/building-manager/functions","node_version":"12.14.1"} 
+[debug] [2020-04-20T04:19:16.676Z] [runtime-status] [22433] Disabled runtime features: undefined 
+[debug] [2020-04-20T04:19:16.680Z] [runtime-status] [22433] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-04-20T04:19:16.682Z] [runtime-status] [22433] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:19:16.683Z] [runtime-status] [22433] Found local functions config: /Users/xxx/Desktop/proyectos/building-manager/functions/.runtimeconfig.json 
+[debug] [2020-04-20T04:19:16.686Z] [runtime-status] [22433] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-04-20T04:19:16.734Z] [runtime-status] [22433] Checked functions.config() {"config":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:19:16.735Z] [runtime-status] [22433] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:19:16.737Z] [runtime-status] [22433] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-04-20T04:19:16.738Z] [runtime-status] [22433] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:19:16.738Z] [runtime-status] [22433] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"}} 
+[debug] [2020-04-20T04:19:16.864Z] [runtime-status] [22433] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:19:16.864Z] [runtime-status] [22433] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:19:16.864Z] [runtime-status] [22433] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:19:16.864Z] [runtime-status] [22433] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:19:17.017Z] [runtime-status] [22433] config() parent accessed! {"parentKey":"firebase","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[warn] ⚠  Non-existent functions.config() value requested!
+   - Path: "firebase.httpAgent"
+   - Learn more at https://firebase.google.com/docs/functions/local-emulator
+[info] ✔  functions[proxy]: http function initialized (http://localhost:5000/building-manager-f6a0e/us-central1/proxy).
+[info] ✔  functions[api]: http function initialized (http://localhost:5000/building-manager-f6a0e/us-central1/api).
+[debug] [2020-04-20T04:19:17.029Z] [worker-~diagnostic~-5da06236-918f-49af-ae06-3e76194d9a31]: IDLE 
+[debug] [2020-04-20T04:19:23.175Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-04-20T04:19:23.175Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-04-20T04:19:23.176Z] Accepted request GET /building-manager-f6a0e/us-central1/api/graphql?query=%7B%0A%20%20users%20%7B%0A%20%20%20%20id%0A%20%20%20%20name%0A%20%20%20%20lastname%0A%20%20%20%20is_admin%0A%20%20%20%20assignments%20%7B%0A%20%20%20%20%20%20user_name%0A%20%20%20%20%20%20id%0A%20%20%20%20%20%20expiry_date%0A%20%20%20%20%7D%0A%20%20%7D%0A%20%20assignments%20%7B%0A%20%20%20%20user_name%0A%20%20%20%20id%0A%20%20%20%20expiry_date%0A%20%20%7D%0A%20%20assignment(id%3A%2045)%20%7B%0A%20%20%20%20user_name%0A%20%20%20%20id%0A%20%20%20%20expiry_date%0A%20%20%7D%0A%7D --> api
+[debug] [2020-04-20T04:19:23.182Z] [worker-pool] addWorker(api) 
+[debug] [2020-04-20T04:19:23.182Z] [worker-pool] Adding worker with key api, total=1 
+[debug] [2020-04-20T04:19:23.182Z] [worker-pool] submitWork(triggerId=api) 
+[debug] [2020-04-20T04:19:23.182Z] [worker-api-3431cae1-6848-45cd-a931-5957eeb61fe4]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22444.sock 
+[debug] [2020-04-20T04:19:23.182Z] [worker-api-3431cae1-6848-45cd-a931-5957eeb61fe4]: BUSY 
+[debug] [2020-04-20T04:19:23.474Z] [runtime-status] [22444] Functions runtime initialized. {"cwd":"/Users/xxx/Desktop/proyectos/building-manager/functions","node_version":"12.14.1"} 
+[debug] [2020-04-20T04:19:23.479Z] [runtime-status] [22444] Disabled runtime features: undefined 
+[debug] [2020-04-20T04:19:23.484Z] [runtime-status] [22444] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-04-20T04:19:23.488Z] [runtime-status] [22444] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:19:23.488Z] [runtime-status] [22444] Found local functions config: /Users/xxx/Desktop/proyectos/building-manager/functions/.runtimeconfig.json 
+[debug] [2020-04-20T04:19:23.489Z] [runtime-status] [22444] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-04-20T04:19:23.520Z] [runtime-status] [22444] Checked functions.config() {"config":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:19:23.520Z] [runtime-status] [22444] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:19:23.521Z] [runtime-status] [22444] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-04-20T04:19:23.521Z] [runtime-status] [22444] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:19:23.521Z] [runtime-status] [22444] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"}} 
+[debug] [2020-04-20T04:19:23.653Z] [runtime-status] [22444] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:19:23.654Z] [runtime-status] [22444] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:19:23.654Z] [runtime-status] [22444] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:19:23.654Z] [runtime-status] [22444] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:19:23.865Z] [runtime-status] [22444] config() parent accessed! {"parentKey":"firebase","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[warn] ⚠  Non-existent functions.config() value requested!
+   - Path: "firebase.httpAgent"
+   - Learn more at https://firebase.google.com/docs/functions/local-emulator
+[debug] [2020-04-20T04:19:23.878Z] [runtime-status] [22444] Trigger "api" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-04-20T04:19:23.880Z] [runtime-status] [22444] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"} 
+[debug] [2020-04-20T04:19:23.880Z] [runtime-status] [22444] Running api in mode HTTPS 
+[debug] [2020-04-20T04:19:23.884Z] [runtime-status] [22444] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22444.sock 
+[debug] [2020-04-20T04:19:23.889Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-04-20T04:19:23.899Z] [runtime-status] [22444] Ephemeral server handling GET request 
+[debug] [2020-04-20T04:19:23.903Z] [runtime-status] [22444] Ephemeral server survived. 
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-04-20T04:19:24.032Z] [worker-api-3431cae1-6848-45cd-a931-5957eeb61fe4]: IDLE 
+[debug] [2020-04-20T04:19:24.032Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-04-20T04:19:24.710Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-04-20T04:19:24.710Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-04-20T04:19:24.710Z] Accepted request POST /building-manager-f6a0e/us-central1/api/graphql? --> api
+[debug] [2020-04-20T04:19:24.711Z] [worker-pool] submitWork(triggerId=api) 
+[debug] [2020-04-20T04:19:24.711Z] [worker-api-3431cae1-6848-45cd-a931-5957eeb61fe4]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22444.sock 
+[debug] [2020-04-20T04:19:24.711Z] [worker-api-3431cae1-6848-45cd-a931-5957eeb61fe4]: BUSY 
+[debug] [2020-04-20T04:19:24.712Z] [runtime-status] [22444] Trigger "api" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-04-20T04:19:24.713Z] [runtime-status] [22444] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"} 
+[debug] [2020-04-20T04:19:24.713Z] [runtime-status] [22444] Running api in mode HTTPS 
+[debug] [2020-04-20T04:19:24.713Z] [runtime-status] [22444] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22444.sock 
+[debug] [2020-04-20T04:19:24.714Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-04-20T04:19:24.735Z] [runtime-status] [22444] Ephemeral server handling POST request 
+[debug] [2020-04-20T04:19:24.735Z] [runtime-status] [22444] Ephemeral server survived. 
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-04-20T04:19:24.738Z] [worker-api-3431cae1-6848-45cd-a931-5957eeb61fe4]: IDLE 
+[debug] [2020-04-20T04:19:24.738Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-04-20T04:19:24.778Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-04-20T04:19:24.778Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-04-20T04:19:24.778Z] Accepted request POST /building-manager-f6a0e/us-central1/api/graphql? --> api
+[debug] [2020-04-20T04:19:24.778Z] [worker-pool] submitWork(triggerId=api) 
+[debug] [2020-04-20T04:19:24.778Z] [worker-api-3431cae1-6848-45cd-a931-5957eeb61fe4]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22444.sock 
+[debug] [2020-04-20T04:19:24.779Z] [worker-api-3431cae1-6848-45cd-a931-5957eeb61fe4]: BUSY 
+[debug] [2020-04-20T04:19:24.780Z] [runtime-status] [22444] Trigger "api" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-04-20T04:19:24.781Z] [runtime-status] [22444] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"} 
+[debug] [2020-04-20T04:19:24.781Z] [runtime-status] [22444] Running api in mode HTTPS 
+[debug] [2020-04-20T04:19:24.781Z] [runtime-status] [22444] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22444.sock 
+[debug] [2020-04-20T04:19:24.781Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-04-20T04:19:24.785Z] [runtime-status] [22444] Ephemeral server handling POST request 
+[debug] [2020-04-20T04:19:24.785Z] [runtime-status] [22444] Ephemeral server survived. 
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-04-20T04:19:24.786Z] [worker-api-3431cae1-6848-45cd-a931-5957eeb61fe4]: IDLE 
+[debug] [2020-04-20T04:19:24.786Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-04-20T04:19:39.214Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/graphql/schema/schema.js.map changed, reloading triggers 
+[debug] [2020-04-20T04:19:39.215Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/graphql/schema/schema.js changed, reloading triggers 
+[debug] [2020-04-20T04:19:40.219Z] [worker-pool] Shutting down IDLE worker (~diagnostic~) 
+[debug] [2020-04-20T04:19:40.219Z] [worker-~diagnostic~-5da06236-918f-49af-ae06-3e76194d9a31]: FINISHING 
+[debug] [2020-04-20T04:19:40.221Z] [worker-pool] Shutting down IDLE worker (api) 
+[debug] [2020-04-20T04:19:40.221Z] [worker-api-3431cae1-6848-45cd-a931-5957eeb61fe4]: FINISHING 
+[debug] [2020-04-20T04:19:40.297Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-04-20T04:19:40.297Z] [worker-pool] Adding worker with key ~diagnostic~, total=2 
+[debug] [2020-04-20T04:19:40.297Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-04-20T04:19:40.298Z] [worker-~diagnostic~-82ed6bc4-e654-46fb-b34a-21c1842d22e0]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22519.sock 
+[debug] [2020-04-20T04:19:40.298Z] [worker-~diagnostic~-82ed6bc4-e654-46fb-b34a-21c1842d22e0]: BUSY 
+[debug] [2020-04-20T04:19:40.307Z] [worker-~diagnostic~-5da06236-918f-49af-ae06-3e76194d9a31]: exited 
+[debug] [2020-04-20T04:19:40.308Z] [worker-~diagnostic~-5da06236-918f-49af-ae06-3e76194d9a31]: FINISHED 
+[debug] [2020-04-20T04:19:40.308Z] [worker-api-3431cae1-6848-45cd-a931-5957eeb61fe4]: exited 
+[debug] [2020-04-20T04:19:40.309Z] [worker-api-3431cae1-6848-45cd-a931-5957eeb61fe4]: FINISHED 
+[debug] [2020-04-20T04:19:40.825Z] [runtime-status] [22519] Functions runtime initialized. {"cwd":"/Users/xxx/Desktop/proyectos/building-manager/functions","node_version":"12.14.1"} 
+[debug] [2020-04-20T04:19:40.833Z] [runtime-status] [22519] Disabled runtime features: undefined 
+[debug] [2020-04-20T04:19:40.836Z] [runtime-status] [22519] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-04-20T04:19:40.840Z] [runtime-status] [22519] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:19:40.841Z] [runtime-status] [22519] Found local functions config: /Users/xxx/Desktop/proyectos/building-manager/functions/.runtimeconfig.json 
+[debug] [2020-04-20T04:19:40.842Z] [runtime-status] [22519] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-04-20T04:19:40.872Z] [runtime-status] [22519] Checked functions.config() {"config":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:19:40.873Z] [runtime-status] [22519] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:19:40.874Z] [runtime-status] [22519] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-04-20T04:19:40.874Z] [runtime-status] [22519] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:19:40.874Z] [runtime-status] [22519] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"}} 
+[debug] [2020-04-20T04:19:41.035Z] [runtime-status] [22519] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:19:41.035Z] [runtime-status] [22519] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:19:41.035Z] [runtime-status] [22519] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:19:41.036Z] [runtime-status] [22519] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:19:41.291Z] [runtime-status] [22519] config() parent accessed! {"parentKey":"firebase","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[warn] ⚠  Non-existent functions.config() value requested!
+   - Path: "firebase.httpAgent"
+   - Learn more at https://firebase.google.com/docs/functions/local-emulator
+[debug] [2020-04-20T04:19:41.300Z] [worker-~diagnostic~-82ed6bc4-e654-46fb-b34a-21c1842d22e0]: IDLE 
+[debug] [2020-04-20T04:19:41.474Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-04-20T04:19:41.474Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-04-20T04:19:41.474Z] Accepted request GET /building-manager-f6a0e/us-central1/api/graphql?query=%7B%0A%20%20users%20%7B%0A%20%20%20%20id%0A%20%20%20%20name%0A%20%20%20%20lastname%0A%20%20%20%20is_admin%0A%20%20%20%20assignments%20%7B%0A%20%20%20%20%20%20user_name%0A%20%20%20%20%20%20id%0A%20%20%20%20%20%20expiry_date%0A%20%20%20%20%7D%0A%20%20%7D%0A%20%20assignments%20%7B%0A%20%20%20%20user_name%0A%20%20%20%20id%0A%20%20%20%20expiry_date%0A%20%20%7D%0A%20%20assignment(id%3A%2045)%20%7B%0A%20%20%20%20user_name%0A%20%20%20%20id%0A%20%20%20%20expiry_date%0A%20%20%7D%0A%7D --> api
+[debug] [2020-04-20T04:19:41.475Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1 
+[debug] [2020-04-20T04:19:41.475Z] [worker-pool] Cleaned up workers for api: 1 --> 0 
+[debug] [2020-04-20T04:19:41.481Z] [worker-pool] addWorker(api) 
+[debug] [2020-04-20T04:19:41.482Z] [worker-pool] Adding worker with key api, total=1 
+[debug] [2020-04-20T04:19:41.482Z] [worker-pool] submitWork(triggerId=api) 
+[debug] [2020-04-20T04:19:41.482Z] [worker-api-6cf75764-d798-4704-ab23-22855da0316a]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22520.sock 
+[debug] [2020-04-20T04:19:41.482Z] [worker-api-6cf75764-d798-4704-ab23-22855da0316a]: BUSY 
+[debug] [2020-04-20T04:19:41.770Z] [runtime-status] [22520] Functions runtime initialized. {"cwd":"/Users/xxx/Desktop/proyectos/building-manager/functions","node_version":"12.14.1"} 
+[debug] [2020-04-20T04:19:41.773Z] [runtime-status] [22520] Disabled runtime features: undefined 
+[debug] [2020-04-20T04:19:41.780Z] [runtime-status] [22520] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-04-20T04:19:41.781Z] [runtime-status] [22520] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:19:41.781Z] [runtime-status] [22520] Found local functions config: /Users/xxx/Desktop/proyectos/building-manager/functions/.runtimeconfig.json 
+[debug] [2020-04-20T04:19:41.781Z] [runtime-status] [22520] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-04-20T04:19:41.813Z] [runtime-status] [22520] Checked functions.config() {"config":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:19:41.814Z] [runtime-status] [22520] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:19:41.815Z] [runtime-status] [22520] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-04-20T04:19:41.816Z] [runtime-status] [22520] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:19:41.816Z] [runtime-status] [22520] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"}} 
+[debug] [2020-04-20T04:19:41.975Z] [runtime-status] [22520] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:19:41.975Z] [runtime-status] [22520] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:19:41.975Z] [runtime-status] [22520] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:19:41.975Z] [runtime-status] [22520] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:19:42.276Z] [runtime-status] [22520] config() parent accessed! {"parentKey":"firebase","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[warn] ⚠  Non-existent functions.config() value requested!
+   - Path: "firebase.httpAgent"
+   - Learn more at https://firebase.google.com/docs/functions/local-emulator
+[debug] [2020-04-20T04:19:42.296Z] [runtime-status] [22520] Trigger "api" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-04-20T04:19:42.309Z] [runtime-status] [22520] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"} 
+[debug] [2020-04-20T04:19:42.312Z] [runtime-status] [22520] Running api in mode HTTPS 
+[debug] [2020-04-20T04:19:42.324Z] [runtime-status] [22520] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22520.sock 
+[debug] [2020-04-20T04:19:42.327Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-04-20T04:19:42.339Z] [runtime-status] [22520] Ephemeral server handling GET request 
+[debug] [2020-04-20T04:19:42.344Z] [runtime-status] [22520] Ephemeral server survived. 
+[info] >  (node:22520) DeprecationWarning: Implicit disabling of certificate verification is deprecated and will be removed in pg 8. Specify `rejectUnauthorized: true` to require a valid CA or `rejectUnauthorized: false` to explicitly opt out of MITM protection. {"user":"(node:22520) DeprecationWarning: Implicit disabling of certificate verification is deprecated and will be removed in pg 8. Specify `rejectUnauthorized: true` to require a valid CA or `rejectUnauthorized: false` to explicitly opt out of MITM protection."}
+[info] i  functions: Finished "api" in ~3s
+[debug] [2020-04-20T04:19:45.567Z] [worker-api-6cf75764-d798-4704-ab23-22855da0316a]: IDLE 
+[debug] [2020-04-20T04:19:45.567Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-04-20T04:19:46.479Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-04-20T04:19:46.479Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-04-20T04:19:46.480Z] Accepted request POST /building-manager-f6a0e/us-central1/api/graphql? --> api
+[debug] [2020-04-20T04:19:46.480Z] [worker-pool] submitWork(triggerId=api) 
+[debug] [2020-04-20T04:19:46.480Z] [worker-api-6cf75764-d798-4704-ab23-22855da0316a]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22520.sock 
+[debug] [2020-04-20T04:19:46.480Z] [worker-api-6cf75764-d798-4704-ab23-22855da0316a]: BUSY 
+[debug] [2020-04-20T04:19:46.480Z] [runtime-status] [22520] Trigger "api" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-04-20T04:19:46.480Z] [runtime-status] [22520] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"} 
+[debug] [2020-04-20T04:19:46.481Z] [runtime-status] [22520] Running api in mode HTTPS 
+[debug] [2020-04-20T04:19:46.481Z] [runtime-status] [22520] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22520.sock 
+[debug] [2020-04-20T04:19:46.482Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-04-20T04:19:46.494Z] [runtime-status] [22520] Ephemeral server handling POST request 
+[debug] [2020-04-20T04:19:46.494Z] [runtime-status] [22520] Ephemeral server survived. 
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-04-20T04:19:46.514Z] [worker-api-6cf75764-d798-4704-ab23-22855da0316a]: IDLE 
+[debug] [2020-04-20T04:19:46.514Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-04-20T04:21:19.287Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/graphql/schema/schema.js.map changed, reloading triggers 
+[debug] [2020-04-20T04:21:19.288Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/graphql/schema/schema.js changed, reloading triggers 
+[debug] [2020-04-20T04:21:20.292Z] [worker-pool] Shutting down IDLE worker (~diagnostic~) 
+[debug] [2020-04-20T04:21:20.294Z] [worker-~diagnostic~-82ed6bc4-e654-46fb-b34a-21c1842d22e0]: FINISHING 
+[debug] [2020-04-20T04:21:20.294Z] [worker-pool] Shutting down IDLE worker (api) 
+[debug] [2020-04-20T04:21:20.295Z] [worker-api-6cf75764-d798-4704-ab23-22855da0316a]: FINISHING 
+[debug] [2020-04-20T04:21:20.350Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-04-20T04:21:20.350Z] [worker-pool] Adding worker with key ~diagnostic~, total=2 
+[debug] [2020-04-20T04:21:20.350Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-04-20T04:21:20.351Z] [worker-~diagnostic~-14c46b40-8e25-448f-a2fd-ec8761f3db71]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22838.sock 
+[debug] [2020-04-20T04:21:20.351Z] [worker-~diagnostic~-14c46b40-8e25-448f-a2fd-ec8761f3db71]: BUSY 
+[debug] [2020-04-20T04:21:20.352Z] [worker-~diagnostic~-82ed6bc4-e654-46fb-b34a-21c1842d22e0]: exited 
+[debug] [2020-04-20T04:21:20.353Z] [worker-~diagnostic~-82ed6bc4-e654-46fb-b34a-21c1842d22e0]: FINISHED 
+[debug] [2020-04-20T04:21:20.357Z] [worker-api-6cf75764-d798-4704-ab23-22855da0316a]: exited 
+[debug] [2020-04-20T04:21:20.361Z] [worker-api-6cf75764-d798-4704-ab23-22855da0316a]: FINISHED 
+[debug] [2020-04-20T04:21:20.781Z] [runtime-status] [22838] Functions runtime initialized. {"cwd":"/Users/xxx/Desktop/proyectos/building-manager/functions","node_version":"12.14.1"} 
+[debug] [2020-04-20T04:21:20.786Z] [runtime-status] [22838] Disabled runtime features: undefined 
+[debug] [2020-04-20T04:21:20.793Z] [runtime-status] [22838] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-04-20T04:21:20.795Z] [runtime-status] [22838] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:21:20.795Z] [runtime-status] [22838] Found local functions config: /Users/xxx/Desktop/proyectos/building-manager/functions/.runtimeconfig.json 
+[debug] [2020-04-20T04:21:20.798Z] [runtime-status] [22838] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-04-20T04:21:20.844Z] [runtime-status] [22838] Checked functions.config() {"config":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:21:20.846Z] [runtime-status] [22838] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:21:20.847Z] [runtime-status] [22838] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-04-20T04:21:20.847Z] [runtime-status] [22838] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:21:20.847Z] [runtime-status] [22838] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"}} 
+[debug] [2020-04-20T04:21:20.999Z] [runtime-status] [22838] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:21:20.999Z] [runtime-status] [22838] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:21:20.999Z] [runtime-status] [22838] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:21:20.999Z] [runtime-status] [22838] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:21:21.157Z] [runtime-status] [22838] config() parent accessed! {"parentKey":"firebase","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[warn] ⚠  Non-existent functions.config() value requested!
+   - Path: "firebase.httpAgent"
+   - Learn more at https://firebase.google.com/docs/functions/local-emulator
+[debug] [2020-04-20T04:21:21.166Z] [worker-~diagnostic~-14c46b40-8e25-448f-a2fd-ec8761f3db71]: IDLE 
+[debug] [2020-04-20T04:21:34.196Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-04-20T04:21:34.196Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-04-20T04:21:34.196Z] Accepted request POST /building-manager-f6a0e/us-central1/api/graphql? --> api
+[debug] [2020-04-20T04:21:34.196Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1 
+[debug] [2020-04-20T04:21:34.196Z] [worker-pool] Cleaned up workers for api: 1 --> 0 
+[debug] [2020-04-20T04:21:34.201Z] [worker-pool] addWorker(api) 
+[debug] [2020-04-20T04:21:34.201Z] [worker-pool] Adding worker with key api, total=1 
+[debug] [2020-04-20T04:21:34.201Z] [worker-pool] submitWork(triggerId=api) 
+[debug] [2020-04-20T04:21:34.202Z] [worker-api-2f876a05-4ef6-4df7-bbfe-6fc9891b254c]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22841.sock 
+[debug] [2020-04-20T04:21:34.202Z] [worker-api-2f876a05-4ef6-4df7-bbfe-6fc9891b254c]: BUSY 
+[debug] [2020-04-20T04:21:34.507Z] [runtime-status] [22841] Functions runtime initialized. {"cwd":"/Users/xxx/Desktop/proyectos/building-manager/functions","node_version":"12.14.1"} 
+[debug] [2020-04-20T04:21:34.510Z] [runtime-status] [22841] Disabled runtime features: undefined 
+[debug] [2020-04-20T04:21:34.514Z] [runtime-status] [22841] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-04-20T04:21:34.516Z] [runtime-status] [22841] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:21:34.516Z] [runtime-status] [22841] Found local functions config: /Users/xxx/Desktop/proyectos/building-manager/functions/.runtimeconfig.json 
+[debug] [2020-04-20T04:21:34.518Z] [runtime-status] [22841] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-04-20T04:21:34.553Z] [runtime-status] [22841] Checked functions.config() {"config":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:21:34.554Z] [runtime-status] [22841] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:21:34.555Z] [runtime-status] [22841] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-04-20T04:21:34.555Z] [runtime-status] [22841] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:21:34.555Z] [runtime-status] [22841] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"}} 
+[debug] [2020-04-20T04:21:34.672Z] [runtime-status] [22841] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:21:34.672Z] [runtime-status] [22841] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:21:34.673Z] [runtime-status] [22841] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:21:34.673Z] [runtime-status] [22841] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:21:34.829Z] [runtime-status] [22841] config() parent accessed! {"parentKey":"firebase","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[warn] ⚠  Non-existent functions.config() value requested!
+   - Path: "firebase.httpAgent"
+   - Learn more at https://firebase.google.com/docs/functions/local-emulator
+[debug] [2020-04-20T04:21:34.835Z] [runtime-status] [22841] Trigger "api" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-04-20T04:21:34.835Z] [runtime-status] [22841] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"} 
+[debug] [2020-04-20T04:21:34.835Z] [runtime-status] [22841] Running api in mode HTTPS 
+[debug] [2020-04-20T04:21:34.839Z] [runtime-status] [22841] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22841.sock 
+[debug] [2020-04-20T04:21:34.843Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-04-20T04:21:34.863Z] [runtime-status] [22841] Ephemeral server handling POST request 
+[debug] [2020-04-20T04:21:34.866Z] [runtime-status] [22841] Ephemeral server survived. 
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-04-20T04:21:34.889Z] [worker-api-2f876a05-4ef6-4df7-bbfe-6fc9891b254c]: IDLE 
+[debug] [2020-04-20T04:21:34.889Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-04-20T04:21:46.426Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/graphql/schema/schema.js.map changed, reloading triggers 
+[debug] [2020-04-20T04:21:46.426Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/graphql/schema/schema.js changed, reloading triggers 
+[debug] [2020-04-20T04:21:47.432Z] [worker-pool] Shutting down IDLE worker (~diagnostic~) 
+[debug] [2020-04-20T04:21:47.432Z] [worker-~diagnostic~-14c46b40-8e25-448f-a2fd-ec8761f3db71]: FINISHING 
+[debug] [2020-04-20T04:21:47.432Z] [worker-pool] Shutting down IDLE worker (api) 
+[debug] [2020-04-20T04:21:47.432Z] [worker-api-2f876a05-4ef6-4df7-bbfe-6fc9891b254c]: FINISHING 
+[debug] [2020-04-20T04:21:47.443Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-04-20T04:21:47.443Z] [worker-pool] Adding worker with key ~diagnostic~, total=2 
+[debug] [2020-04-20T04:21:47.443Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-04-20T04:21:47.444Z] [worker-~diagnostic~-16b3deae-b8d9-4af6-ac94-fdb9b36ebe34]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22851.sock 
+[debug] [2020-04-20T04:21:47.444Z] [worker-~diagnostic~-16b3deae-b8d9-4af6-ac94-fdb9b36ebe34]: BUSY 
+[debug] [2020-04-20T04:21:47.445Z] [worker-~diagnostic~-14c46b40-8e25-448f-a2fd-ec8761f3db71]: exited 
+[debug] [2020-04-20T04:21:47.445Z] [worker-~diagnostic~-14c46b40-8e25-448f-a2fd-ec8761f3db71]: FINISHED 
+[debug] [2020-04-20T04:21:47.445Z] [worker-api-2f876a05-4ef6-4df7-bbfe-6fc9891b254c]: exited 
+[debug] [2020-04-20T04:21:47.445Z] [worker-api-2f876a05-4ef6-4df7-bbfe-6fc9891b254c]: FINISHED 
+[debug] [2020-04-20T04:21:47.713Z] [runtime-status] [22851] Functions runtime initialized. {"cwd":"/Users/xxx/Desktop/proyectos/building-manager/functions","node_version":"12.14.1"} 
+[debug] [2020-04-20T04:21:47.718Z] [runtime-status] [22851] Disabled runtime features: undefined 
+[debug] [2020-04-20T04:21:47.723Z] [runtime-status] [22851] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-04-20T04:21:47.727Z] [runtime-status] [22851] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:21:47.727Z] [runtime-status] [22851] Found local functions config: /Users/xxx/Desktop/proyectos/building-manager/functions/.runtimeconfig.json 
+[debug] [2020-04-20T04:21:47.729Z] [runtime-status] [22851] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-04-20T04:21:47.757Z] [runtime-status] [22851] Checked functions.config() {"config":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:21:47.758Z] [runtime-status] [22851] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:21:47.759Z] [runtime-status] [22851] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-04-20T04:21:47.759Z] [runtime-status] [22851] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:21:47.759Z] [runtime-status] [22851] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"}} 
+[debug] [2020-04-20T04:21:47.896Z] [runtime-status] [22851] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:21:47.897Z] [runtime-status] [22851] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:21:47.897Z] [runtime-status] [22851] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:21:47.897Z] [runtime-status] [22851] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:21:48.037Z] [runtime-status] [22851] config() parent accessed! {"parentKey":"firebase","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[warn] ⚠  Non-existent functions.config() value requested!
+   - Path: "firebase.httpAgent"
+   - Learn more at https://firebase.google.com/docs/functions/local-emulator
+[debug] [2020-04-20T04:21:48.043Z] [worker-~diagnostic~-16b3deae-b8d9-4af6-ac94-fdb9b36ebe34]: IDLE 
+[debug] [2020-04-20T04:21:51.023Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-04-20T04:21:51.023Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-04-20T04:21:51.023Z] Accepted request GET /building-manager-f6a0e/us-central1/api/graphql?query=mutation%20%7B%0A%20%20addUser(username%3A%20%22adas%22)%20%7B%0A%20%20%20%20id%0A%20%20%7D%0A%7D --> api
+[debug] [2020-04-20T04:21:51.024Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1 
+[debug] [2020-04-20T04:21:51.024Z] [worker-pool] Cleaned up workers for api: 1 --> 0 
+[debug] [2020-04-20T04:21:51.028Z] [worker-pool] addWorker(api) 
+[debug] [2020-04-20T04:21:51.028Z] [worker-pool] Adding worker with key api, total=1 
+[debug] [2020-04-20T04:21:51.028Z] [worker-pool] submitWork(triggerId=api) 
+[debug] [2020-04-20T04:21:51.029Z] [worker-api-7a2abbc9-7e01-4802-a56c-7cad40c0ffed]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22852.sock 
+[debug] [2020-04-20T04:21:51.029Z] [worker-api-7a2abbc9-7e01-4802-a56c-7cad40c0ffed]: BUSY 
+[debug] [2020-04-20T04:21:51.329Z] [runtime-status] [22852] Functions runtime initialized. {"cwd":"/Users/xxx/Desktop/proyectos/building-manager/functions","node_version":"12.14.1"} 
+[debug] [2020-04-20T04:21:51.337Z] [runtime-status] [22852] Disabled runtime features: undefined 
+[debug] [2020-04-20T04:21:51.339Z] [runtime-status] [22852] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-04-20T04:21:51.342Z] [runtime-status] [22852] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:21:51.344Z] [runtime-status] [22852] Found local functions config: /Users/xxx/Desktop/proyectos/building-manager/functions/.runtimeconfig.json 
+[debug] [2020-04-20T04:21:51.345Z] [runtime-status] [22852] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-04-20T04:21:51.377Z] [runtime-status] [22852] Checked functions.config() {"config":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:21:51.378Z] [runtime-status] [22852] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:21:51.380Z] [runtime-status] [22852] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-04-20T04:21:51.381Z] [runtime-status] [22852] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:21:51.381Z] [runtime-status] [22852] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"}} 
+[debug] [2020-04-20T04:21:51.554Z] [runtime-status] [22852] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:21:51.554Z] [runtime-status] [22852] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:21:51.554Z] [runtime-status] [22852] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:21:51.554Z] [runtime-status] [22852] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:21:51.749Z] [runtime-status] [22852] config() parent accessed! {"parentKey":"firebase","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[warn] ⚠  Non-existent functions.config() value requested!
+   - Path: "firebase.httpAgent"
+   - Learn more at https://firebase.google.com/docs/functions/local-emulator
+[debug] [2020-04-20T04:21:51.754Z] [runtime-status] [22852] Trigger "api" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-04-20T04:21:51.755Z] [runtime-status] [22852] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"} 
+[debug] [2020-04-20T04:21:51.755Z] [runtime-status] [22852] Running api in mode HTTPS 
+[debug] [2020-04-20T04:21:51.759Z] [runtime-status] [22852] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22852.sock 
+[debug] [2020-04-20T04:21:51.761Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-04-20T04:21:51.768Z] [runtime-status] [22852] Ephemeral server handling GET request 
+[debug] [2020-04-20T04:21:51.773Z] [runtime-status] [22852] Ephemeral server survived. 
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-04-20T04:21:52.060Z] [worker-api-7a2abbc9-7e01-4802-a56c-7cad40c0ffed]: IDLE 
+[debug] [2020-04-20T04:21:52.060Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-04-20T04:21:52.411Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-04-20T04:21:52.412Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-04-20T04:21:52.412Z] Accepted request POST /building-manager-f6a0e/us-central1/api/graphql? --> api
+[debug] [2020-04-20T04:21:52.412Z] [worker-pool] submitWork(triggerId=api) 
+[debug] [2020-04-20T04:21:52.412Z] [worker-api-7a2abbc9-7e01-4802-a56c-7cad40c0ffed]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22852.sock 
+[debug] [2020-04-20T04:21:52.412Z] [worker-api-7a2abbc9-7e01-4802-a56c-7cad40c0ffed]: BUSY 
+[debug] [2020-04-20T04:21:52.413Z] [runtime-status] [22852] Trigger "api" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-04-20T04:21:52.414Z] [runtime-status] [22852] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"} 
+[debug] [2020-04-20T04:21:52.414Z] [runtime-status] [22852] Running api in mode HTTPS 
+[debug] [2020-04-20T04:21:52.415Z] [runtime-status] [22852] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22852.sock 
+[debug] [2020-04-20T04:21:52.417Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-04-20T04:21:52.445Z] [runtime-status] [22852] Ephemeral server handling POST request 
+[debug] [2020-04-20T04:21:52.446Z] [runtime-status] [22852] Ephemeral server survived. 
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-04-20T04:21:52.451Z] [worker-api-7a2abbc9-7e01-4802-a56c-7cad40c0ffed]: IDLE 
+[debug] [2020-04-20T04:21:52.452Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-04-20T04:21:52.464Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-04-20T04:21:52.464Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-04-20T04:21:52.464Z] Accepted request POST /building-manager-f6a0e/us-central1/api/graphql? --> api
+[debug] [2020-04-20T04:21:52.464Z] [worker-pool] submitWork(triggerId=api) 
+[debug] [2020-04-20T04:21:52.465Z] [worker-api-7a2abbc9-7e01-4802-a56c-7cad40c0ffed]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22852.sock 
+[debug] [2020-04-20T04:21:52.465Z] [worker-api-7a2abbc9-7e01-4802-a56c-7cad40c0ffed]: BUSY 
+[debug] [2020-04-20T04:21:52.466Z] [runtime-status] [22852] Trigger "api" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-04-20T04:21:52.470Z] [runtime-status] [22852] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"} 
+[debug] [2020-04-20T04:21:52.470Z] [runtime-status] [22852] Running api in mode HTTPS 
+[debug] [2020-04-20T04:21:52.470Z] [runtime-status] [22852] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22852.sock 
+[debug] [2020-04-20T04:21:52.473Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-04-20T04:21:52.477Z] [runtime-status] [22852] Ephemeral server handling POST request 
+[debug] [2020-04-20T04:21:52.477Z] [runtime-status] [22852] Ephemeral server survived. 
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-04-20T04:21:52.480Z] [worker-api-7a2abbc9-7e01-4802-a56c-7cad40c0ffed]: IDLE 
+[debug] [2020-04-20T04:21:52.481Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-04-20T04:22:07.576Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-04-20T04:22:07.576Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-04-20T04:22:07.576Z] Accepted request POST /building-manager-f6a0e/us-central1/api/graphql? --> api
+[debug] [2020-04-20T04:22:07.576Z] [worker-pool] submitWork(triggerId=api) 
+[debug] [2020-04-20T04:22:07.577Z] [worker-api-7a2abbc9-7e01-4802-a56c-7cad40c0ffed]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22852.sock 
+[debug] [2020-04-20T04:22:07.577Z] [worker-api-7a2abbc9-7e01-4802-a56c-7cad40c0ffed]: BUSY 
+[debug] [2020-04-20T04:22:07.578Z] [runtime-status] [22852] Trigger "api" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-04-20T04:22:07.579Z] [runtime-status] [22852] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"} 
+[debug] [2020-04-20T04:22:07.579Z] [runtime-status] [22852] Running api in mode HTTPS 
+[debug] [2020-04-20T04:22:07.579Z] [runtime-status] [22852] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22852.sock 
+[debug] [2020-04-20T04:22:07.579Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-04-20T04:22:07.589Z] [runtime-status] [22852] Ephemeral server handling POST request 
+[debug] [2020-04-20T04:22:07.589Z] [runtime-status] [22852] Ephemeral server survived. 
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-04-20T04:22:07.598Z] [worker-api-7a2abbc9-7e01-4802-a56c-7cad40c0ffed]: IDLE 
+[debug] [2020-04-20T04:22:07.598Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-04-20T04:22:08.764Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-04-20T04:22:08.764Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-04-20T04:22:08.764Z] Accepted request POST /building-manager-f6a0e/us-central1/api/graphql? --> api
+[debug] [2020-04-20T04:22:08.764Z] [worker-pool] submitWork(triggerId=api) 
+[debug] [2020-04-20T04:22:08.765Z] [worker-api-7a2abbc9-7e01-4802-a56c-7cad40c0ffed]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22852.sock 
+[debug] [2020-04-20T04:22:08.765Z] [worker-api-7a2abbc9-7e01-4802-a56c-7cad40c0ffed]: BUSY 
+[debug] [2020-04-20T04:22:08.767Z] [runtime-status] [22852] Trigger "api" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-04-20T04:22:08.767Z] [runtime-status] [22852] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"} 
+[debug] [2020-04-20T04:22:08.767Z] [runtime-status] [22852] Running api in mode HTTPS 
+[debug] [2020-04-20T04:22:08.767Z] [runtime-status] [22852] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22852.sock 
+[debug] [2020-04-20T04:22:08.768Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-04-20T04:22:08.771Z] [runtime-status] [22852] Ephemeral server handling POST request 
+[debug] [2020-04-20T04:22:08.772Z] [runtime-status] [22852] Ephemeral server survived. 
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-04-20T04:22:08.774Z] [worker-api-7a2abbc9-7e01-4802-a56c-7cad40c0ffed]: IDLE 
+[debug] [2020-04-20T04:22:08.774Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-04-20T04:22:09.378Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-04-20T04:22:09.378Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-04-20T04:22:09.378Z] Accepted request POST /building-manager-f6a0e/us-central1/api/graphql? --> api
+[debug] [2020-04-20T04:22:09.378Z] [worker-pool] submitWork(triggerId=api) 
+[debug] [2020-04-20T04:22:09.379Z] [worker-api-7a2abbc9-7e01-4802-a56c-7cad40c0ffed]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22852.sock 
+[debug] [2020-04-20T04:22:09.379Z] [worker-api-7a2abbc9-7e01-4802-a56c-7cad40c0ffed]: BUSY 
+[debug] [2020-04-20T04:22:09.381Z] [runtime-status] [22852] Trigger "api" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-04-20T04:22:09.381Z] [runtime-status] [22852] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"} 
+[debug] [2020-04-20T04:22:09.381Z] [runtime-status] [22852] Running api in mode HTTPS 
+[debug] [2020-04-20T04:22:09.381Z] [runtime-status] [22852] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22852.sock 
+[debug] [2020-04-20T04:22:09.382Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-04-20T04:22:09.385Z] [runtime-status] [22852] Ephemeral server handling POST request 
+[debug] [2020-04-20T04:22:09.386Z] [runtime-status] [22852] Ephemeral server survived. 
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-04-20T04:22:09.388Z] [worker-api-7a2abbc9-7e01-4802-a56c-7cad40c0ffed]: IDLE 
+[debug] [2020-04-20T04:22:09.388Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-04-20T04:22:23.954Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/graphql/schema/schema.js.map changed, reloading triggers 
+[debug] [2020-04-20T04:22:23.954Z] File /Users/xxx/Desktop/proyectos/building-manager/functions/graphql/schema/schema.js changed, reloading triggers 
+[debug] [2020-04-20T04:22:24.955Z] [worker-pool] Shutting down IDLE worker (~diagnostic~) 
+[debug] [2020-04-20T04:22:24.955Z] [worker-~diagnostic~-16b3deae-b8d9-4af6-ac94-fdb9b36ebe34]: FINISHING 
+[debug] [2020-04-20T04:22:24.955Z] [worker-pool] Shutting down IDLE worker (api) 
+[debug] [2020-04-20T04:22:24.955Z] [worker-api-7a2abbc9-7e01-4802-a56c-7cad40c0ffed]: FINISHING 
+[debug] [2020-04-20T04:22:24.968Z] [worker-pool] addWorker(~diagnostic~) 
+[debug] [2020-04-20T04:22:24.968Z] [worker-pool] Adding worker with key ~diagnostic~, total=2 
+[debug] [2020-04-20T04:22:24.968Z] [worker-pool] submitWork(triggerId=) 
+[debug] [2020-04-20T04:22:24.968Z] [worker-~diagnostic~-057eeb53-99af-4388-9601-e65ed7c50a8d]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22863.sock 
+[debug] [2020-04-20T04:22:24.968Z] [worker-~diagnostic~-057eeb53-99af-4388-9601-e65ed7c50a8d]: BUSY 
+[debug] [2020-04-20T04:22:24.970Z] [worker-~diagnostic~-16b3deae-b8d9-4af6-ac94-fdb9b36ebe34]: exited 
+[debug] [2020-04-20T04:22:24.970Z] [worker-~diagnostic~-16b3deae-b8d9-4af6-ac94-fdb9b36ebe34]: FINISHED 
+[debug] [2020-04-20T04:22:24.970Z] [worker-api-7a2abbc9-7e01-4802-a56c-7cad40c0ffed]: exited 
+[debug] [2020-04-20T04:22:24.971Z] [worker-api-7a2abbc9-7e01-4802-a56c-7cad40c0ffed]: FINISHED 
+[debug] [2020-04-20T04:22:25.317Z] [runtime-status] [22863] Functions runtime initialized. {"cwd":"/Users/xxx/Desktop/proyectos/building-manager/functions","node_version":"12.14.1"} 
+[debug] [2020-04-20T04:22:25.322Z] [runtime-status] [22863] Disabled runtime features: undefined 
+[debug] [2020-04-20T04:22:25.330Z] [runtime-status] [22863] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-04-20T04:22:25.330Z] [runtime-status] [22863] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:22:25.331Z] [runtime-status] [22863] Found local functions config: /Users/xxx/Desktop/proyectos/building-manager/functions/.runtimeconfig.json 
+[debug] [2020-04-20T04:22:25.331Z] [runtime-status] [22863] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-04-20T04:22:25.369Z] [runtime-status] [22863] Checked functions.config() {"config":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:22:25.370Z] [runtime-status] [22863] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:22:25.371Z] [runtime-status] [22863] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-04-20T04:22:25.372Z] [runtime-status] [22863] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:22:25.372Z] [runtime-status] [22863] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"}} 
+[debug] [2020-04-20T04:22:25.516Z] [runtime-status] [22863] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:22:25.516Z] [runtime-status] [22863] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:22:25.517Z] [runtime-status] [22863] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:22:25.517Z] [runtime-status] [22863] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:22:25.700Z] [runtime-status] [22863] config() parent accessed! {"parentKey":"firebase","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[warn] ⚠  Non-existent functions.config() value requested!
+   - Path: "firebase.httpAgent"
+   - Learn more at https://firebase.google.com/docs/functions/local-emulator
+[debug] [2020-04-20T04:22:25.707Z] [worker-~diagnostic~-057eeb53-99af-4388-9601-e65ed7c50a8d]: IDLE 
+[debug] [2020-04-20T04:22:26.696Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-04-20T04:22:26.696Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-04-20T04:22:26.696Z] Accepted request GET /building-manager-f6a0e/us-central1/api/graphql?query=mutation%20%7B%0A%20%20addUser(username%3A%20%22adas%22)%20%7B%0A%20%20%20%20id%0A%20%20%7D%0A%7D --> api
+[debug] [2020-04-20T04:22:26.697Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1 
+[debug] [2020-04-20T04:22:26.697Z] [worker-pool] Cleaned up workers for api: 1 --> 0 
+[debug] [2020-04-20T04:22:26.701Z] [worker-pool] addWorker(api) 
+[debug] [2020-04-20T04:22:26.702Z] [worker-pool] Adding worker with key api, total=1 
+[debug] [2020-04-20T04:22:26.702Z] [worker-pool] submitWork(triggerId=api) 
+[debug] [2020-04-20T04:22:26.702Z] [worker-api-bc793055-8aa9-4f49-8712-8d8328da149c]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22864.sock 
+[debug] [2020-04-20T04:22:26.702Z] [worker-api-bc793055-8aa9-4f49-8712-8d8328da149c]: BUSY 
+[debug] [2020-04-20T04:22:26.986Z] [runtime-status] [22864] Functions runtime initialized. {"cwd":"/Users/xxx/Desktop/proyectos/building-manager/functions","node_version":"12.14.1"} 
+[debug] [2020-04-20T04:22:26.994Z] [runtime-status] [22864] Disabled runtime features: undefined 
+[debug] [2020-04-20T04:22:26.994Z] [runtime-status] [22864] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-04-20T04:22:26.994Z] [runtime-status] [22864] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:22:26.994Z] [runtime-status] [22864] Found local functions config: /Users/xxx/Desktop/proyectos/building-manager/functions/.runtimeconfig.json 
+[debug] [2020-04-20T04:22:26.994Z] [runtime-status] [22864] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] 
+[debug] [2020-04-20T04:22:27.027Z] [runtime-status] [22864] Checked functions.config() {"config":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:22:27.027Z] [runtime-status] [22864] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:22:27.028Z] [runtime-status] [22864] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"} 
+[debug] [2020-04-20T04:22:27.029Z] [runtime-status] [22864] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-functions/lib/index.js"} 
+[debug] [2020-04-20T04:22:27.029Z] [runtime-status] [22864] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.9.1","resolution":"/Users/xxx/Desktop/proyectos/building-manager/functions/node_modules/firebase-admin/lib/index.js"}} 
+[debug] [2020-04-20T04:22:27.141Z] [runtime-status] [22864] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:22:27.141Z] [runtime-status] [22864] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:22:27.142Z] [runtime-status] [22864] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:22:27.142Z] [runtime-status] [22864] config() parent accessed! {"parentKey":"db","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[debug] [2020-04-20T04:22:27.305Z] [runtime-status] [22864] config() parent accessed! {"parentKey":"firebase","parentConfig":{"jwt":{"secret":"jw1914dev"},"db":{"host":"ec2-3-234-109-123.compute-1.amazonaws.com","password":"5fa8d9d3a2ecca64d31f77ca2d84fe0e2efb52d9ef60d2b1d8057e0649cce8b8","user":"lvjtvaulhbuzhu","database":"da5pbdk3oqtn3v"}}} 
+[warn] ⚠  Non-existent functions.config() value requested!
+   - Path: "firebase.httpAgent"
+   - Learn more at https://firebase.google.com/docs/functions/local-emulator
+[debug] [2020-04-20T04:22:27.309Z] [runtime-status] [22864] Trigger "api" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-04-20T04:22:27.309Z] [runtime-status] [22864] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"} 
+[debug] [2020-04-20T04:22:27.309Z] [runtime-status] [22864] Running api in mode HTTPS 
+[debug] [2020-04-20T04:22:27.313Z] [runtime-status] [22864] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22864.sock 
+[debug] [2020-04-20T04:22:27.316Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-04-20T04:22:27.322Z] [runtime-status] [22864] Ephemeral server handling GET request 
+[debug] [2020-04-20T04:22:27.326Z] [runtime-status] [22864] Ephemeral server survived. 
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-04-20T04:22:27.461Z] [worker-api-bc793055-8aa9-4f49-8712-8d8328da149c]: IDLE 
+[debug] [2020-04-20T04:22:27.461Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-04-20T04:22:27.956Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-04-20T04:22:27.956Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-04-20T04:22:27.956Z] Accepted request POST /building-manager-f6a0e/us-central1/api/graphql? --> api
+[debug] [2020-04-20T04:22:27.956Z] [worker-pool] submitWork(triggerId=api) 
+[debug] [2020-04-20T04:22:27.956Z] [worker-api-bc793055-8aa9-4f49-8712-8d8328da149c]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22864.sock 
+[debug] [2020-04-20T04:22:27.957Z] [worker-api-bc793055-8aa9-4f49-8712-8d8328da149c]: BUSY 
+[debug] [2020-04-20T04:22:27.958Z] [runtime-status] [22864] Trigger "api" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-04-20T04:22:27.958Z] [runtime-status] [22864] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"} 
+[debug] [2020-04-20T04:22:27.958Z] [runtime-status] [22864] Running api in mode HTTPS 
+[debug] [2020-04-20T04:22:27.958Z] [runtime-status] [22864] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22864.sock 
+[debug] [2020-04-20T04:22:27.960Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-04-20T04:22:27.981Z] [runtime-status] [22864] Ephemeral server handling POST request 
+[debug] [2020-04-20T04:22:27.984Z] [runtime-status] [22864] Ephemeral server survived. 
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-04-20T04:22:28.009Z] [worker-api-bc793055-8aa9-4f49-8712-8d8328da149c]: IDLE 
+[debug] [2020-04-20T04:22:28.009Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2020-04-20T04:23:14.184Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-04-20T04:23:14.185Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-04-20T04:23:14.185Z] Accepted request POST /building-manager-f6a0e/us-central1/api/graphql? --> api
+[debug] [2020-04-20T04:23:14.185Z] [worker-pool] submitWork(triggerId=api) 
+[debug] [2020-04-20T04:23:14.185Z] [worker-api-bc793055-8aa9-4f49-8712-8d8328da149c]: Assigning socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22864.sock 
+[debug] [2020-04-20T04:23:14.185Z] [worker-api-bc793055-8aa9-4f49-8712-8d8328da149c]: BUSY 
+[debug] [2020-04-20T04:23:14.186Z] [runtime-status] [22864] Trigger "api" has been found, beginning invocation! 
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-04-20T04:23:14.187Z] [runtime-status] [22864] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"} 
+[debug] [2020-04-20T04:23:14.187Z] [runtime-status] [22864] Running api in mode HTTPS 
+[debug] [2020-04-20T04:23:14.187Z] [runtime-status] [22864] Attempting to listen to socketPath: /var/folders/0y/xn6_rqb50j98yz0yrjgt4hjw0000gn/T/fire_emu_22864.sock 
+[debug] [2020-04-20T04:23:14.188Z] [functions] Runtime ready! Sending request! 
+[debug] [2020-04-20T04:23:14.194Z] [runtime-status] [22864] Ephemeral server handling POST request 
+[debug] [2020-04-20T04:23:14.195Z] [runtime-status] [22864] Ephemeral server survived. 
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-04-20T04:23:14.200Z] [worker-api-bc793055-8aa9-4f49-8712-8d8328da149c]: IDLE 
+[debug] [2020-04-20T04:23:14.200Z] [work-queue] {"queueLength":0,"workRunningCount":0}

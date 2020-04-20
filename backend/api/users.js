@@ -1,10 +1,11 @@
-const Joi = require('joi')
-const express = require('express'),
-  router = express.Router()
-const query = require('../db')
-const CustomError = require('../errors')
-const AuthUtils = require('../utils/authentication')
-const authenticated = require('../middlewares/authenticated')
+import Joi from 'joi'
+import express from 'express'
+import query from '../db'
+import CustomError from '../errors'
+import authenticated from '../middlewares/authenticated'
+import AuthUtils from '../utils/authentication'
+
+const router = express.Router()
 
 function validateUser(user) {
   const schema = {
@@ -23,14 +24,19 @@ function validateUser(user) {
   }
 }
 
-router.get('/', authenticated.admin, async (req, res) => {
+export const getAll = async () => {
   const queryString = `
     SELECT id, username, name, lastname, CONCAT (name, ' ', lastname) as fullname
     from users
     where is_admin = 0
   `
-  const result = await query(queryString)
-  res.send(result.rows)
+  const { rows } = await query(queryString)
+  return rows
+}
+
+router.get('/', authenticated.admin, async (req, res) => {
+  const users = await getAll()
+  res.send(users)
 })
 
 router.post('/', authenticated.admin, async (req, res, next) => {
@@ -70,4 +76,4 @@ router.delete('/:id', authenticated.admin, async (req, res, next) => {
   }
 })
 
-module.exports = router
+export default router

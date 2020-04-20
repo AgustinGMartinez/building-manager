@@ -1,7 +1,8 @@
-const express = require('express'),
-  router = express.Router()
-const query = require('../db')
-const authenticated = require('../middlewares/authenticated')
+import express from 'express'
+import query from '../db'
+import authenticated from '../middlewares/authenticated'
+
+const router = express.Router()
 
 router.get('/', authenticated.admin, async (req, res, next) => {
   try {
@@ -21,4 +22,4 @@ router.get('/', authenticated.admin, async (req, res, next) => {
   }
 })
 
-module.exports = router
+export default router

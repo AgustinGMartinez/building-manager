@@ -1,9 +1,10 @@
-const Joi = require('joi')
-const express = require('express'),
-  router = express.Router()
-const query = require('../db')
-const CustomError = require('../errors')
-const AuthUtils = require('../utils/authentication')
+import Joi from 'joi'
+import express from 'express'
+import query from '../db'
+import CustomError from '../errors'
+import AuthUtils from '../utils/authentication'
+
+const router = express.Router()
 
 function validateLogin(auth) {
   const schema = {
@@ -35,4 +36,4 @@ router.post('/login', async (req, res, next) => {
   }
 })
 
-module.exports = router
+export default router

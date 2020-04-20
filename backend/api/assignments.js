@@ -1,11 +1,12 @@
-const Joi = require('joi')
-const express = require('express'),
-  router = express.Router()
-const query = require('../db')
-const CustomError = require('../errors')
-const authenticated = require('../middlewares/authenticated')
-const createQueryValues = require('../utils/db').createQueryValues
-const validateUserId = require('../utils/validateUserId').validateUserId
+import Joi from 'joi'
+import express from 'express'
+import query from '../db'
+import CustomError from '../errors'
+import authenticated from '../middlewares/authenticated'
+import { createQueryValues } from '../utils/db'
+import { validateUserId } from '../utils/validateUserId'
+
+const router = express.Router()
 
 function validateAssignment(assignment) {
   const schema = {
@@ -35,7 +36,7 @@ function validateAssignment(assignment) {
   }
 }
 
-const getAssignments = async ({ id, campaign_id, user_id }) => {
+export const getAssignments = async ({ id, campaign_id, user_id } = {}) => {
   const noQueries = !id && !campaign_id && !user_id
   const assignmentsQuery = `
     SELECT a.*, u.name as user_name, u.lastname as user_lastname, u.id as user_id, c.name as campaign_name
@@ -111,10 +112,10 @@ const getAssignments = async ({ id, campaign_id, user_id }) => {
           AND (a.expiry_date is null or a.expiry_date > now())
           AND ua.user_id != $1
         `
-        const { rows } = await query(
-          usersWithSameBuildingsAssignedQuery,
-          [user_id, assignment.buildings.map(b => b.id)].flat(),
-        )
+        const { rows } = await query(usersWithSameBuildingsAssignedQuery, [
+          user_id,
+          ...assignment.buildings.map(b => b.id),
+        ])
         const users = []
         if (rows.length) {
           rows.forEach(row => {
@@ -282,4 +283,4 @@ router.delete('/:id', authenticated.admin, async (req, res, next) => {
   }
 })
 
-module.exports = router
+export default router

@@ -1,10 +1,11 @@
-const Joi = require('joi')
-const express = require('express'),
-  router = express.Router()
-const query = require('../db')
-const CustomError = require('../errors')
-const AuthUtils = require('../utils/authentication')
-const authenticated = require('../middlewares/authenticated')
+import Joi from 'joi'
+import express from 'express'
+import query from '../db'
+import CustomError from '../errors'
+import AuthUtils from '../utils/authentication'
+import authenticated from '../middlewares/authenticated'
+
+const router = express.Router()
 
 function validateAdmin(admin) {
   const schema = {
@@ -24,14 +25,29 @@ function validateAdmin(admin) {
   }
 }
 
-router.get('/', authenticated.superadmin, async (req, res) => {
+export async function getAll() {
+  const queryString = `
+  SELECT *, CONCAT (name, ' ', lastname) as fullname
+  from users
+  where is_admin = 1 OR is_superadmin = 1
+`
+  const { rows } = await query(queryString)
+  return rows
+}
+
+export async function getOne(id) {
   const queryString = `
     SELECT *, CONCAT (name, ' ', lastname) as fullname
     from users
-    where is_admin = 1 OR is_superadmin = 1
+    where (is_admin = 1 OR is_superadmin = 1) AND id = $1
   `
-  const result = await query(queryString)
-  res.send(result.rows)
+  const { rows } = await query(queryString, [id])
+  return rows[0]
+}
+
+router.get('/', authenticated.superadmin, async (req, res) => {
+  const admins = await getAll()
+  res.send(admins)
 })
 
 router.post('/', authenticated.superadmin, async (req, res, next) => {
@@ -71,4 +87,4 @@ router.delete('/:id', authenticated.superadmin, async (req, res, next) => {
   }
 })
 
-module.exports = router
+export default router

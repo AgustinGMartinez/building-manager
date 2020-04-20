@@ -3,4 +3,4 @@ const validateUserId = req => {
     throw new CustomError(403, 'Sin trampas please')
 }
 
-exports.validateUserId = validateUserId
+export { validateUserId }

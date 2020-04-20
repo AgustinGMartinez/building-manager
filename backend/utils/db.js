@@ -13,4 +13,4 @@ const createQueryValues = (initialQuery, data, argsPerEntry) => {
   return initialQuery.replace('?', newQuery)
 }
 
-exports.createQueryValues = createQueryValues
+export { createQueryValues }

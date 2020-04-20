@@ -9,6 +9,7 @@ import mainRouter from './api'
 import bodyParser from 'body-parser'
 import CustomError from './errors'
 import graphqlHTTP from 'express-graphql'
+import schema from './graphql/schema/schema'
 
 admin.initializeApp(config().firebase)
 const app = express()
@@ -34,6 +35,8 @@ app.use((err, req, res, next) => {
     error: err.message,
   })
 })
+
+app.use('/graphql', graphqlHTTP({ schema, graphiql: true }))
 
 const api = https.onRequest(app)
 

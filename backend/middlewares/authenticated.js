@@ -1,6 +1,6 @@
-const jwt = require('jsonwebtoken')
-const CustomError = require('../errors')
-const functions = require('firebase-functions')
+import jwt from 'jsonwebtoken'
+import CustomError from '../errors'
+import { config } from 'firebase-functions'
 
 const userTypes = {
   superadmin: {
@@ -22,7 +22,7 @@ const authenticate = type => async (req, res, next) => {
     const token = req.headers['authorization'].split(' ')[1]
 
     if (token) {
-      jwt.verify(token, functions.config().jwt.secret, (err, decoded) => {
+      jwt.verify(token, config().jwt.secret, (err, decoded) => {
         if (err) {
           throw new CustomError(401, 'Invalid token')
         } else {
@@ -48,4 +48,4 @@ const authenticated = {
   user: authenticate('user'),
 }
 
-module.exports = authenticated
+export default authenticated

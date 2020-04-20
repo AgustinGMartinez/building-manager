@@ -1,9 +1,10 @@
-const Joi = require('joi')
-const express = require('express'),
-  router = express.Router()
-const query = require('../db')
-const CustomError = require('../errors')
-const authenticated = require('../middlewares/authenticated')
+import Joi from 'joi'
+import express from 'express'
+import query from '../db'
+import CustomError from '../errors'
+import authenticated from '../middlewares/authenticated'
+
+const router = express.Router()
 
 function validateCampaign(campaigns) {
   const schema = {
@@ -62,4 +63,4 @@ router.delete('/:id', authenticated.admin, async (req, res, next) => {
   }
 })
 
-module.exports = router
+export default router

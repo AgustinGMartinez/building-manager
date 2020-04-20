@@ -1,13 +1,13 @@
-const functions = require('firebase-functions')
-const { Pool } = require('pg')
-const CustomError = require('../errors')
-const removeUndefined = require('../utils/arrays').removeUndefined
+import { config } from 'firebase-functions'
+import { Pool } from 'pg'
+import CustomError from '../errors'
+import { removeUndefined } from '../utils/arrays'
 
 const connectionPool = new Pool({
-  host: functions.config().db.host,
-  user: functions.config().db.user,
-  password: functions.config().db.password,
-  database: functions.config().db.database,
+  host: config().db.host,
+  user: config().db.user,
+  password: config().db.password,
+  database: config().db.database,
   port: 5432,
   max: 20,
   ssl: true,
@@ -25,4 +25,4 @@ function query(query, parameters = null) {
   })
 }
 
-module.exports = query
+export default query
